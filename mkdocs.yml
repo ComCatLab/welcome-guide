@@ -1,0 +1,8 @@
+site_name: "Welcome Guide"
+
+theme:
+  name: "material"
+
+plugins:
+- search
+- mkdocstrings
