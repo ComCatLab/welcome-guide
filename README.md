@@ -1,4 +1,4 @@
-# :rocket: Welcome Guide (WIP)
+# 🖥 ComCat Lab Welcome Guide (WIP) 🐱
 
 Welcome to the group! This guide introduces several of the key tools and services
 that are used in ComCat Lab and examples of their use.
@@ -18,7 +18,7 @@ more extensive DFT guides, and relevant textbooks. Regarding software, the
 documentation pages are generally extensive. Of course, if all else fails, don't
 hesitate to reach out to a group member!
 
-## Highlights
+## 🌟 Highlights 🌟
 
 This guide has several valuable resources to help you get up to speed:
 
@@ -30,7 +30,7 @@ This guide has several valuable resources to help you get up to speed:
 
 - **Troubleshooting**: common issues and their resolutions/work-arounds
 
-## Quickstart
+## :rocket: Quickstart :rocket:
 
 These instructions assume that you have already completed setup of your SFU
 workstation. If you don't have have access to a configured workstation, please out to a
@@ -59,7 +59,7 @@ pip install -r tutorial_requirements.txt
 
 4. Follow the tutorial!
 
-## Build Webpage
+## ⚒ Build Webpage ⚒
 
 To view the complete guide as a website, you need to install [mkdocs][mkdocs]
 
