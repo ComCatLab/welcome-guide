@@ -4,13 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "welcome-guide"
-description = "a comprehensive guide to the tools used in ComCatLab"
+description = "a comprehensive guide to the tools used in ComCat Lab"
 readme = "README.md"
 requires-python = ">=3.10"
 version = "0.0.1a1"
 authors = [
   { name = "Ugo Nwosu", email = "ugognw@gmail.com" },
-  { name = "Ugo Nwosu", email = "ugochukwu_nwosu@sfu.ca" },
+  { name = "Ugo Nwosu", email = "ugn@sfu.ca" },
 ]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -153,6 +153,8 @@ python = [
   "3.11",
   "3.12",
 ]
+[tool.hatch.envs.tutorials.scripts]
+export = "pip freeze > tutorial_requirements.txt"
 
 [tool.hatch.metadata]
 allow-direct-references = true
