@@ -1,7 +1,7 @@
 # 🖥 ComCat Lab Welcome Guide (WIP) 🐱
 
 Welcome to the group! This guide introduces several of the key tools and services
-that are used in ComCat Lab and examples of their use.
+that are used in [ComCat Lab][comcat-lab] and examples of their use.
 
 You can view the complete guide in PDF form (comcatlab-welcome-guide.pdf), or,
 alternatively, you can [view the guide as a static webpage](#build-webpage).
@@ -75,3 +75,4 @@ mkdocs build && mkdocs serve
 
 [zotero-collection]: https://www.zotero.org/groups/5526800/comcat_lab/library
 [local-setup]: https://github.com/ComCatLab/local-setup
+[comcat-lab]: https://www.siahrostamilab.com
