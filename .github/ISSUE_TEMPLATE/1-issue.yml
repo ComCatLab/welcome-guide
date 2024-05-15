@@ -1,0 +1,60 @@
+name: Bug Report
+description: File a bug report.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+projects: ["welcome-guide"]
+assignees:
+  - ugognw
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 0.0.1a1
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+      label: Due Diligence
+      description: It's important to check if someone has already reported this issue
+      options:
+        - label: I checked for duplicate issues
+          required: true
+      label: Python Environment
+      description: What are you working with?
+      options:
+        - label: I have included the output of `python3 -m pip freeze`
+          required: true
+      label: MWE
+      description: Smaller/simpler examples facilitate debugging
+      options:
+        - label: I have distilled my problem to the minimum amount of code required to reproduce to issue
+          required: true
