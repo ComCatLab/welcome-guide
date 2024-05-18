@@ -4,7 +4,7 @@ Welcome to the group! This guide introduces several of the key tools and service
 that are used in [ComCat Lab][comcat-lab] and examples of their use.
 
 You can view the complete guide in PDF form (comcatlab-welcome-guide.pdf), or,
-alternatively, you can [view the guide as a static webpage](#build-webpage).
+alternatively, you can [view the guide as a static webpage](#-build-webpage-).
 
 The best way to learn is by doing! Start by picking a tutorial and trying to work
 through it. The tutorials are (relatively) well documented, though, they are not
@@ -39,23 +39,23 @@ the [local setup repository][local-setup] that will walk you through a comprehen
 setup!
 
 1. Create a virtual environment in the top-level directory of the Welcome Guide folder
-(in the same directory as this README).
+   (in the same directory as this README).
 
-```bash
-python3 -m venv .venv
-```
+    ```bash
+    python3 -m venv .venv
+    ```
 
 2. Activate your environment.
 
-```bash
-source .venv/bin/activate
-```
+    ```bash
+    source .venv/bin/activate
+    ```
 
 3. Install the required Python dependencies.
 
-```bash
-pip install -r tutorial_requirements.txt
-```
+    ```bash
+    pip install -r tutorial_requirements.txt
+    ```
 
 4. Follow the tutorial!
 
@@ -76,3 +76,4 @@ mkdocs build && mkdocs serve
 [zotero-collection]: https://www.zotero.org/groups/5526800/comcat_lab/library
 [local-setup]: https://github.com/ComCatLab/local-setup
 [comcat-lab]: https://www.siahrostamilab.com
+[mkdocs]: https://www.mkdocs.org
