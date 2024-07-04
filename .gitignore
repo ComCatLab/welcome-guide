@@ -3,3 +3,4 @@
 .python-version
 docs/build
 .venv
+site
