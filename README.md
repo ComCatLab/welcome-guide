@@ -22,6 +22,8 @@ hesitate to reach out to a group member!
 
 This guide has several valuable resources to help you get up to speed:
 
+- **Workflows**: an overview of frequent workflows used with links to relevant software pages
+
 - **Software Pages**: introductions to the various tools used in ComCat Lab
 
 - **Tutorials**: walkthroughs for several common workflows/softwares
