@@ -22,15 +22,15 @@ hesitate to reach out to a group member!
 
 This guide has several valuable resources to help you get up to speed:
 
-- **Workflows**: an overview of frequent workflows used with links to relevant software pages
+- [**Workflows**](workflows.md): an overview of frequent workflows used with links to relevant software pages
 
-- **Software Pages**: introductions to the various tools used in ComCat Lab
+- [**Software Pages**](software_pages/index.md): introductions to the various tools used in ComCat Lab
 
-- **Tutorials**: walkthroughs for several common workflows/softwares
+- [**Tutorials**](tutorials/index.md): walkthroughs for several common workflows/softwares
 
-- **Sample Scripts**: example Python and SLURM scripts
+- [**Sample Scripts**](sample_scripts/index.md): example Python and SLURM scripts
 
-- **Troubleshooting**: common issues and their resolutions/work-arounds
+- [**Troubleshooting**](resources/troubleshooting.md): common issues and their resolutions/work-arounds
 
 [comcat-lab]: https://www.siahrostamilab.com
 [zotero-collection]: https://www.zotero.org/groups/5526800/comcat_lab/library
