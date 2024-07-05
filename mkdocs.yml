@@ -20,7 +20,7 @@ nav:
   - 'Development Guide':
     - 'Setting Up': 'dev_guide/setup.md'
     - Contributing: 'dev_guide/contributing.md'
-    - 'Building the Webpage': 'dev_guide/docs.md'
+    - 'dev_guide/docs.md'
 
 theme: material
 
