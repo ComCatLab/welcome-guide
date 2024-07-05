@@ -75,6 +75,7 @@ then run
 mkdocs build && mkdocs serve
 ```
 
+[mkdocs]: https://www.mkdocs.org/user-guide/
 [zotero-collection]: https://www.zotero.org/groups/5526800/comcat_lab/library
 [local-setup]: https://github.com/ComCatLab/local-setup
 [comcat-lab]: https://www.siahrostamilab.com
