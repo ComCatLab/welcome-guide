@@ -1,8 +1,32 @@
-site_name: "Welcome Guide"
+site_name: "ComCat Lab Welcome Guide"
+repo_url: https://github.com/ComCatLab/welcome-guide
+edit_uri: docs/sources
+site_author: "Ugochukwu Nwosu"
 
-theme:
-  name: "material"
+nav:
+  - Overview:
+    - Home: README.md
+    - Quickstart: quickstart.md
+  - Workflows: workflows.md
+  - 'Software Pages':
+    - 'Atomic Simulation Environment': 'software_pages/ase.md'
+    - 'Compute Canada': 'software_pages/compute_canada.md'
+    - 'Pymatgen': 'software_pages/pymatgen.md'
+    - 'Python': 'software_pages/python.md'
+    - 'Slurm Job Manager': 'software_pages/slurm.md'
+    - 'Vienna Ab Initio Simulation Package (VASP)': 'software_pages/vasp.md'
+  - Tutorials: 'tutorials/index.md'
+  - Troubleshooting: 'resources/troubleshooting.md'
+  - 'Development Guide':
+    - 'Setting Up': 'dev_guide/setup.md'
+    - Contributing: 'dev_guide/contributing.md'
+    - 'dev_guide/docs.md'
+
+theme: material
+
+docs_dir: docs/sources
+
+site_dir: docs/site
 
 plugins:
 - search
-- mkdocstrings

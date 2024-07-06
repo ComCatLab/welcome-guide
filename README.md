@@ -22,6 +22,8 @@ hesitate to reach out to a group member!
 
 This guide has several valuable resources to help you get up to speed:
 
+- **Workflows**: an overview of frequent workflows used with links to relevant software pages
+
 - **Software Pages**: introductions to the various tools used in ComCat Lab
 
 - **Tutorials**: walkthroughs for several common workflows/softwares
@@ -61,18 +63,29 @@ setup!
 
 ## ⚒ Build Webpage ⚒
 
-To view the complete guide as a website, you need to install [mkdocs][mkdocs]
+To view the complete guide as a website, you need to install [mkdocs][mkdocs].
 
 ```bash
 pip install mkdocs
 ```
 
-then run
+Then run
 
 ```bash
 mkdocs build && mkdocs serve
 ```
 
+Finally, copy the IP address printed to the command line
+
+```bash
+...
+INFO    -  [09:50:28] Serving on http://127.0.0.1:8000/
+...
+```
+
+and paste it into your browser!
+
+[mkdocs]: https://www.mkdocs.org/user-guide/
 [zotero-collection]: https://www.zotero.org/groups/5526800/comcat_lab/library
 [local-setup]: https://github.com/ComCatLab/local-setup
 [comcat-lab]: https://www.siahrostamilab.com
