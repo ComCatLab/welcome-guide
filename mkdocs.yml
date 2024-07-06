@@ -9,13 +9,17 @@ nav:
     - Quickstart: quickstart.md
   - Workflows: workflows.md
   - 'Software Pages':
-    - 'Atomic Simulation Environment': 'software_pages/ase.md'
+    - 'software_pages/ase.md'
     - 'Compute Canada': 'software_pages/compute_canada.md'
-    - 'Pymatgen': 'software_pages/pymatgen.md'
-    - 'Python': 'software_pages/python.md'
-    - 'Slurm Job Manager': 'software_pages/slurm.md'
-    - 'Vienna Ab Initio Simulation Package (VASP)': 'software_pages/vasp.md'
-  - Tutorials: 'tutorials/index.md'
+    - 'software_pages/pymatgen.md'
+    - 'software_pages/python.md'
+    - 'software_pages/slurm.md'
+    - VASP: 'software_pages/vasp.md'
+  - Tutorials:
+    - Intro: 'tutorials/index.md'
+    - 'tutorials/cccdb.md'
+    - 'tutorials/data_transfer.md'
+    - 'tutorials/cluster_setup.md'
   - Troubleshooting: 'resources/troubleshooting.md'
   - 'Development Guide':
     - 'Setting Up': 'dev_guide/setup.md'
