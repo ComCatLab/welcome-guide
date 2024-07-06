@@ -4,7 +4,7 @@ Welcome to the group! This guide introduces several of the key tools and service
 that are used in [ComCat Lab][comcat-lab] and examples of their use.
 
 You can view the complete guide in PDF form (comcatlab-welcome-guide.pdf), or,
-alternatively, you can [view the guide as a static webpage](#build-webpage).
+alternatively, you can [view the guide as a static webpage](#-build-webpage-).
 
 The best way to learn is by doing! Start by picking a tutorial and trying to work
 through it. The tutorials are (relatively) well documented, though, they are not
@@ -43,37 +43,47 @@ setup!
 1. Create a virtual environment in the top-level directory of the Welcome Guide folder
 (in the same directory as this README).
 
-```bash
-python3 -m venv .venv
-```
+    ```bash
+    python3 -m venv .venv
+    ```
 
 2. Activate your environment.
 
-```bash
-source .venv/bin/activate
-```
+    ```bash
+    source .venv/bin/activate
+    ```
 
 3. Install the required Python dependencies.
 
-```bash
-pip install -r tutorial_requirements.txt
-```
+    ```bash
+    pip install -r tutorial_requirements.txt
+    ```
 
 4. Follow the tutorial!
 
 ## ⚒ Build Webpage ⚒
 
-To view the complete guide as a website, you need to install [mkdocs][mkdocs]
+To view the complete guide as a website, you need to install [mkdocs][mkdocs].
 
 ```bash
 pip install mkdocs
 ```
 
-then run
+Then run
 
 ```bash
 mkdocs build && mkdocs serve
 ```
+
+Finally, copy the IP address printed to the command line
+
+```bash
+...
+INFO    -  [09:50:28] Serving on http://127.0.0.1:8000/
+...
+```
+
+and paste it into your browser!
 
 [mkdocs]: https://www.mkdocs.org/user-guide/
 [zotero-collection]: https://www.zotero.org/groups/5526800/comcat_lab/library
