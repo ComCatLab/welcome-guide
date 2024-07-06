@@ -9,7 +9,7 @@ nav:
     - Quickstart: quickstart.md
   - Workflows: workflows.md
   - 'Software Pages':
-    - 'software_pages/ase.md'
+    - ASE: 'software_pages/ase.md'
     - 'Compute Canada': 'software_pages/compute_canada.md'
     - 'software_pages/pymatgen.md'
     - 'software_pages/python.md'
