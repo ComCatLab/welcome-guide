@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # 🖥 ComCat Lab Welcome Guide (WIP) 🐱
 
 Welcome to the group! This guide introduces several of the key tools and services
