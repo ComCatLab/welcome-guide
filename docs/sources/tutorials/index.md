@@ -10,7 +10,9 @@ for additional tutorials.
 
 2. Follow along!
 
-> :warning: **You must have Conda Package Manager installed to proceed with the tutorials in this guide**
+!!! note
+
+    You must have Conda Package Manager installed to proceed with the tutorials in this guide.
 
 ## Additional Tutorials
 
