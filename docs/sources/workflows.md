@@ -26,12 +26,12 @@ This page contextualizes common steps and highlights the infrastructure required
     - adding adsorbates
     - and more...
 
-3. **Determining necessary calculations and parameters.**
+3. **Determine necessary calculations and parameters.**
 
     This decision is informed by literature, experience, and the scientific questions that
     one wants to answer.
 
-4. **Creating input files.**
+4. **Create input files.**
 
     The required input files for a calculation generally include:
 
@@ -54,7 +54,7 @@ This page contextualizes common steps and highlights the infrastructure required
     - [VSCode VASP INCAR Pilot Extension][vasp-support-ext]: VS Code extension providing
       help and support for writing VASP `INCAR`, `CONTCAR`, and `POSCAR` files
 
-5. **Submitting calculations.**
+5. **Submit calculations.**
 
     Calculations are submitted to remote clusters managed by the Digital Research
     Alliance (formerly Compute Canada). This is typically done by logging into
@@ -66,7 +66,7 @@ This page contextualizes common steps and highlights the infrastructure required
 
     from the command line.
 
-6. **Retrieving Results.**
+6. **Retrieve Results.**
 
     Although the output files produced by the job contain the results of the calculation,
     these files are often quite large (~GB), so it is often useful to extract only 
@@ -82,7 +82,7 @@ This page contextualizes common steps and highlights the infrastructure required
     there is almost definitely a routine to extract this data in either [ASE][ase] or
     [Pymatgen][pymatgen], so search the documentation of existing software for your use case.
 
-7. **Analyzing Results.**
+7. **Analyze Results.**
 
     This almost inevitably involves importing data into Excel and performing further analyses
     there. For some data (e.g., density of states, valence charge density difference diagram,
