@@ -9,6 +9,7 @@ This guide uses `mkdocs` to convert the Markdown files to HTML files
 and build the webpage. All the configuration for using mkdocs
 is contained within the `mkdocs.yml` configuration file in the project root.
 For a detailed description, please see the [mkdocs documentation][mkdocs].
+For theme options, please see the documentation for [material for mkdocs][material].
 
 ## Building the Webpage
 
@@ -59,3 +60,4 @@ Now, enter the IP address shown, (here, `127.0.0.1:8000/`), into your browser to
 webpage.
 
 [mkdocs]: https://www.mkdocs.org/user-guide/
+[material]: https://squidfunk.github.io/mkdocs-material/setup/
