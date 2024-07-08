@@ -99,4 +99,3 @@ and paste it into your browser!
 [local-setup]: https://github.com/ComCatLab/local-setup
 [cluster-setup]: https://github.com/ComCatLab/cluster-setup
 [comcat-lab]: https://www.siahrostamilab.com
-[mkdocs]: https://www.mkdocs.org
