@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-# 🖥 ComCat Lab Welcome Guide (WIP) 🐱
+# 🖥 ComCat Lab Welcome Guide 🐱
 
 Welcome to the group! This guide introduces several of the key tools and services
 that are used in [ComCat Lab][comcat-lab] and examples of their use.
@@ -29,11 +29,11 @@ This guide has several valuable resources to help you get up to speed:
 
 - [**Workflows**](workflows.md): an overview of frequent workflows used with links to relevant software pages
 
-- [**Software Pages**](software_pages/index.md): introductions to the various tools used in ComCat Lab
+- [**Software Pages**](software_pages.md): introductions to the various tools used in ComCat Lab
 
 - [**Tutorials**](tutorials/index.md): walkthroughs for several common workflows/softwares
 
-- [**Sample Scripts**](sample_scripts/index.md): example Python and SLURM scripts
+- [**Sample Scripts**](sample_scripts.md): example Python and SLURM scripts
 
 - [**Troubleshooting**](resources/troubleshooting.md): common issues and their resolutions/work-arounds
 
