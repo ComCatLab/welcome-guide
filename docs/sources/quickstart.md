@@ -22,9 +22,9 @@ setup!
 3. Install the required Python dependencies.
 
     ```bash
-    pip install -r tutorial_requirements.txt
+    python3 -m pip install .
     ```
 
-4. Follow the tutorial!
+4. Pick a tutorial!
 
 [local-setup]: https://github.com/ComCatLab/local-setup
