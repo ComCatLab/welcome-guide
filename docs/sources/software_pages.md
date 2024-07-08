@@ -14,13 +14,13 @@ setting up, manipulating, running, visualizing and analyzing atomistic simulatio
 This is the national organization that manages our main computational resources.
 Their documentation is comprehensive, including details about specific
 [clusters][clusters], [available software][software], and [how to get started][get-started].
-To use these resources, [you'll need to create a CCCDB account](../tutorials/cccdb.md).
+To use these resources, [you'll need to create a CCCDB account](tutorials/cccdb.md).
 
 Related:
 
-- [Creating a CCCDB account](../tutorials/cccdb.md)
-- [Transferring data to remote clusters](../tutorials/data_transfer.md)
-- [Setting up your cluster environment](../tutorials/cluster_setup.md)
+- [Creating a CCCDB account](tutorials/cccdb.md)
+- [Transferring data to remote clusters](tutorials/data_transfer.md)
+- [Setting up your cluster environment](tutorials/cluster_setup.md)
 
 List software pages and give brief description
 
@@ -127,6 +127,7 @@ installed into an environment can then be accessed by activating that environmen
 - Fireworks
 - jobflow
 - Custodian
+- atomate2
 - catmap
 - matplotlib
 - ccu (e.g., FancyPlots)
