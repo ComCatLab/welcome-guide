@@ -31,7 +31,7 @@ This guide has several valuable resources to help you get up to speed:
 
 - [**Tutorials**](tutorials/index.md): walkthroughs for several common workflows/softwares
 
-- [**Sample Scripts**](sample_scripts.md): example Python and SLURM scripts
+- [**Sample Scripts**](samples/index.md): example Python and SLURM scripts
 
 - [**Troubleshooting**](resources/troubleshooting.md): common issues and their resolutions/work-arounds
 
