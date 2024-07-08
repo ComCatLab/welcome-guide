@@ -22,15 +22,15 @@ guide.
 
    with `ssh` (requires that your `ssh` key is added to your GitHub account):
 
-    ```bash
-    git clone git@github.com:yourusername/welcome-guide.git
-    ```
+   ```bash
+   git clone git@github.com:yourusername/welcome-guide.git
+   ```
 
    with `https` (requires login to GitHub account):
 
-    ```bash
-    git clone https://github.com/yourusername/welcome-guide.git
-    ```
+   ```bash
+   git clone https://github.com/yourusername/welcome-guide.git
+   ```
 
 3. Create and checkout a branch for your local changes. (Not directly committing changes to the `main` branch
    helps ensure that, if synced with the fork source, everyone's main branch `main` means the same
