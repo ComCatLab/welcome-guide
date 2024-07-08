@@ -5,7 +5,7 @@ site_author: "Ugochukwu Nwosu"
 
 nav:
   - Overview:
-    - Home: README.md
+    - Home: index.md
     - Quickstart: quickstart.md
   - Workflows: workflows.md
   - 'software_pages.md'
