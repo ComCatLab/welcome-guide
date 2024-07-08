@@ -9,7 +9,7 @@ Welcome to the group! This guide introduces several of the key tools and service
 that are used in [ComCat Lab][comcat-lab] and examples of their use.
 
 You can view the complete guide in PDF form (comcatlab-welcome-guide.pdf), or,
-alternatively, you can [view the guide as a static webpage](dev_guide/docs.md).
+alternatively, you can [view the guide as a static webpage](dev_guide/docs.md#serving-the-webpage).
 
 The best way to learn is by doing! Start by picking a tutorial and trying to work
 through it. The tutorials are (relatively) well documented, though, they are not
@@ -35,5 +35,18 @@ This guide has several valuable resources to help you get up to speed:
 
 - [**Troubleshooting**](resources/troubleshooting.md): common issues and their resolutions/work-arounds
 
+## Prerequisites
+
+- [**Set up your local machine**][local-setup]: this guide assumes that your local machine
+  is setup up with the necessary software already installed (e.g., Hatch, Python, etc.);
+  follow the steps outlined in [local-setup][local-setup] to satisfy this prerequisite
+
+- [**Set up your cluster account**][cluster-setup]: some of the tutorials in the guide
+  require that you connect to the remote clusters provided by the Alliance. For these
+  tutorials, you will need a [valid CCCDB account](docs/sources/tutorials/cccdb.md) and to
+  [set up your remote cluster environment][cluster-setup]
+
 [comcat-lab]: https://www.siahrostamilab.com
 [zotero-collection]: https://www.zotero.org/groups/5526800/comcat_lab/library
+[local-setup]: https://github.com/ComCatLab/local-setup
+[cluster-setup]: https://github.com/ComCatLab/cluster-setup

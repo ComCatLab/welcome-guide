@@ -8,15 +8,13 @@ alternatively, you can [view the guide as a static webpage](#-build-webpage-).
 
 The best way to learn is by doing! Start by picking a tutorial and trying to work
 through it. The tutorials are (relatively) well documented, though, they are not
-self-contained. Read over the respective README files to get a cursory overview
-of what the tutorial is trying to achieve and then dive in! While you're getting
-acquainted with the material and workflows, feel free to bounch back and forth
-between the tutorials and the software pages. For more in-depth treatment of the
-theory, you are encouraged to consult the "Fundamentals" collection in [ComCat Lab's
-Zotero collection][zotero-collection]. There you'll find annotated original references,
-more extensive DFT guides, and relevant textbooks. Regarding software, the
-documentation pages are generally extensive. Of course, if all else fails, don't
-hesitate to reach out to a group member!
+self-contained. While you're getting acquainted with the material and workflows,
+feel free to bounce back and forth between the tutorials and the software pages.
+For more in-depth treatment of the theory, you are encouraged to consult the
+"Fundamentals" collection in [ComCat Lab's Zotero collection][zotero-collection].
+There you'll find annotated original references, more extensive DFT guides, and relevant
+textbooks. Regarding software, the documentation pages are generally extensive. Of course,
+if all else fails, don't hesitate to reach out to a group member!
 
 ## 🌟 Highlights 🌟
 
@@ -31,6 +29,17 @@ This guide has several valuable resources to help you get up to speed:
 - **Sample Scripts**: example Python and SLURM scripts
 
 - **Troubleshooting**: common issues and their resolutions/work-arounds
+
+## Prerequisites
+
+- [**Set up your local machine**][local-setup]: this guide assumes that your local machine
+  is setup up with the necessary software already installed (e.g., Hatch, Python, etc.);
+  follow the steps outlined in [local-setup][local-setup] to satisfy this prerequisite
+
+- [**Set up your cluster account**][cluster-setup]: some of the tutorials in the guide
+  require that you connect to the remote clusters provided by the Alliance. For these
+  tutorials, you will need a [valid CCCDB account](docs/sources/tutorials/cccdb.md) and to
+  [set up your remote cluster environment][cluster-setup]
 
 ## :rocket: Quickstart :rocket:
 
@@ -88,5 +97,6 @@ and paste it into your browser!
 [mkdocs]: https://www.mkdocs.org/user-guide/
 [zotero-collection]: https://www.zotero.org/groups/5526800/comcat_lab/library
 [local-setup]: https://github.com/ComCatLab/local-setup
+[cluster-setup]: https://github.com/ComCatLab/cluster-setup
 [comcat-lab]: https://www.siahrostamilab.com
 [mkdocs]: https://www.mkdocs.org
