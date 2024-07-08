@@ -1,4 +1,4 @@
-# 🖥 ComCat Lab Welcome Guide (WIP) 🐱
+# 🖥 ComCat Lab Welcome Guide 🐱
 
 Welcome to the group! This guide introduces several of the key tools and services
 that are used in [ComCat Lab][comcat-lab] and examples of their use.
@@ -50,7 +50,7 @@ the [local setup repository][local-setup] that will walk you through a comprehen
 setup!
 
 1. Create a virtual environment in the top-level directory of the Welcome Guide folder
-   (in the same directory as this README).
+(in the same directory as this README).
 
     ```bash
     python3 -m venv .venv
@@ -65,10 +65,10 @@ setup!
 3. Install the required Python dependencies.
 
     ```bash
-    pip install -r tutorial_requirements.txt
+    python3 -m pip install .
     ```
 
-4. Follow the tutorial!
+4. Pick a tutorial!
 
 ## ⚒ Build Webpage ⚒
 
