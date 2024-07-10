@@ -19,42 +19,30 @@ Running phonon calculations for nitrate reduction intermediates on M-BHT slabs.
 
 #### Relevant Files
 
-``` title="INCAR"
-INCAR created by Atomic Simulation Environment
- ENCUT = 550.000000
- POTIM = 0.015000
- SIGMA = 0.040000
- SMASS = -3.000000
- EDIFF = 1.00e-10
- EDIFFG = -1.00e-02
- ALGO = Normal
- GGA = PE
- PREC = Accurate
- IBRION = 5
- ISIF = 2
- ISMEAR = 0
- ISPIN = 2
- KPAR = 4
- LDAUTYPE = 3
- LMAXMIX = 4
- LORBIT = 11
- NELM = 250
- NFREE = 2
- NSW = 1
- IVDW = 11
- NCORE = 4
- LDAU = .TRUE.
- LDIPOL = .FALSE.
- LPLANE = .TRUE.
- LREAL = Auto
- LDAUL = 2 -1 -1 -1 -1
- LDAUU = 5.200 0.000 0.000 0.000 0.000
- LDAUJ = 0.000 0.000 0.000 0.000 0.000
-```
+Input files for the calculation.
+
+=== "INCAR"
+
+    ```text
+    --8<-- "./docs/sources/resources/files/kpt_set_change_error/INCAR"
+    ```
+
+=== "run.py"
+
+    ```py
+    --8<-- "./docs/sources/resources/files/kpt_set_change_error/run.py"
+    ```
+
+=== "vasp.sh"
+
+    ```py
+    --8<-- "./docs/sources/resources/files/kpt_set_change_error/vasp.sh"
+    ```
 
 #### The Error
 
-```title="vasp.out"
+<!-- markdownlint-disable-next-line MD046 -->
+```text title="vasp.out"
  -----------------------------------------------------------------------------
 |                                                                             |
 |     EEEEEEE  RRRRRR   RRRRRR   OOOOOOO  RRRRRR      ###     ###     ###     |
