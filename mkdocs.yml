@@ -23,6 +23,7 @@ nav:
     - 'tutorials/data_transfer.md'
     - 'tutorials/cluster_setup.md'
   - Troubleshooting: 'resources/troubleshooting.md'
+  - 'resources/links.md'
   - 'Development Guide':
     - 'Setting Up': 'dev_guide/setup.md'
     - Contributing: 'dev_guide/contributing.md'
