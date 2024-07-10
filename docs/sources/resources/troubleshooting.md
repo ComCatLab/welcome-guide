@@ -75,4 +75,10 @@ INCAR created by Atomic Simulation Environment
  -----------------------------------------------------------------------------
 ```
 
+This is an error due to symmetry breaking (see [here][ibrion-error]).
+
+[ibrion-error]: https://mattermodeling.stackexchange.com/a/9013
+
 #### The Solution
+
+Set `ISYM=0`. in your `INCAR` file.
