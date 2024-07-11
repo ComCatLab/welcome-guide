@@ -1,7 +1,7 @@
 # 🖥 ComCat Lab Welcome Guide 🐱
 
 Welcome to the group! This guide introduces several of the key tools and services
-that are used in [ComCat Lab][comcat-lab] and examples of their use.
+that are used in [ComCat Lab][comcat-lab] and examples of their use. The guide is very much a work in progress and corrections and contributions are welcome from all members.
 
 You can view the complete guide in PDF form (`comcat-lab-welcome-guide.pdf`), or,
 alternatively, you can [view the guide as a static webpage](#-build-webpage-).
