@@ -67,5 +67,16 @@ INFO    -  [16:49:00] Serving on http://127.0.0.1:8000/
 Now, enter the IP address shown, (here, `127.0.0.1:8000/`), into your browser to view the
 webpage.
 
+## Building the PDF Version of the Guide
+
+To build the PDF version of the guide, you will need to install [Pandoc][pandoc] and a [LaTeX][latex]
+engine. Then run
+
+```bash
+cd docs/sources && pandoc --file-scope -s -o ../../comcat-lab-welcome-guide.pdf -f markdown -t pdf index.md quickstart.md workflows.md software_pages.md samples/*.md tutorials/*.md resources/{troubleshooting.md,links.md} dev_guide/* && cd ../../
+```
+
 [mkdocs]: https://www.mkdocs.org/user-guide/
 [material]: https://squidfunk.github.io/mkdocs-material/setup/
+[pandoc]: https://pandoc.org/installing.html
+[latex]: https://www.latex-project.org/get/
