@@ -1,12 +1,5 @@
 # Software Pages
 
-## Atomic Simulation Environment (ASE)
-
-[Documentation][ase]
-
-The Atomic Simulation Environment (ASE) is a set of tools and Python modules for
-setting up, manipulating, running, visualizing and analyzing atomistic simulations. 
-
 ## Digital Research Alliance (formerly Compute Canada)
 
 [Documentation][dra]
@@ -22,29 +15,6 @@ Related:
 - [Transferring data to remote clusters](tutorials/data_transfer.md)
 - [Setting up your cluster environment](tutorials/cluster_setup.md)
 
-List software pages and give brief description
-
-## Pymatgen
-
-[Documentation][pymatgen]
-
-Pymatgen (Python Materials Genomics) is an open-source Python library for materials analysis.
-
-## Python
-
-[Documentation][python]
-
-Python is a relevant programming language in which many useful utilities for the
-computational workflow are written. Python files can be identified by the `.py` extension.
-
-## bash
-
-[Documentation][bash]
-
-bash is a shell program and shell-scripting language. Notably, it is the default shell
-on most compute clusters. Navigating and interacting with the file systems on remote
-clusters is done using bash.
-
 ## Slurm Workload Manager
 
 [Documentation][slurm]
@@ -52,6 +22,35 @@ clusters is done using bash.
 Slurm is the job scheduler that runs on our remote clusters. You can find a useful
 cheatsheet [here][slurm-cheatsheet]. `sbatch`, `squeue`, and `sacct` are commonly
 used for submitting and monitoring jobs.
+
+## Python
+
+[Documentation][python]
+
+Python is a relevant programming language in which many useful utilities for our
+computational workflows are written. Python files can be identified by the `.py` extension.
+
+## bash
+
+[Documentation][bash]
+
+bash is a shell program and shell-scripting language. Notably, it is the default shell
+on most compute clusters. Navigating and interacting with the file systems on remote
+clusters is done using bash. For example, the command-line functions `ssh` and `scp`
+are used to connect to and transfer files between the Alliance clusters.
+
+## Atomic Simulation Environment (ASE)
+
+[Documentation][ase]
+
+The Atomic Simulation Environment (ASE) is a set of tools and Python modules for
+setting up, manipulating, running, visualizing and analyzing atomistic simulations.
+
+## Pymatgen
+
+[Documentation][pymatgen]
+
+Pymatgen (Python Materials Genomics) is an open-source Python library for materials analysis.
 
 ## Vienna Ab Initio Simulation Package (VASP)
 
@@ -98,18 +97,14 @@ and variables required for a software to be used are specified in 'module files'
 that are written in the [Lua programming language][lua]. Modules are managed using
 commands like `module load`, `module purge`, and `module unload`.
 
-## Conda
+## Git
 
-[Documentation][conda]
+[Documentation][git]
 
-Conda is a system package manager. Although commonly used to manage
-Python packages, Conda can be used to manage non-Python packages as well.
-Conda installs requested packages and their dependencies into "environments"
-that are isolated from a system's software. This is useful because if an error is
-ever made installing software into one of these environments, one can simply delete
-the environment without worrying about the effects on the system. The software
-installed into an environment can then be accessed by activating that environment
-(e.g., `conda activate`).
+Git is a version control system (VCS) that allows you to keep track of multiple versions
+of files at once. With git it's easy to revert back to an old version of a file, merge
+different versions of files. This is very helpful when you're trying to determine what
+change resulted in a particular error.
 
 ## WIP
 
@@ -118,8 +113,6 @@ installed into an environment can then be accessed by activating that environmen
 - Globus
 - FileZilla
 - Cyberduck
-- ssh
-- scp
 - bader
 - Multiwfn
 - Lobster
@@ -151,4 +144,4 @@ installed into an environment can then be accessed by activating that environmen
 [mkdocs]: https://www.mkdocs.org
 [lmod]: https://lmod.readthedocs.io/en/latest/
 [lua]: https://www.lua.org/docs.html
-[conda]: https://conda.org
+[git]: https://git-scm.com/book/en/v2
