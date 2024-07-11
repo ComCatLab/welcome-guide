@@ -1,7 +1,11 @@
-# bash profile files (`.bashrc`) (WIP)
-
-`samples/bash_profiles/bashrc`
+# `.bashrc`
 
 A standard bash profile for use on remote clusters defining
 utility functions and environment variables for software.
-**Don't forget to replace 'username' with your username.**
+
+``` py title="samples/bash/.bashrc"
+--8<-- "./samples/bash/.bashrc"
+```
+
+!!! important "Reminder"
+    Replace `username` and `USERNAME` with your username.
