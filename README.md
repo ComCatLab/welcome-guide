@@ -3,7 +3,7 @@
 Welcome to the group! This guide introduces several of the key tools and services
 that are used in [ComCat Lab][comcat-lab] and examples of their use.
 
-You can view the complete guide in PDF form (comcatlab-welcome-guide.pdf), or,
+You can view the complete guide in PDF form (`comcat-lab-welcome-guide.pdf`), or,
 alternatively, you can [view the guide as a static webpage](#-build-webpage-).
 
 The best way to learn is by doing! Start by picking a tutorial and trying to work
