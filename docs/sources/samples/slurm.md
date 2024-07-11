@@ -1,33 +1,32 @@
 # Slurm Submission Files (WIP)
 
-`samples/slurm/run_vasp.sh`
+## Submit a DFT calculation
 
-Submit a VASP calculation. The following variables should
-be updated:
+=== "VASP"
 
-- Slurm options (e.g., time, memory, notification email)
-- The name of the Python script used to execute the calculation (if any)
+    ``` py title="samples/slurm/vasp.sh"
+    --8<-- "./samples/slurm/vasp.sh"
+    ```
 
-`samples/slurm/run_espresso.sh`
+=== "Espresso"
 
-Submit a Quantum Espresso calculation. The following variables should
-be updated:
+    ``` py title="samples/slurm/espresso.sh"
+    --8<-- "./samples/slurm/espresso.sh"
+    ```
 
-- Slurm options (e.g., time, memory, notification email)
-- The name of the Python script used to execute the calculation (if any)
+=== "Gaussian"
 
-`samples/slurm/run_gaussian.sh`
+    ``` py title="samples/slurm/gaussian.sh"
+    --8<-- "./samples/slurm/gaussian.sh"
+    ```
 
-Submit a Gaussian calculation. The following variables should
-be updated:
+=== "ORCA"
 
-- Slurm options (e.g., time, memory, notification email)
-- The name of the Python script used to execute the calculation (if any)
+    ``` py title="samples/slurm/orca.sh"
+    --8<-- "./samples/slurm/orca.sh"
+    ```
 
-`samples/slurm/run_orca.sh`
+!!! Reminder
 
-Submit an ORCA calculation. The following variables should
-be updated:
-
-- Slurm options (e.g., time, memory, notification email)
-- The name of the Python script used to execute the calculation (if any)
+    Don't forget to replace `JOB_NAME`, `SFU_ID`, and `PYTHON_SCRIPT` with
+    appropriate values in addition to setting your desired SLURM parameters.
