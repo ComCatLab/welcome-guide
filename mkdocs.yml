@@ -17,7 +17,6 @@ nav:
     - Intro: 'tutorials/index.md'
     - 'tutorials/cccdb.md'
     - 'tutorials/data_transfer.md'
-    - 'tutorials/cluster_setup.md'
   - Troubleshooting: 'resources/troubleshooting.md'
   - 'resources/links.md'
   - 'Development Guide':
