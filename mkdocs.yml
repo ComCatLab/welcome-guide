@@ -11,12 +11,8 @@ nav:
   - 'software_pages.md'
   - Samples:
     - 'samples/python.md'
-    - 'samples/bash.md'
+    - 'Bash Profile': 'samples/bash.md'
     - 'samples/slurm.md'
-    - 'samples/espresso.md'
-    - 'samples/gaussian.md'
-    - 'samples/orca.md'
-    - 'samples/vasp.md'
   - Tutorials:
     - Intro: 'tutorials/index.md'
     - 'tutorials/cccdb.md'
