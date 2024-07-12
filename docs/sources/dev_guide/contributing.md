@@ -5,7 +5,7 @@ and explains how to report issues/suggest new features.
 
 ## Development Workflow
 
-From the project root:
+Assuming that you have [set up your environment](setup):
 
 1. Create and checkout a branch for your local changes.
 
