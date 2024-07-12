@@ -13,59 +13,66 @@ For theme options, please see the documentation for [material for mkdocs][materi
 
 ## Building the Webpage
 
-To build the webpage, ensure that `mkdocs` and the necessary extensions specified in
-the `mkdocs.yml` configuration file are installed in the activate Python environment.
-For convenience, the `docs` Hatch environment is maintained to contain all necessary
-Python dependencies for building the documentation. To build the webpage, run
+To build the webpage,
 
-```bash
-mkdocs build
-```
+1. Activate the development environment.
 
-from within a suitable Python environment. The output should be something like this:
+    If you are using [Hatch][install-hatch]:
 
-```bash
-INFO    -  Cleaning site directory
-INFO    -  Building documentation to directory: /Users/ugo/Projects/nwt/welcome-guide/docs/site
-INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
-             - resources/conferences.md
-             - resources/links.md
-             - resources/references.md
-             - resources/social.md
-             - software_pages/index.md
-INFO    -  Documentation built in 0.19 seconds
-```
+    ```bash
+    hatch shell
+    ```
 
-## Serving the Webpage
+    If you created a virtual environment with `venv` (e.g.,
+    `python -m venv .venv && python -m pip install`):
 
-To view a live version of the Welcome Guide as a webpage, ensure that `mkdocs` and the
-necessary extensions specified in the `mkdocs.yml` configuration file are installed in
-the activate Python environment. For convenience, the `docs` Hatch environment is maintained
-to contain all necessary Python dependencies for serving the documentation. To serve the
-webpage, run
+    ```bash
+    source .venv/bin/activate
+    ```
 
-```bash
-mkdocs serve
-```
+2. Build the HTML files.
 
-The output should be something like this:
+    ```bash
+    mkdocs build
+    ```
 
-```bash
-INFO    -  Building documentation...
-INFO    -  Cleaning site directory
-INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
-             - resources/conferences.md
-             - resources/links.md
-             - resources/references.md
-             - resources/social.md
-             - software_pages/index.md
-INFO    -  Documentation built in 0.16 seconds
-INFO    -  [16:49:00] Watching paths for changes: 'docs/sources', 'mkdocs.yml'
-INFO    -  [16:49:00] Serving on http://127.0.0.1:8000/
-```
+    The output should be something like this:
 
-Now, enter the IP address shown, (here, `127.0.0.1:8000/`), into your browser to view the
-webpage.
+    ```bash
+    INFO    -  Cleaning site directory
+    INFO    -  Building documentation to directory: /Users/ugo/Projects/nwt/welcome-guide/docs/site
+    INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
+                 - resources/conferences.md
+                 - resources/links.md
+                 - resources/references.md
+                 - resources/social.md
+                 - software_pages/index.md
+    INFO    -  Documentation built in 0.19 seconds
+    ```
+
+3. Serve the webpage.
+
+    ```bash
+    mkdocs serve
+    ```
+
+    The output should be something like this:
+
+    ```bash
+    INFO    -  Building documentation...
+    INFO    -  Cleaning site directory
+    INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
+                 - resources/conferences.md
+                 - resources/links.md
+                 - resources/references.md
+                 - resources/social.md
+                 - software_pages/index.md
+    INFO    -  Documentation built in 0.16 seconds
+    INFO    -  [16:49:00] Watching paths for changes: 'docs/sources', 'mkdocs.yml'
+    INFO    -  [16:49:00] Serving on http://127.0.0.1:8000/
+    ```
+
+4. Enter the IP address into your browser (here, `127.0.0.1:8000/`)
 
 ## Building the PDF Version of the Guide
 
@@ -80,3 +87,4 @@ cd docs/sources && pandoc --file-scope -s -o ../../comcat-lab-welcome-guide.pdf 
 [material]: https://squidfunk.github.io/mkdocs-material/setup/
 [pandoc]: https://pandoc.org/installing.html
 [latex]: https://www.latex-project.org/get/
+[install-hatch]: https://hatch.pypa.io/latest/install/
