@@ -26,6 +26,7 @@ module purge
 module load vasp
 module load python/3.11.9
 
+# Replace "$COMP_CHEM_ENV" with the path to your Python virtual environment
 source "$COMP_CHEM_ENV"
 
 export LC_ALL="C"
