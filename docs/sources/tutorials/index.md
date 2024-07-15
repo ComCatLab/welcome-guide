@@ -36,6 +36,9 @@ for additional tutorials.
 
 [**QE YouTube Tutorials**][qe-youtube]: a YouTube playlist with beginner tutorials for Quantum Espresso
 
+[**Calculation of Phonons with FHI-vibes**][fhi-vibes-phonons]: a comprehensive tutorial outlining how to calculate phonons and relevant
+theory
+
 [ase]: https://wiki.fysik.dtu.dk/ase/tutorials/tutorials.html
 [orca-tutorials]: https://www.orcasoftware.de/tutorials_orca/
 [matgenb]: https://matgenb.materialsvirtuallab.org
@@ -50,3 +53,4 @@ for additional tutorials.
 [hands-on-qe]: https://www.fisica.uniud.it/~giannozz/QE-Tutorial/
 [sma-5107]: https://ocw.mit.edu/courses/3-320-atomistic-computer-modeling-of-materials-sma-5107-spring-2005/
 [qe-youtube]: https://www.youtube.com/playlist?list=PL_g4fDi8qyRo9OHSwhERP3IEMZGHADsun
+[fhi-vibes-phonons]: https://fhi-aims-club.gitlab.io/tutorials/phonons-with-fhi-vibes/
