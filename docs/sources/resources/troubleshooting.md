@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD024 -->
 # Troubleshooting
 
 This page contains potential solutions to whatever may currently be troubling you. Your
@@ -70,3 +71,26 @@ This is an error due to symmetry breaking (see [here][ibrion-error]).
 #### The Solution
 
 Set `ISYM=0`. in your `INCAR` file.
+
+### ASE is not copying the `vdw-kernel.bindat` to the job directory (WIP)
+
+#### Context
+
+Running any calculation with VDW corrections.
+
+#### Environment
+
+- **Cluster**: Cedar
+- **Date**: July 9, 2024
+- **Software Versions**: Python 3.11.9, ASE 3.23.0, VASP 5.4.4
+
+#### The Error
+
+You set the `ivdw` keyword argument when configuring a VASP calculator
+in ASE, but you notice that the `vdw-kernel.bindat` file is not copied to the
+calculation directory.
+
+#### The Solution
+
+As of ASE 3.23.0, the `vdw-kernel.bindat` is only copied if you also set the
+keyword argument `luse_vdw=True` for the VASP calculator.
