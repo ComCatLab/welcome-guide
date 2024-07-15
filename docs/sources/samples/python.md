@@ -12,11 +12,24 @@ in the [Python sample scripts folder][scripts].
 !!! important "Reminder"
     Replace `"in.traj"` with the name of your structure file.
 
+## Run a mixed-basis Gaussian relaxation using the internal Berny optimization algorithm (RMM-DIIS) in Gaussian
+
+``` py title="samples/python/run_gaussian.py"
+--8<-- "./samples/python/run_gaussian.py"
+```
+
+!!! important "Reminder"
+    Replace `"in.traj"` with the name of your structure file, and, read [this][gaussian-alliance] article about
+    selecting which executable to pass to the `command` keyword argument to the `Gaussian` constructor.
+
 ## Run a VASP relaxation using the BFGSLineSearch optimization routine in ASE
 
 ``` py title="samples/python/run_ase.py"
 --8<-- "./samples/python/run_ase.py"
 ```
+
+!!! important "Reminder"
+    Replace `"in.traj"` with the name of your structure file.
 
 ## Run a VASP relaxation using [`ccu`][ccu]
 

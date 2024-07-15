@@ -30,3 +30,6 @@
 
     Don't forget to replace `JOB_NAME`, `SFU_ID`, and `PYTHON_SCRIPT` with
     appropriate values in addition to setting your desired SLURM parameters.
+    Also, if you don't define the path to a Python virtual environment in your
+    `.bashrc` file, then you should replace `$COMP_CHEM_ENV` with the path to
+    the `activate` script (usually, `path-to-environment/bin/activate`).
