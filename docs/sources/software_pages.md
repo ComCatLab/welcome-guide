@@ -23,21 +23,32 @@ Slurm is the job scheduler that runs on our remote clusters. You can find a usef
 cheatsheet [here][slurm-cheatsheet]. `sbatch`, `squeue`, and `sacct` are commonly
 used for submitting and monitoring jobs.
 
+## bash
+
+[Documentation][bash]
+
+bash is a shell program and shell-scripting language. Notably, it is the default 
+on most compute clusters. Navigating and interacting with the file system on remote
+clusters is done using bash. For example, the command-line functions `ssh` and `scp`
+are used to connect to and transfer files between the Alliance clusters.
+
+## Git
+
+[Documentation][git]
+
+Git is a version control system (VCS) that allows you to keep track of multiple versions
+of files at once. With git it's easy to revert back to an old version of a file or merge
+different versions of files. This is very helpful when you're trying to determine what
+change resulted in a particular error. Chapters 1 to 3 provide a good
+enough background to get started. See Section 5.1 for a description of
+our git workflow, the ["Integration-Manager Workflow"][git-workflow].
+
 ## Python
 
 [Documentation][python]
 
 Python is a relevant programming language in which many useful utilities for our
 computational workflows are written. Python files can be identified by the `.py` extension.
-
-## bash
-
-[Documentation][bash]
-
-bash is a shell program and shell-scripting language. Notably, it is the default shell
-on most compute clusters. Navigating and interacting with the file systems on remote
-clusters is done using bash. For example, the command-line functions `ssh` and `scp`
-are used to connect to and transfer files between the Alliance clusters.
 
 ## Atomic Simulation Environment (ASE)
 
@@ -97,15 +108,6 @@ and variables required for a software to be used are specified in 'module files'
 that are written in the [Lua programming language][lua]. Modules are managed using
 commands like `module load`, `module purge`, and `module unload`.
 
-## Git
-
-[Documentation][git]
-
-Git is a version control system (VCS) that allows you to keep track of multiple versions
-of files at once. With git it's easy to revert back to an old version of a file, merge
-different versions of files. This is very helpful when you're trying to determine what
-change resulted in a particular error.
-
 ## WIP
 
 - Materials Cloud
@@ -145,3 +147,4 @@ change resulted in a particular error.
 [lmod]: https://lmod.readthedocs.io/en/latest/
 [lua]: https://www.lua.org/docs.html
 [git]: https://git-scm.com/book/en/v2
+[git-workflow]: https://www.git-scm.com/book/en/v2/ch00/wfdiag_b
