@@ -24,11 +24,14 @@ To build the webpage,
     ```
 
     If you created a virtual environment with `venv` (e.g.,
-    `python -m venv .venv && python -m pip install`):
+    `python -m venv .venv`):
 
     ```bash
     source .venv/bin/activate
     ```
+
+    Note that at the very least, you should have the `docs` extra installed
+    (e.g., `pip install '.[docs]'`).
 
 2. Build the HTML files.
 
@@ -82,6 +85,8 @@ engine. Then run
 ```bash
 cd docs/sources && pandoc --file-scope -s -o ../../comcat-lab-welcome-guide.pdf -f markdown -t pdf index.md quickstart.md workflows.md software_pages.md samples/*.md tutorials/*.md resources/{troubleshooting.md,links.md} dev_guide/* && cd ../../
 ```
+
+As of now, the formatting for this is still problematic.
 
 [mkdocs]: https://www.mkdocs.org/user-guide/
 [material]: https://squidfunk.github.io/mkdocs-material/setup/
