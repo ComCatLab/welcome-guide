@@ -12,25 +12,18 @@ atoms = io.read("in.traj")
 # if not found, check https://wiki.fysik.dtu.dk/ase/ase/calculators/vasp.html#module-ase.calculators.vasp
 calc = Vasp(
     algo="Fast",
-    ediff=1e-10,
     encut=450,
     gga="PE",
     gamma=False,
     ibrion=1,
     isif=2,
     ismear=0,
-    ispin=1,
-    ivdw=11,
-    ldipol=False,
-    lplane=True,
-    lreal="Auto",
     ncore=4,
     nelm=60,
     nsw=100,
     prec="Accurate",
-    sigma=0.04,
+    sigma=0.1,
     kpts=(4, 4, 1),
-    dipol=None,
 )
 
 atoms.calc = calc
