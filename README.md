@@ -38,7 +38,7 @@ This guide has several valuable resources to help you get up to speed:
 
 - [**Set up your cluster account**][cluster-setup]: some of the tutorials in the guide
   require that you connect to the remote clusters provided by the Alliance. For these
-  tutorials, you will need a [valid CCCDB account](docs/sources/tutorials/cccdb.md) and to
+  tutorials, you will need a [valid CCDB account](docs/sources/tutorials/ccdb.md) and to
   [set up your remote cluster environment][cluster-setup]
 
 ## :rocket: Quickstart :rocket:

@@ -7,11 +7,11 @@
 This is the national organization that manages our main computational resources.
 Their documentation is comprehensive, including details about specific
 [clusters][clusters], [available software][software], and [how to get started][get-started].
-To use these resources, [you'll need to create a CCCDB account](tutorials/cccdb.md).
+To use these resources, [you'll need to create a CCDB account](tutorials/ccdb.md).
 
 Related:
 
-- [Creating a CCCDB account](tutorials/cccdb.md)
+- [Creating a CCDB account](tutorials/ccdb.md)
 - [Transferring data to remote clusters](tutorials/data_transfer.md)
 - [Setting up your cluster environment](tutorials/cluster_setup.md)
 

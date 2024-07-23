@@ -15,7 +15,7 @@ nav:
     - 'samples/slurm.md'
   - Tutorials:
     - Intro: 'tutorials/index.md'
-    - 'tutorials/cccdb.md'
+    - 'tutorials/ccdb.md'
     - 'tutorials/data_transfer.md'
   - Troubleshooting: 'resources/troubleshooting.md'
   - 'resources/links.md'
