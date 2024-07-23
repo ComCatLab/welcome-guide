@@ -71,6 +71,7 @@ with the change!
 - Uploading sample files
 - Explaining solutions to technical issues
 - Compiling useful links
+- Any page/section marked with "WIP" ("work-in-progress")
 
 [git-workflow]: https://www.git-scm.com/book/en/v2/ch00/wfdiag_b
 [pull-requests]: https://github.com/ComCatLab/welcome-guide/pulls
