@@ -10,10 +10,6 @@ for additional tutorials.
 
 2. Follow along!
 
-!!! note
-
-    You must have Conda Package Manager installed to proceed with the tutorials in this guide.
-
 ## Additional Tutorials
 
 [**ASE Tutorials**][ase]: how to do basic property calculations, adsorption studies, slab generation, and more...
