@@ -27,7 +27,7 @@ used for submitting and monitoring jobs.
 
 [Documentation][bash]
 
-bash is a shell program and shell-scripting language. Notably, it is the default 
+bash is a shell program and shell-scripting language. Notably, it is the default
 on most compute clusters. Navigating and interacting with the file system on remote
 clusters is done using bash. For example, the command-line functions `ssh` and `scp`
 are used to connect to and transfer files between the Alliance clusters.
@@ -42,6 +42,7 @@ different versions of files. This is very helpful when you're trying to determin
 change resulted in a particular error. Chapters 1 to 3 provide a good
 enough background to get started. See Section 5.1 for a description of
 our git workflow, the ["Integration-Manager Workflow"][git-workflow].
+You can find a guide to git best practices [here][git-best-practices].
 
 ## Python
 
@@ -148,3 +149,4 @@ commands like `module load`, `module purge`, and `module unload`.
 [lua]: https://www.lua.org/docs.html
 [git]: https://git-scm.com/book/en/v2
 [git-workflow]: https://www.git-scm.com/book/en/v2/ch00/wfdiag_b
+[git-best-practices]: https://about.gitlab.com/topics/version-control/version-control-best-practices/
