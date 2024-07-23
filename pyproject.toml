@@ -28,17 +28,44 @@ classifiers = [
   "Topic :: Scientific/Engineering :: Chemistry",
   "Topic :: Scientific/Engineering :: Physics",
 ]
+dependencies = [
+  # 2024-05-03
+  "ase>=3.23.0",
+  # 2024-07-23
+  "numpy>=1.24.2,<2.0.0",
+  # 2024-06-10
+  "pymatgen>=2024.6.10",
+  # 2024-03-18
+  "cclib==1.8",
+]
+
+[project.optional-dependencies]
+test = [
+  # 2024-07-20
+  "pytest>=8.3.1",
+  # 2024-03-24
+  "pytest-cov>=5.0.0",
+  # 2023-10-03
+  "pytest-datadir>=1.5.0",
+  # 2024-04-28
+  "pytest-xdist>=3.6.1",
+]
+dev = [
+  # 2024-05-10
+  "pre-commit>=3.7.0",
+]
+docs = [
+  # 2024-04-20
+  "mkdocs>=1.6.0",
+  # 2024-07-23
+  "mkdocs-material>=9.5.30",
+]
 
 [project.urls]
 Documentation = "https://github.com/ComCatLab/welcome-guide/README.md"
 PRs = "https://github.com/ComCatLab/welcome-guide/pull"
 Issues = "https://github.com/ComCatLab/welcome-guide/issues"
 Source = "https://github.com/ComCatLab/welcome-guide"
-
-[tool.black]
-target-version = ["py310", "py311", "py312"]
-line-length = 79
-skip-string-normalization = true
 
 [tool.coverage.run]
 branch = true
@@ -52,29 +79,10 @@ exclude_lines = [
 ]
 
 [tool.hatch.envs.default]
-dependencies = [
-  "ase==3.23.0",  # 2024-05-03
-  "numpy>=1.24.2",
-  "pymatgen>=2024.6.10",
-  "cclib==1.8",
-  "mkdocs",
-  "mkdocs-material",
-  "mypy==1.10.0",
-  "pytest==8.2.2",
-  "pytest-cov==5.0.0",
-  "pytest-datadir==1.5.0",
-  "pytest-xdist==3.6.1",
-  "ruff==0.5.0",
-]
+# use "features" until PEP 735 decided upon
+# https://discuss.python.org/t/pep-735-dependency-groups-in-pyproject-toml/39233/7
+features = ["test", "dev", "docs"]
 python = "3.11"
-
-[tool.hatch.envs.tutorials]
-dependencies = [
-  "ase @ git+https://gitlab.com/ase/ase.git@development",  # 2023-12-03
-  "numpy>=1.24.2",
-  "pymatgen>=2024.6.10",
-  "cclib==1.8",
-]
 
 [tool.hatch.envs.default.scripts]
 test = "pytest {args:tests}"
@@ -82,36 +90,14 @@ test-cov = "pytest -n auto --cov-branch --cov=src/autojob --cov-report=html --co
 
 [tool.hatch.envs.docs]
 dependencies = [
-    "mkdocs",
-    "mkdocs-material",
+  "mkdocs==1.6.0",
+  "mkdocs-material==9.5.30",
 ]
 detached = true
-
-[tool.hatch.envs.lint]
-detached = true
-dependencies = [
-  "mypy==1.10.0",
-  "ruff==0.5.0",
-]
-python = "3.11"
-
-[tool.hatch.envs.lint.scripts]
-typing = "mypy --strict --install-types --non-interactive src/autojob/ tests/"
-style = [
-  "ruff {args:.}",
-]
-fmt = [
-  "ruff format {args:.}",
-  "style",
-]
-all = [
-  "style",
-  "typing",
-]
 
 [tool.hatch.envs.test]
 dependencies = [
-  "pytest==8.2.2",
+  "pytest==8.3.1",
   "pytest-cov==5.0.0",
   "pytest-datadir==1.5.0",
   "pytest-xdist==3.6.1",
@@ -123,8 +109,6 @@ python = [
   "3.11",
   "3.12",
 ]
-[tool.hatch.envs.tutorials.scripts]
-export = "pip freeze > tutorial_requirements.txt"
 
 [tool.hatch.metadata]
 allow-direct-references = true
@@ -132,6 +116,7 @@ allow-direct-references = true
 [[tool.mypy.overrides]]
 module = "pymatgen"
 ignore_missing_imports = true
+strict = true
 
 [tool.pytest.ini_options]
 addopts = [
@@ -220,7 +205,7 @@ inline-quotes = "double"
 ban-relative-imports = "all"
 
 [tool.ruff.isort]
-known-first-party = ["autojob"]
+known-first-party = ["welcome_guide"]
 
 [tool.ruff.per-file-ignores]
 # Tests can use magic values, assertions, and relative imports
