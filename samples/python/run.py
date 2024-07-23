@@ -32,13 +32,12 @@ e = atoms.get_potential_energy()
 f = norm(max(atoms.get_forces(), key=norm))
 
 # Write final structure to file
-atoms.write('final.traj')
+atoms.write("final.traj")
 
 # Print final energy and max force to standard output
-print(f'final energy {e}')
-print(f'max force: {f}')
+print(f"final energy {e}")
+print(f"max force: {f}")
 
 # Write final energy to file
-with Path('final.e').open(mode='x', encoding='utf-8') as file:
-    file.write(f'{e}\n')
-
+with Path("final.e").open(mode="x", encoding="utf-8") as file:
+    file.write(f"{e}\n")

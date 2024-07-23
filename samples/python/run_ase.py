@@ -28,20 +28,24 @@ calc = Vasp(
 atoms.calc = calc
 
 # Create the ASE optimizer and run the optimization
-dyn = BFGSLineSearch(atoms, logfile="BFGS_output.log", trajectory="relax.traj", restart='relax.pckl')
+dyn = BFGSLineSearch(
+    atoms,
+    logfile="BFGS_output.log",
+    trajectory="relax.traj",
+    restart="relax.pckl",
+)
 dyn.run(fmax=0.01, steps=150)
 
 e = atoms.get_potential_energy()
 f = norm(max(atoms.get_forces(), key=norm))
 
 # Write final structure to file
-atoms.write('final.traj')
+atoms.write("final.traj")
 
 # Print final energy and max force to standard output
-print(f'final energy {e}')
-print(f'max force: {f}')
+print(f"final energy {e}")
+print(f"max force: {f}")
 
 # Write final energy to file
-with Path('final.e').open(mode='x', encoding='utf-8') as file:
-    file.write(f'{e}\n')
-
+with Path("final.e").open(mode="x", encoding="utf-8") as file:
+    file.write(f"{e}\n")
