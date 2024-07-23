@@ -7,7 +7,7 @@ guide.
 
 1. Install [Python 3.10][python] or greater.
 
-2. (Optional) Install [Hatch][install-hatch]. Optionally handles environment management.
+2. (Optional) Install [Hatch][install-hatch]. Handles environment management.
 
 3. (Optional) Install [Pandoc][pandoc]. Only required to build the PDF version of the guide.
 
@@ -29,7 +29,7 @@ guide.
     git clone https://github.com/yourusername/welcome-guide.git
     ```
 
-3. (Optional) Initialize the development virtual environment.
+3. Initialize the development virtual environment.
 
     with [Hatch][install-hatch]:
 
@@ -37,10 +37,18 @@ guide.
     hatch env create default
     ```
 
-    with [pip][pip]:
+    with `venv` and [pip][pip]:
 
     ```bash
-    python3 -m venv .venv && python3 -m pip install .
+    python3 -m venv .venv
+    source .venv/bin/activate
+    python3 -m pip install '.[test,dev,docs]'
+    ```
+
+4. Install the pre-commit hooks.
+
+    ```bash
+    pre-commit install-hooks
     ```
 
 [python]: https://www.python.org/downloads/
