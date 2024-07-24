@@ -12,7 +12,7 @@ in the [Python sample scripts folder][scripts].
 !!! important "Reminder"
     Replace `"in.traj"` with the name of your structure file.
 
-## Run a mixed-basis Gaussian relaxation using the internal Berny optimization algorithm (RMM-DIIS) in Gaussian
+## Run a mixed-basis Gaussian relaxation using the internal Berny optimization algorithm in Gaussian
 
 ``` py title="samples/python/run_gaussian.py"
 --8<-- "./samples/python/run_gaussian.py"
@@ -20,7 +20,8 @@ in the [Python sample scripts folder][scripts].
 
 !!! important "Reminder"
     Replace `"in.traj"` with the name of your structure file, and, read [this][gaussian-alliance] article about
-    selecting which executable to pass to the `command` keyword argument to the `Gaussian` constructor.
+    selecting which executable to pass to the `command` keyword argument to the `Gaussian` constructor. Note
+    that the syntax is *slightly* different (`g16 < Gaussian.com vs. G16 Gaussian.com`).
 
 ## Run a VASP relaxation using the BFGSLineSearch optimization routine in ASE
 
@@ -47,3 +48,4 @@ handles the logging and archiving of a calculation's final results.
 [scripts]: https://github.com/ComCatLab/welcome-guide/tree/main/samples/python
 [ccu]: https://python-comp-chem-utils.readthedocs.io/en/latest/
 [ccu-run-relaxation]: https://python-comp-chem-utils.readthedocs.io/en/latest/reference/ccu.html#ccu.relaxation.run_relaxation
+[gaussian-alliance]: https://docs.alliancecan.ca/wiki/Gaussian#G16_(G09,_G03)
