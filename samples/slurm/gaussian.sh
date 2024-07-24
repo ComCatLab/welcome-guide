@@ -67,7 +67,7 @@ echo " "
 
 if test -e "$HOME/scratch"; then
   TMP_WORK_DIR="$HOME/scratch/${SLURM_JOB_ID}"
-elif test -e /scratch/${SLURM_JOB_ID}; then
+elif test -e /scratch/"${SLURM_JOB_ID}"; then
   TMP_WORK_DIR=/scratch/${SLURM_JOB_ID}
 else
   TMP_WORK_DIR="$(pwd)"
@@ -94,52 +94,54 @@ echo " "
 echo "### Copying input files for job (if required):"
 echo " "
 
-export AUTOJOB_COPY_TO_SCRATCH="*.py,*.traj,*.com,*.chk"
-cp -v "$SLURM_SUBMIT_DIR"/{*.py,*.traj,*.com,*.chk} "$TMP_WORK_DIR"/
+script_name="${BASH_SOURCE[0]}"
+export AUTOJOB_SLURM_SCRIPT="$(basename "$script_name")"
+export AUTOJOB_PYTHON_SCRIPT="run.py"
+export AUTOJOB_COPY_TO_SCRATCH="*.chk,*.py,*.traj,*.rwf"
+cp -v "$SLURM_SUBMIT_DIR"/{*.chk,*.py,*.traj,*.rwf} "$TMP_WORK_DIR"/
 
 echo " "
 
 # Preemptively end job if getting close to time limit
+timeline=$(grep -E -m 1 '^#SBATCH[[:space:]]*--time=' "$script_name")
+timeslurm=${timeline##*=}
+IFS=- read -ra day_split_time <<< "$timeslurm"
+no_days_time=${day_split_time[1]}
+days=${no_days_time:+${day_split_time[0]}}
+no_days_time=${day_split_time[1]:-${day_split_time[0]}}
+IFS=: read -ra split_time <<< "$no_days_time"
 
-script_name="${BASH_SOURCE[0]}"
-export AUTOJOB_SLURM_SCRIPT="$script_name"
-export AUTOJOB_PYTHON_SCRIPT="run.py"
+# Time formats with days: D-H, D-H:M, D-H:M:S
+if [[ $days ]]; then
+  slurm_days="$days"
+  slurm_hours=${split_time[0]}
+  slurm_minutes=${split_time[1]:-0}
+  slurm_seconds=${split_time[2]:-0}
+# Time format without days: M, M:S, H:M:S
+else
+  slurm_days=0
+  if [[ ${#split_time[*]} == 3 ]]; then
+    slurm_hours=${split_time[0]}
+    slurm_minutes=${split_time[1]}
+    slurm_seconds=${split_time[2]}
+  else
+    slurm_hours=0
+    slurm_minutes=${split_time[0]}
+    slurm_seconds=${split_time[1]:-0}
+  fi
+fi
 
-var_loop=0
-echo ""
-
-while IFS= read -r line
-do
-  if [[ "$line" = *"--time"* ]]; then
-    timeslurm=$(echo $line | sed 's/#SBATCH --time=//g')
-    slurm_minutes=$(echo $timeslurm | awk -F ":" '{print $(NF-1)}')
-    slurm_seconds=$(echo $timeslurm | awk -F ":" '{print $(NF)}')
-    if [[ $(echo $timeslurm | awk -F ":" '{print (NF)}') -ne 3 ]]; then
-      slurm_hours=0
-     else
-      slurm_hours=$(echo $timeslurm | awk -F ":" '{print $(NF-2)}')
-     fi
-    echo "Running for $(echo "$slurm_hours*1" |bc)h $(echo "$slurm_minutes*1" |bc)m and $(echo "$slurm_seconds*1" |bc)s."
-
-    timeslurm=$(echo "$slurm_hours*3600 + $slurm_minutes*60 + $slurm_seconds" | bc)
-
-     echo "This means $timeslurm seconds."
-
-     timeslurm=$(echo "$timeslurm *0.9" |bc)
-
-    echo "Will terminate at ${timeslurm}s to copy back necessary files from scratch"
-   fi
-   var_loop=$((var_loop+1))
-   if [[ $var_loop = 10 ]]; then
-     break
-   fi
-done < "$script_name"
+echo "Running for $(echo "$slurm_days*1" |bc)d $(echo "$slurm_hours*1" |bc)h $(echo "$slurm_minutes*1" |bc)m and $(echo "$slurm_seconds*1" |bc)s."
+timeslurm=$(echo "$slurm_days*86400 + $slurm_hours*3600 + $slurm_minutes*60 + $slurm_seconds" | bc)
+echo "This means $timeslurm seconds."
+timeslurm=$(echo "$timeslurm *0.9" |bc)
+echo "Will terminate at ${timeslurm}s to copy back necessary files from scratch"
 
 echo ""
 echo ""
 
 # run ase calculation and time
-time timeout ${timeslurm} python3 "$AUTOJOB_PYTHON_SCRIPT" "$SLURM_SUBMIT_DIR"  > "$SLURM_SUBMIT_DIR"/out.txt
+time timeout "${timeslurm}" python3 "$AUTOJOB_PYTHON_SCRIPT" "$SLURM_SUBMIT_DIR"  > "$SLURM_SUBMIT_DIR"/out.txt
 
 exit_code=$?
 
