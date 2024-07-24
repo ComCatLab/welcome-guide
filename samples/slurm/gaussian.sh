@@ -148,13 +148,9 @@ exit_code=$?
 if [ "$exit_code" -eq 124 ]; then
   echo " "
   echo "Cancelled due to time limit."
-  echo " "
-  restart=true
 else
   echo " "
   echo "Time limit not reached."
-  echo " "
-  restart=false
 fi
 
 echo " "
