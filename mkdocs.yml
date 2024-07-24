@@ -17,6 +17,8 @@ nav:
     - Intro: 'tutorials/index.md'
     - 'tutorials/ccdb.md'
     - 'tutorials/data_transfer.md'
+    - 'tutorials/optimizing_requests.md'
+    - 'tutorials/vasp_ir.md'
   - Troubleshooting: 'resources/troubleshooting.md'
   - 'resources/links.md'
   - 'Development Guide':
