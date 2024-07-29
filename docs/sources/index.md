@@ -33,7 +33,7 @@ This guide has several valuable resources to help you get up to speed:
 
 - [**Sample Scripts**](samples/index.md): example Python and SLURM scripts
 
-- [**Troubleshooting**](resources/troubleshooting.md): common issues and their resolutions/work-arounds
+- [**Tips**](resources/tips.md): common issues and their resolutions/work-arounds
 
 ## Prerequisites
 

@@ -28,7 +28,7 @@ This guide has several valuable resources to help you get up to speed:
 
 - **Sample Scripts**: example Python and SLURM scripts
 
-- **Troubleshooting**: common issues and their resolutions/work-arounds
+- **Tips**: common issues and their resolutions/work-arounds
 
 ## Prerequisites
 

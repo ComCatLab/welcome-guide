@@ -19,7 +19,7 @@ nav:
     - 'tutorials/data_transfer.md'
     - 'tutorials/optimizing_requests.md'
     - 'tutorials/vasp_ir.md'
-  - Troubleshooting: 'resources/troubleshooting.md'
+  - 'resources/tips.md'
   - 'resources/links.md'
   - 'Development Guide':
     - 'Setting Up': 'dev_guide/setup.md'

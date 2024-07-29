@@ -1,5 +1,5 @@
 <!-- markdownlint-disable MD024 -->
-# Troubleshooting
+# Tips
 
 This page contains potential solutions to whatever may currently be troubling you. Your
 mileage may vary.
@@ -94,3 +94,24 @@ calculation directory.
 
 As of ASE 3.23.0, the `vdw-kernel.bindat` is only copied if you also set the
 keyword argument `luse_vdw=True` for the VASP calculator.
+
+## General
+
+### Property Calculation
+
+When calculating zero-point energies using computational codes, it is worth it
+to examine whether there is an internal routine. In the case of VASP, one can
+use the INCAR tag `IBRION=5` (or 6) to perform such a calculation using finite
+differences. The benefit in this case over using the ASE reliant method
+`ccu.thermo.vibration.run_vibration` is that all code-specific data is
+retained. For example, one can also go back and collect IR frequency data
+from the calculated dipoles of each image.
+
+Additionally, one should also check whether IR frequency data is any more
+expensive than ZPE data. For example, in VASP, dipole moments are calculated
+at every optimization point during a phonon frequency calculation. This means
+that if the phonon calculation is executed in VASP, IR frequencies are
+obtained for free. This benefit highlights a major advantage to executing
+frequency calculations in VASP as opposed to with an external routine like
+ASE’s `ase.vibration.vibration.Vibration`. ASE does not archive all calculated
+results for each image, but instead, only records calculated forces.
