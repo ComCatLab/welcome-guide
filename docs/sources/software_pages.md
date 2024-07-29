@@ -109,6 +109,24 @@ and variables required for a software to be used are specified in 'module files'
 that are written in the [Lua programming language][lua]. Modules are managed using
 commands like `module load`, `module purge`, and `module unload`.
 
+## **Comp**utational **Chem**istry **Util**itie**s**
+
+[Documentation][ccu]
+
+CompChemUtils (Computational Chemistry Utilities; AKA `ccu`) is a Python package
+containing several useful Python classes and routines computational chemistry
+such as adsorbate complex creation, defect creation, free energy diagram
+generation, and more.
+
+## Autojob
+
+[Documentation][autojob]
+
+`autojob` is a framework for executing high throughput calculations with the
+flexibility to granularly resubmit and modifying calculations between
+execution. Autojob also provides a codeless interface for generating input
+directories for calculations.
+
 ## WIP
 
 - Materials Cloud
@@ -126,8 +144,6 @@ commands like `module load`, `module purge`, and `module unload`.
 - atomate2
 - catmap
 - matplotlib
-- ccu (e.g., FancyPlots)
-- autojob
 
 [vasp]: https://www.vasp.at/wiki/index.php/Main_page
 [ase]: https://wiki.fysik.dtu.dk/ase/index.html
@@ -150,3 +166,5 @@ commands like `module load`, `module purge`, and `module unload`.
 [git]: https://git-scm.com/book/en/v2
 [git-workflow]: https://www.git-scm.com/book/en/v2/ch00/wfdiag_b
 [git-best-practices]: https://about.gitlab.com/topics/version-control/version-control-best-practices/
+[ccu]: http://python-comp-chem-utils.rtfd.io/
+[autojob]: http://python-autojob.readthedocs.io/
