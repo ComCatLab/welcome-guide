@@ -95,6 +95,20 @@ calculation directory.
 As of ASE 3.23.0, the `vdw-kernel.bindat` is only copied if you also set the
 keyword argument `luse_vdw=True` for the VASP calculator.
 
+## Gaussian
+
+### Frequency Calculations
+
+Watch out for internal rotations! If performing frequency calculations in
+Gaussian, you may get the following warning:
+
+    Warning -- explicit consideration of  23 degrees of freedom as
+            vibrations may cause significant error
+
+See [here][gaussian-freq-error] for a resolution.
+
+[gaussian-freq-error]: http://www.ccl.net/chemistry/resources/messages/2005/04/01.002-dir/
+
 ## General
 
 ### Property Calculation
