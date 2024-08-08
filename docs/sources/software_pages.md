@@ -82,7 +82,8 @@ periodic systems.
 [Documentation][gaussian]
 
 Gaussian is a proprietary, gaussian-orbital based code that we mainly use for studying
-molecular systems.
+molecular systems. The Alliance also maintains a [documentation page][alliance-gaussian]
+for running Gaussian on Alliance clusters.
 
 ## ORCA
 
@@ -157,6 +158,7 @@ directories for calculations.
 [bash]: https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html
 [slurm-cheatsheet]: https://slurm.schedmd.com/pdfs/summary.pdf
 [gaussian]: https://gaussian.com/man/
+[alliance-gaussian]: https://docs.alliancecan.ca/wiki/Gaussian
 [espresso]: https://www.quantum-espresso.org
 [orca]: https://www.orcasoftware.de/tutorials_orca/index.html
 [markdown]: https://www.markdownguide.org
