@@ -160,7 +160,7 @@ directories for calculations.
 [gaussian]: https://gaussian.com/man/
 [alliance-gaussian]: https://docs.alliancecan.ca/wiki/Gaussian
 [espresso]: https://www.quantum-espresso.org
-[orca]: https://www.orcasoftware.de/tutorials_orca/index.html
+[orca]: https://www.faccts.de/docs/orca/6.0/manual/index.html
 [markdown]: https://www.markdownguide.org
 [mkdocs]: https://www.mkdocs.org
 [lmod]: https://lmod.readthedocs.io/en/latest/

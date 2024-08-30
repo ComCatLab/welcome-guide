@@ -15,6 +15,11 @@ compiled by the creators of Materials Virtual Lab, Materials Project
 [**ORCA Tutorials**][orca-tutorials]: walkthroughs of how to perform various
 calculations; part of the official ORCA documentation
 
+[**ORCA Input Library**][orca-input-library]: a collection of ORCA input files
+for various types of ORCA calculations previously maintained by Ragnar Bjornsson;
+a note from the maintainer "There are no immediate plans to update the ORCA Input
+Library for version 6 compatibility since the maintainer has no time."
+
 [**Modeling materials using density functional theory**][kitchin-book]:
 "The Kitchin book"; a textbook with examples of how to use ASE to perform
 various DFT calculations with VASP; also contains explanations of the
@@ -48,6 +53,7 @@ tutorial outlining how to calculate phonons and relevant theory
 
 [ase]: https://wiki.fysik.dtu.dk/ase/tutorials/tutorials.html
 [orca-tutorials]: https://www.orcasoftware.de/tutorials_orca/
+[orca-input-library]: https://sites.google.com/site/orcainputlibrary/home
 [matgenb]: https://matgenb.materialsvirtuallab.org
 [pymatgen]: https://pymatgen.org
 [custodian]: https://materialsproject.github.io/custodian/
