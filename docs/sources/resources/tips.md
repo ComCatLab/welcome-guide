@@ -109,6 +109,20 @@ See [here][gaussian-freq-error] for a resolution.
 
 [gaussian-freq-error]: http://www.ccl.net/chemistry/resources/messages/2005/04/01.002-dir/
 
+## SLURM
+
+### Attaching to Existing Jobs
+
+Say, you have a window with an interactive job running (e.g., `salloc`) and
+you would like to open another window with that same allocation. If the job
+ID for the interactive job is JOBID, you can connect to the interactive job
+with the command
+
+<!-- markdownlint-disable-next-line MD046 -->
+```shell
+srun --pty --overlap --jobid JOBID bash
+```
+
 ## General
 
 ### Property Calculation
