@@ -127,8 +127,17 @@ Quantum Espresso (QE) 7.2  :female-technologist:
 
 11. **Configure the QE compilation.**
 
-    For clarity, define variables for the
-    location of the Intel Base Toolkit, HDF5, and libxc directories. For example,
+    For clarity, we define variables for the location of the Intel Base
+    Toolkit and where you would like to install the QE binaries. If you
+    didn't modify the default directory where the Intel libraries are
+    installed, then you should define `intel_dir` as:
+
+    ```shell
+    intel_dir=/home/$USER/intel/oneapi
+    ```
+
+    If you used a custom directory, your variable definition may look like
+    this:
 
     ```shell
     intel_dir=/home/$USER/projects/def-samiras/$USER/software_support/intel
@@ -149,8 +158,26 @@ Quantum Espresso (QE) 7.2  :female-technologist:
 
     ```shell
     cd qe-7.3.1
-     ./configure LIBDIRS="/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/imkl/2023.2.0/mkl /cvmfs/restricted.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/intel/2023.2.1/mpi /cvmfs/restricted.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/intel/2023.2.1/compiler" --enable-parallel --with-scalapack=intel FC=ifort F90=ifort mpif90=mpiifort CC=icc mpicc=mpiicc --enable-signals --enable-exit-status --prefix=/home/ugognw/projects/def-samiras/ugognw/software/espresso-7.3.1  --with-hdf5=yes --with-libxc --with-libxc-prefix=/home/ugognw/projects/def-samiras/ugognw/software/libxc-7.0.0
-     ```
+    ./configure LIBDIRS="$intel_dir/mkl $intel_dir/mpi $intel_dir/compiler" --enable-parallel --with-scalapack=intel FC=ifort F90=ifort mpif90=mpiifort CC=icc mpicc=mpiicc --enable-signals --enable-exit-status --prefix=$espresso_dir
+    ```
+
+    :note: This will take a while, (between minutes and hour-ish), so be sure
+    to have some time at this step. Keep an eye on what will come up at the
+    screen, because this will inform whether or not QE found the libraries
+    you told it to, or if it skipped any of them. It will also let you know
+    if the parallel compilation was successfully identified (QE has different
+    compilations for serial and parallel execution). Make sure it found all
+    dependencies you need before moving on. If you are unable to see all the
+    output from the command in your terminal, it may be useful to redirect
+    the standard output and standard error from the `./configure` comand to a
+    file:
+
+    ```shell
+    ./configure LIBDIRS="$intel_dir/mkl $intel_dir/mpi $intel_dir/compiler" --enable-parallel --with-scalapack=intel FC=ifort F90=ifort mpif90=mpiifort CC=icc mpicc=mpiicc --enable-signals --enable-exit-status --prefix=$espresso_dir >&espresso.log
+    ```
+
+    This command will redirect all the configuration information to
+    `espresso.log`.
 
 13. **Modify the `make.inc` file to configure libxc.**
 
