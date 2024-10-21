@@ -12,6 +12,8 @@ options
   (e.g., SIGTERM) and exit gracefully
 - exit statuses
 - [libxc][libxc] support: This expands the library of functionals that can be used
+- [Environ][Environ]: This compiles Quantum Espresso with the Environ library,
+  enabling the use of advanced solvent models (e.g., SCCS, SSCS)
 
 ## Tips
 
@@ -22,14 +24,28 @@ which project directories are available, run:
 ls ~/projects
 ```
 
+Note that as of 2024/10/20, the installation instructions for Environ on the
+documentation are out-of-date for Environ 3+. The GitHub repository contains
+sparse instructions for Environ 3+ [here][Environ3-installation].
+
+A good practice for managing the installed software is to store the raw source
+code in a separate folder from where it is installed. For example, one can
+keep the pre-compile source code in a `software_support` folder and install
+the software in a `software` folder. In this way, if one every has to
+compile the software, they can simply delete the associated subdirectory
+in `software` without having to worry about the source code. Additionally,
+for large source codebases, one can archive the directory in `software_support`
+to conserve the file quota. This can be done for the Intel OneAPI,
+QuantumEspresso, and libxc software in this tutorial.
+
 ## Step-by-Step
 
 :female-technologist:  Here's a (not really) quick step-by-step to compile
 Quantum Espresso (QE) 7.2  :female-technologist:
 
-1. **Download the Intel libraries** from [here][oneapi-libs].
+1. **Download the Intel OneAPI libraries** from [here][oneapi-libs].
 
-2. **Copy the folder/archive of files** (4) to where you
+2. **Copy the folder/archive of Intel OneAPI files** to where you
    will install QE. This may be in your home directory (e.g., `/home/$USER`) or
    a subdirectory of your project folder (e.g.,
    `/home/$USER/projects/def-samiras/$USER/software_support`).
@@ -91,24 +107,28 @@ Quantum Espresso (QE) 7.2  :female-technologist:
 
 5. **Download Quantum Espresso 7.3.1**. You can get QE [here][qe-7.3.1].
    Alternatively, you can just go to their homepage, register your email,
-   and go to Downloads > to find version 7.2.
+   and go to Downloads > to find the latest version.
 
-6. Copy the downloaded `QE.tar` file to Cedar and extract it.
+6. **Copy the downloaded `QE.tar` file to Cedar and extract it**.
 
-7. **Forcibly purge your loaded modules.**
+7. **Forcibly purge your loaded modules** and reload the Gentoo Linux module.
 
    ```shell
    module --force purge
+   module load gentoo/2020
    ```
 
    :warning: This is important: the main problem with Cedar seems to be some
    library/ies dependency, so make sure you run module --force purge before
    moving on.
 
+   :note: The Gentoo Linux module provides access to the `git` CLI utility
+   which is needed to configure the Environ module.
+
 8. **Setup the Intel environment.**
 
    ```shell
-   source setvars.sh
+   source /path/to/setvars.sh
    ```
 
 9. **Locate the root directory for libxc.**
@@ -125,7 +145,21 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     export LC_ALL=C
     ```
 
-11. **Configure the QE compilation.**
+11. **Obtain a copy of Environ 3+** and copy it to the QE folder. You can
+    either clone it from the git repository by running this command from
+    inside of the QE folder.
+
+    ```shell
+    git clone https://github.com/environ-developers/Environ.git
+    ```
+
+    or you can [download an archive][Environ-releases], copy it to Cedar, and
+    then extract it into the QE folder.
+
+    :warning: The `Environ` folder should be inside of the Quantum Espresso
+    folder (e.g., `qe-X.Y.Z/Environ`).
+
+12. **Configure the QE compilation.**
 
     For clarity, we define variables for the location of the Intel Base
     Toolkit and where you would like to install the QE binaries. If you
@@ -140,24 +174,23 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     this:
 
     ```shell
-    intel_dir=/home/$USER/projects/def-samiras/$USER/software_support/intel
+    intel_dir=/home/$USER/projects/def-samiras/$USER/software/intel-2022.1.1
     ```
 
     Next, specify a path (outside of the current directory) where you would
     like to install the QE executables.
 
     ```shell
-    espresso_dir=/home/$USER/projects/def-samiras/$USER/software/espresso-7.3.1
+    espresso_dir=/home/$USER/projects/def-samiras/$USER/software/espresso-X.Y.Z
     ```
 
     :note: Note that these directories must be **absolute** paths (i.e., starting
     with `/`).
 
-    Now, change your current working directory to the `qe-7.3.1` directory and
-    run the `configure` script.
+    Run the `configure` script from inside the `qe-X.Y.Z` folder (where `X.Y.Z`
+    is the QE version number).
 
     ```shell
-    cd qe-7.3.1
     ./configure LIBDIRS="$intel_dir/mkl $intel_dir/mpi $intel_dir/compiler" --enable-parallel --with-scalapack=intel FC=ifort F90=ifort mpif90=mpiifort CC=icc mpicc=mpiicc --enable-signals --enable-exit-status --prefix=$espresso_dir
     ```
 
@@ -179,7 +212,7 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     This command will redirect all the configuration information to
     `espresso.log`.
 
-12. **Modify the `make.inc` file to configure libxc.**
+13. **Modify the `make.inc` file to configure libxc.**
 
     This includes:
 
@@ -187,9 +220,28 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     - adding `-I/path/to/libxc/include` to `IFLAGS`
     - setting `LD_LIBS=-L/path/to/libxc/lib -lxcf03 -lxc`
   
-    Note that `/path/to/libxc` should be the path determined in step 9.
+    Note that `/path/to/libxc` should be the path determined in Step 9.
 
-13. **Build the executables.**
+14. **Configure Environ.**
+
+    Change the current directory to inside the `Environ` folder and run:
+
+    ```shell
+    ./configure LIBDIRS="$intel_dir/mkl $intel_dir/mpi $intel_dir/compiler" --enable-parallel FC=ifort F90=ifort mpif90=mpiifort CC=icc mpicc=mpiicc --prefix=$espresso_dir
+    ```
+
+    :note: It is very important to use the same libraries and parallelization
+    flags for Environ as for QE.
+
+15. **Compile Environ.**
+
+    ```shell
+    make -jN compile
+    ```
+
+    where `N` is the number of processors to use for parallel compilation.
+
+16. **Build the QE executables.**
 
     ```shell
     make all
@@ -199,7 +251,7 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     follow, in case you want to test different things on your own.
 
     :red_circle: You can also compile their default version, which is mostly
-    oolproof and easy, and test it. It usually finds its own way and works
+    foolproof and easy, and test it. It usually finds its own way and works
     well. Beware that there is a problem with library dependencies in the
     cluster, so if you compile the default version, it will have the same
     libraries as the cluster version and likely have the same issues!
@@ -216,7 +268,7 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     I've found that this scales linearly with 32 cores taking about 2 minutes
     to complete.
 
-14. **Install the executables.**
+17. **Install the executables.**
 
     ```shell
     make install
@@ -224,8 +276,6 @@ Quantum Espresso (QE) 7.2  :female-technologist:
 
     This step copies the built executables to the directory specified by the
     `--prefix` option (the `espresso_dir` variable defined in Step 11).
-
-configure Environ and other modules
 
 ## Modulefiles
 
@@ -386,3 +436,6 @@ your job. What to look for:
 [libxc]: https://libxc.gitlab.io/
 [libxc-installation]: https://libxc.gitlab.io/installation/
 [lmod]: https://lmod.readthedocs.io/en/latest/
+[Environ]: https://environ.readthedocs.io/en/latest/index.html
+[Environ3-installation]: https://github.com/environ-developers/Environ/blob/documentation/Doc/sphinx/source/install/install_3.rst
+[Environ-releases]: https://github.com/environ-developers/Environ/releases
