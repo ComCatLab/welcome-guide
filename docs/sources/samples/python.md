@@ -19,9 +19,11 @@ in the [Python sample scripts folder][scripts].
 ```
 
 !!! important "Reminder"
-    Replace `"in.traj"` with the name of your structure file, and, read [this][gaussian-alliance] article about
-    selecting which executable to pass to the `command` keyword argument to the `Gaussian` constructor. Note
-    that the syntax is *slightly* different (`g16 < Gaussian.com vs. G16 Gaussian.com`).
+    Replace `"in.traj"` with the name of your structure file, and read
+    [this][gaussian-alliance] article about selecting which executable to pass
+    to the `command` keyword argument to the `Gaussian` constructor. Note
+    that the syntax is *slightly* different
+    (`g16 < Gaussian.com vs. G16 Gaussian.com`).
 
 ## Run a VASP relaxation using the BFGSLineSearch optimization routine in ASE
 
@@ -39,11 +41,24 @@ in the [Python sample scripts folder][scripts].
 ```
 
 `ccu` is a set of tools for computational chemistry workflows. In particular,
-[`run_relaxation`][ccu-run-relaxation] is a wrapper function around `ase.atoms.Atoms.get_potential_energy()` that
-handles the logging and archiving of a calculation's final results.
+[`run_relaxation`][ccu-run-relaxation] is a wrapper function around
+`ase.atoms.Atoms.get_potential_energy()` that handles the logging and archiving
+of a calculation's final results.
 
 !!! important "Reminder"
     Replace `"in.traj"` with the name of your structure file.
+
+## Run an AIMD calculation with Quantum Espresso
+
+``` py title="samples/python/run_espresso.py"
+--8<-- "./samples/python/run_espresso.py"
+```
+
+!!! important "Reminder"
+    Replace `"in.traj"` with the name of your structure file, and don't forget to
+    change the string passed to the `pseudo_dir` keyword argument of the
+    `EspressoProfile` constructor to the absolute path to where your Quantum
+    Espresso pseudopotentials are located.
 
 [scripts]: https://github.com/ComCatLab/welcome-guide/tree/main/samples/python
 [ccu]: https://python-comp-chem-utils.readthedocs.io/en/latest/

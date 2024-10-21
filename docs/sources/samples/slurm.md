@@ -14,6 +14,13 @@
     --8<-- "./samples/slurm/espresso.sh"
     ```
 
+    !!! important "Reminder"
+        This script assumes that you are using a self-compiled version of
+        Quantum Espresso and have created a corresponding module named
+        `espresso`. See [this tutorial](../tutorials/espresso_compilation.md)
+        for how to compile Quantum Espresso and create the necessary
+        modulefile.
+
 === "Gaussian"
 
     ``` py title="samples/slurm/gaussian.sh"
