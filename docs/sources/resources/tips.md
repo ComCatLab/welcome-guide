@@ -42,7 +42,6 @@ Input files for the calculation.
 
 #### The Error
 
-<!-- markdownlint-disable-next-line MD046 -->
 ```text title="vasp.out"
  -----------------------------------------------------------------------------
 |                                                                             |
@@ -109,6 +108,33 @@ See [here][gaussian-freq-error] for a resolution.
 
 [gaussian-freq-error]: http://www.ccl.net/chemistry/resources/messages/2005/04/01.002-dir/
 
+## Modulefiles
+
+### Create a modulefile from a script
+
+[Lmod](../software_pages.md#lmod) provides a handy utility
+[`sh_to_modulefile`][sh_to_modulefile] for creating modulefiles from scripts.
+`sh_to_modulefile` records the initial environment, runs the script, and
+compares the final environment to determine the changes. It then converts these
+changes to Lua commands and prints them to the terminal. Given a script,
+`my_script.sh`, one can run the following command to generate an Lmod
+modulefile written in Lua.
+
+```shell
+$LMOD_DIR/sh_to_modulefile my_script.sh > my_script.lua
+```
+
+The command `$LMOD_DIR/sh_to_modulefile` calls the utility by using the
+Lmod-defined environment variable `LMOD_DIR`, which points to the directory
+in which Lmod is installed. `my_script.sh` is the name of the script to be
+converted into a modulefile. The output of the command is redirected (`>`)
+to the file `my_script.lua`.
+
+For example, this could be useful for converting the activation of your Python
+environment to a module.
+
+[sh_to_modulefile]: https://lmod.readthedocs.io/en/latest/260_sh_to_modulefile.html
+
 ## SLURM
 
 ### Attaching to Existing Jobs
@@ -118,7 +144,6 @@ you would like to open another window with that same allocation. If the job
 ID for the interactive job is JOBID, you can connect to the interactive job
 with the command
 
-<!-- markdownlint-disable-next-line MD046 -->
 ```shell
 srun --pty --overlap --jobid JOBID bash
 ```
