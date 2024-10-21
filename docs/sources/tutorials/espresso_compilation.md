@@ -1,6 +1,6 @@
 # :sparkles: Make your own Quantum ESPRESSO compilation :sparkles:
 
-October 18, 2024
+Last Updated: October 18, 2024
 
 ## Overview
 
@@ -8,15 +8,19 @@ This guide will walk through compiling Quantum Espresso with the following
 options
 
 - compiled with Intel OneAPI libraries
-- HDF5 support
-- [libxc][libxc] support: This expands the library of functionals that can be used
 - signal trapping: This enables QE to recognize common signals sent by job schedulers
   (e.g., SIGTERM) and exit gracefully
 - exit statuses
+- [libxc][libxc] support: This expands the library of functionals that can be used
 
 ## Tips
 
-- Make sure to replace `USER` with **your** DRA username
+You may need to replace `def-samiras` with a valid project directory. To see
+which project directories are available, run:
+
+```shell
+ls ~/projects
+```
 
 ## Step-by-Step
 
