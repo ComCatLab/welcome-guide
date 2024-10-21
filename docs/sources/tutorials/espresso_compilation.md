@@ -331,15 +331,53 @@ calculations with QE.
 
 ```shell
 module --force purge
-source /home/YOURUSERNAME/intel/oneapi/setvars.sh
-export PATH=$PATH:/home/YOURUSERNAME/qe-7.2/bin/
-export PATH=$PATH:/home/YOURUSERNAME/intel/oneapi/mpi/2021.5.0/bin
-/home/YOURUSERNAME/intel/oneapi/mpi/2021.5.0/bin/mpirun -np XXX /home/YOURUSERNAME/qe-7.2/bin/pw.x < espresso.in > espresso.out```
+source /home/USER/intel/oneapi/setvars.sh
+export PATH=$PATH:/home/USER/qe-7.2/bin/
+export PATH=$PATH:/home/USER/intel/oneapi/mpi/2021.5.0/bin
+/home/YOUR$USERNAME/intel/oneapi/mpi/2021.5.0/bin/mpirun -np XXX pw.x < espresso.in > espresso.out
+```
 
-=====================================================
-Finally, benchmark and test its performance using their provided examples or your job. What to look for:
-The performance should be equivalent to their examples for simple structures with similar parameters. For unit cells, it is useless to scale up too many cores, so test it with few at first (1 core vs 2 vs 4, for example). Check the last lines of the out file the total CPU time and resources. If the performance is worse with more cores, the compilation is not good.
-Check the performance of a decent sized job with your compilation against the one available in Cedar, the time should be around half but it will also depend on your own system (it was half for mine with a ~100 atoms supercell). If it is similar to Cedar, or worse, again, the compilation it not good.
+where `USER` is your DRA username.
+
+If you've defined modules as indicated [above](#modulefiles), add the
+following commands instead.
+
+```shell
+module --force purge
+module load intel/2022.1.1 espresso/7.3.1
+mpirun -np XXX pw.x
+```
+
+If running Quantum Espresso with ASE in a script called `run.py`, add the
+following commands instead.
+
+```shell
+module --force purge
+module load intel/2022.1.1 espresso/7.3.1
+
+# Load your Python environment here, if necessary
+
+python3 run.py
+```
+
+If you changed the `depends_on` command to `load`, then you don't need to load
+the `intel` module.
+
+## Benchmarking
+
+Finally, benchmark and test its performance using their provided examples or
+your job. What to look for:
+
+- The performance should be equivalent to their examples for simple structures
+  with similar parameters. For unit cells, it is useless to scale up too many
+  cores, so test it with few at first (1 core vs 2 vs 4, for example). Check
+  the last lines of the out file the total CPU time and resources. If the
+  performance is worse with more cores, the compilation is not good.
+- Check the performance of a decent sized job with your compilation against
+  the one available in Cedar, the time should be around half but it will also
+  depend on your own system (it was half for mine with a ~100 atoms
+  supercell). If it is similar to Cedar, or worse, again, the compilation it
+  not good.
 
 [oneapi-libs]: https://1sfu-my.sharepoint.com/:u:/g/personal/lebarbos_sfu_ca/EYL5CdD_j99OmZirKP2MV4cBTJ-FPv0yE_fB28Jmnr_RVQ?e=xnV2Hd
 [oneapi-suite]: https://www.intel.com/content/www/us/en/developer/tools/oneapi/overview.html#gs.dhpux3
