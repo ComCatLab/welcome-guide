@@ -130,9 +130,6 @@ in which Lmod is installed. `my_script.sh` is the name of the script to be
 converted into a modulefile. The output of the command is redirected (`>`)
 to the file `my_script.lua`.
 
-For example, this could be useful for converting the activation of your Python
-environment to a module.
-
 [sh_to_modulefile]: https://lmod.readthedocs.io/en/latest/260_sh_to_modulefile.html
 
 ## SLURM
