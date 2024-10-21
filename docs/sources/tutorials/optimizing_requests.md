@@ -9,7 +9,7 @@ This can be useful in maximizing the number of nodes that can potentially
 pick up your job. More detailed information about each cluster can be found
 on their respective software page (e.g., [Cedar][node-characteristics]).
 
-For monitoring, the live status of nodes on a cluster, there is the
+For monitoring the live status of nodes on a cluster, there is the
 `partition-stats` command:
 
 ```bash
