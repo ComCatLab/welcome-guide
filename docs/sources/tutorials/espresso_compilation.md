@@ -227,6 +227,103 @@ Quantum Espresso (QE) 7.2  :female-technologist:
 
 configure Environ and other modules
 
+## Modulefiles
+
+Recall that the `setvars.sh` script **must** be sourced prior to executing QE
+in order to setup the Intel environment for Quantum Espresso. This has a few
+disadvantages, the most significant of which being that there is no
+straightforward way to undo the changes. Additionally, there is the issue of
+convenience and portability due to having to specify the *exact* location of
+the `setvars.sh` script in order to source it. This section covers how to
+create modulefiles for Quantum Espresso and the Intel OneAPI libraries.
+
+### Intel OneAPI
+
+Modulefiles solve the above problems and offer some additional benefits. In
+short, modulefiles provide a convenient way to dynamically change the users’
+environment. This may involve modifying environment variables, defining shell
+functions, or loading other modulefiles. The Digital Research Alliance clusters
+use [Lmod][lmod] to manage modulefiles. Lmod provides the `sh_to_modulefile`
+utility. See [this tip](../resources/tips.md) for how to convert `setvars.sh`
+into a modulefile.
+
+Once you have created the modulefile, ensure that the file
+is in your `MODULEPATH` (this is controlled by the command `module use`). A
+reasonable strategy is to name the modulefile after the version of the
+libraries (e.g., 2022.1.1) and to place this file in a subdirectory of a path
+in `MODULEPATH`. The name of the subdirectory will be the name used to load
+the module (i.e., set up the environment), so a reasonable name would be
+something like `intel`. Additionally, it's useful to add the following
+metadata to the modulefile:
+
+```text title="intel/2022.1.1.lua"
+help([[
+Description
+===========
+Intel C, C++ & Fortran compilers (classic and oneAPI)
+
+
+More information
+================
+ - Homepage: https://software.intel.com/content/www/us/en/develop/tools/oneapi/hpc-toolkit.html
+]])
+whatis("Description: Intel C, C++ & Fortran compilers (classic and oneAPI)")
+whatis("Homepage: https://software.intel.com/content/www/us/en/develop/tools/oneapi/hpc-toolkit.html")
+whatis("URL: https://software.intel.com/content/www/us/en/develop/tools/oneapi/hpc-toolkit.html")
+whatis("Version: 2022.1.1")
+whatis("Keywords: HPC")
+conflict("intel")
+```
+
+This mostly just descriptive information about the module. The last line
+ensures that you don't load conflicting modules and is especially helpful
+since we've had troubles with the default DRA libraries. An error will
+be thrown if you try to load this module when another version is already
+loaded.
+
+If you placed the created file in a directory called `intel` in your `MODULEPATH`
+and called the file `2022.1.1` (after the version of the Intel OneAPI
+libraries), then you perform the required set up with the command:
+
+```shell
+module load intel/2022.1.1
+```
+
+### Quantum Espresso
+
+You can also define a modulefile for your newly installed version of
+Quantum Espresso. Essentially, the only necessary change that must be made
+is to prepend the directory containing QE executables to the `PATH` environment
+variable. A sample modulefile is shown below:
+
+```text title="espresso/7.3.1.lua"
+help([[
+For detailed instructions, go to:
+    https://www.quantum-espresso.org/documentation/package-specific-documentation/
+
+]])
+
+whatis("Version: 7.3.1")
+whatis("Keywords: QuantumEspresso")
+
+conflict("quantumespresso")
+conflict("espresso")
+
+depends_on("intel/2022.1.1")
+prepend_path("PATH", "espresso_dir/bin")
+```
+
+Here, `espresso_dir` should be replaced with the path used to define
+`espresso_dir` in Step 11. Also, note that the DRA module is named
+`quantumespresso` whereas this module is named `espresso`. The `conflict`
+commands reflect this fact. This is beneficial (but not necessary) since ASE's
+Quantum Espresso calculator class is called `Espresso`, so both Python and
+SLURM submission scripts can be templated with the same variable. Finally,
+note that this modulefile "depends_on" the `intel/2022.1.1` modulefile. This
+ensures that the `intel/2022.1.1` module is loaded prior to loading the
+`espresso` module Optionally, one can explicitly load the intel module by
+replacing that `depends_on` with `load`.
+
 ## Running a sample calculation
 
 The following commands should be added to your SLURM submission script to run
@@ -250,3 +347,4 @@ Check the performance of a decent sized job with your compilation against the on
 [qe-manual]: https://www.quantum-espresso.org/Doc/user_guide_PDF/user_guide.pdf
 [libxc]: https://libxc.gitlab.io/
 [libxc-installation]: https://libxc.gitlab.io/installation/
+[lmod]: https://lmod.readthedocs.io/en/latest/
