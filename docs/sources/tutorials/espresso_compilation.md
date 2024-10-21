@@ -179,17 +179,17 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     This command will redirect all the configuration information to
     `espresso.log`.
 
-13. **Modify the `make.inc` file to configure libxc.**
+12. **Modify the `make.inc` file to configure libxc.**
 
     This includes:
 
     - adding `-D__LIBXC` to `DFLAGS`
-    - adding `-I/path/to/libxc/include/` to `IFLAGS`
-    - setting `LD_LIBS=-L/path/to/libxc/lib/ -lxcf03 -lxc`
+    - adding `-I/path/to/libxc/include` to `IFLAGS`
+    - setting `LD_LIBS=-L/path/to/libxc/lib -lxcf03 -lxc`
   
-    Note that `/path/to/libxc` should be the path determined in step 12.
+    Note that `/path/to/libxc` should be the path determined in step 9.
 
-14. Begin the installation.
+13. **Build the executables.**
 
     ```shell
     make all
@@ -204,23 +204,26 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     cluster, so if you compile the default version, it will have the same
     libraries as the cluster version and likely have the same issues!
 
-    :note: **Tip**: If you are performing the compilation as an interactive
-    job with multiple cores, you can speed up this step by running `make` in
-    parallel. To do this, specify the number of cores available as an option
-    to make with the `-j` option. For example, if your interactive job has 8
-    cores, run:
+    :note: **Tip**: To speed up the installation, you can spawn an interactive
+    job with multiple cores and run `make` in parallel. For example, if you
+    want to spawn a job with 16 cores, do the following:
 
     ```shell
-    make -j8 all
+    salloc --mem=32GB --ntasks-per-node=16 --nodes=1 --account=def-samiras --time=00:10:00
+    make -j16 all
     ```
 
-    :note: This will take a while, (between minutes and hour-ish), so be sure
-    to have some time at this step. Keep an eye on what will come up at the
-    screen, because this will inform whether or not QE found the libraries
-    you told it to, or if it skipped any of them. It will also let you know
-    if the parallel compilation was successfully identified (QE has different
-    compilations for serial and parallel execution). Make sure it found all
-    dependencies you need before moving on.
+    I've found that this scales linearly with 32 cores taking about 2 minutes
+    to complete.
+
+14. **Install the executables.**
+
+    ```shell
+    make install
+    ```
+
+    This step copies the built executables to the directory specified by the
+    `--prefix` option (the `espresso_dir` variable defined in Step 11).
 
 configure Environ and other modules
 
