@@ -73,7 +73,60 @@ with the change!
 - Compiling useful links
 - Any page/section marked with "WIP" ("work-in-progress")
 
+## Guidelines for Contributing
+
+When adding new content to tutorials and sample files, please to try
+following the existing format. Some general tips:
+
+- Try to limit markdown lines to 80 characters to promote readability. In
+  some cases (e.g., URLs, code, etc.), this is not possible.
+- Please try to use [fenced code blocks][fenced-code-blocks] to display any
+  code that should be copied. This ensures that `mkdocs` formats the code
+  correctly and adds copy buttons. This greatly simplifies the user experience.
+- Specify a language for fenced code blocks. Often this will simply be `py`,
+  `shell`, or `text`. The language is specified inline with the first three
+  backticks used to indicate the start of the fenced code block.
+- If referring to another document, please consider
+  [linking to it directly][linking-to-pages] to make it easier for users to
+  navigate.
+
+The following sections have more specific guidelines for adding content to
+particular sections.
+
+### Samples
+
+- Add new sample files to an appropriate subdirectory in the top-level
+  `samples/` directory and add a corresponding explanation of the sample file
+  in the `docs/sources/samples` directory
+- Files can be "included" in markdown files using
+  ["Snippets Notation"][snippet-notation]. The general syntax is
+   `--8<-- ./path/to/file`. `./path/to/file` should be the path to the sample
+   file.
+- You can add a title to a fenced code block using
+  ["Code Block Title Headers"][code-block-headers]. To specify the title,
+  add `title=Name of the Title` inline with the code language. Check the
+  [Python sample files](../samples/python.md) source code for examples.
+
+## Tutorials
+
+- Specify a "Last Updated" date when writing tutorials. Software is always
+  changing, so a tutorial written today may not work tomorrow. Indicating
+  when the tutorial was last updated gives users an idea of its currency
+  and us an idea of what may need updating.
+
+## Tips
+
+- Describe the use-case/problem as completely as possible. This includes
+  listing all relevant software and system information (and versions) and all
+  necessary steps to reproduce the problem. If you consulted a resource to
+  find the solution, it is also helpful to include links to these resources
+  for reference.
+
 [git-workflow]: https://www.git-scm.com/book/en/v2/ch00/wfdiag_b
 [pull-requests]: https://github.com/ComCatLab/welcome-guide/pulls
 [issues]: https://github.com/ComCatLab/welcome-guide/issues
 [git-best-practices]: https://about.gitlab.com/topics/version-control/version-control-best-practices/
+[fenced-code-blocks]: https://www.markdownguide.org/extended-syntax/#fenced-code-blocks
+[linking-to-pages]: https://www.mkdocs.org/user-guide/writing-your-docs/#internal-links
+[snippet-notation]: https://facelessuser.github.io/pymdown-extensions/extensions/snippets/#snippets-notation
+[code-block-headers]: https://facelessuser.github.io/pymdown-extensions/extensions/superfences/#code-block-title-headers
