@@ -1,7 +1,7 @@
 # Setting Up for Local Development
 
-This page covers the basic setup to be able to locally develop the welcome
-guide.
+This page only covers the basic setup to enable local development of the
+welcome guide. Building the documentation is covered [elsewhere](./docs.md).
 
 ## Installing Prerequisites
 
