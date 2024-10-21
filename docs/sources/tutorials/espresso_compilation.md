@@ -27,15 +27,15 @@ ls ~/projects
 :female-technologist:  Here's a (not really) quick step-by-step to compile
 Quantum Espresso (QE) 7.2  :female-technologist:
 
-1. **Download the Intel libraries** from [here]([oneapi-libs]).
+1. **Download the Intel libraries** from [here][oneapi-libs].
 
 2. **Copy the folder/archive of files** (4) to where you
-   will install QE. This may be in your home directory (e.g., `/home/USER`) or
+   will install QE. This may be in your home directory (e.g., `/home/$USER`) or
    a subdirectory of your project folder (e.g.,
-   `/home/USER/projects/def-samiras/USER/software_support`).
+   `/home/$USER/projects/def-samiras/$USER/software_support`).
 
    ```shell
-   scp -r oneapi_archive USER@Cedar.computecanada.ca:/home/USER/
+   scp -r oneapi_archive $USER@Cedar.computecanada.ca:/home/$USER/
    ```
 
    :note: These libraries are from the [OneAPI suite][oneapi-suite], however,
@@ -44,21 +44,15 @@ Quantum Espresso (QE) 7.2  :female-technologist:
    Cedar. The 2022 have been confirmed to worked. Both the 2022 and 2023
    libraries are included in the shared folder from step 1.
 
-3. Navigate to where you copied the folder on Cedar, and
-   **enable executable permissions on the scripts**,
+3. **Install the Base Toolkit.** (This could take up to 30 minutes.)
+   Navigate to where you copied the folder on Cedar
 
    ```shell
-   chmod +x oneapi_archive/*
+   $SHELL l_BaseKit_p_2022.1.1.119.sh
    ```
 
-4. **Install the Base Toolkit.** (This should take about 30 minutes.)
-
-   ```shell
-   ./l_BaseKit_p_2022.1.1.119.sh
-   ```
-
-   This will install the Base Toolkit under the directory `/home/USER/intel`
-   (where `USER` is your DRA username).
+   This will install the Base Toolkit under the directory
+   `/home/USER/intel/oneapi` (where `USER` is your DRA username).
 
    Optionally, you can change the installation location by opting to
    customize the installation (select "Accept & customize installation" prior
@@ -78,10 +72,10 @@ Quantum Espresso (QE) 7.2  :female-technologist:
 
    :note: You can skip the Eclipse* IDE Integration Configuration step.
 
-5. **Install the HPC Toolkit.** (This shouldn't take more than a few minutes.)
+4. **Install the HPC Toolkit.** (This shouldn't take more than a few minutes.)
 
    ```shell
-   ./l_HPCKit_p_2022.1.1.97.sh
+   $SHELL l_HPCKit_p_2022.1.1.97.sh
    ```
 
    Again, you may want to specify a custom installation location. In that case,
@@ -95,13 +89,13 @@ Quantum Espresso (QE) 7.2  :female-technologist:
    give you a list of modules loaded in the environment. Check this step prior
    to QE compilation.
 
-6. **Download Quantum Espresso 7.3.1**. You can get QE [here][qe-7.3.1].
+5. **Download Quantum Espresso 7.3.1**. You can get QE [here][qe-7.3.1].
    Alternatively, you can just go to their homepage, register your email,
    and go to Downloads > to find version 7.2.
 
-7. Copy the downloaded `QE.tar` file to Cedar and extract it.
+6. Copy the downloaded `QE.tar` file to Cedar and extract it.
 
-8. **Forcibly purge your loaded modules.**
+7. **Forcibly purge your loaded modules.**
 
    ```shell
    module --force purge
@@ -111,42 +105,47 @@ Quantum Espresso (QE) 7.2  :female-technologist:
    library/ies dependency, so make sure you run module --force purge before
    moving on.
 
-9. **Setup the Intel environment.**
+8. **Setup the Intel environment.**
 
    ```shell
    source setvars.sh
    ```
 
-10. **Locate the root directory for libxc.**
-    On Cedar, this directory is found at
-    `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcc12/libxc/6.2.2`
+9. **Locate the root directory for libxc.**
+   On Cedar, this directory is found at
+   `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcc12/libxc/6.2.2`
 
-    :note: Note that the latest version of libxc (7.0.0) is not installed on
-    Cedar. However, installing libxc is quite straightforward. Instructions can
-    be found [here][libxc-installation].
+   :note: Note that the latest version of libxc (7.0.0) is not installed on
+   Cedar. However, installing libxc is quite straightforward. Instructions can
+   be found [here][libxc-installation].
 
-11. Ensure that the local language is set to the standard, i.e. ”C”.
+10. Ensure that the local language is set to the standard, i.e. ”C”.
 
     ```shell
     export LC_ALL=C
     ```
 
-12. **Configure the QE compilation.**
+11. **Configure the QE compilation.**
 
     For clarity, define variables for the
     location of the Intel Base Toolkit, HDF5, and libxc directories. For example,
 
     ```shell
-    libdir=/home/USER/intel
+    intel_dir=/home/$USER/projects/def-samiras/$USER/software_support/intel
     ```
 
-    If you used a custom directory, it may look like this:
+    Next, specify a path (outside of the current directory) where you would
+    like to install the QE executables.
 
     ```shell
-    libdir=/home/USER/projects/def-samiras/USER/software_support/intel
+    espresso_dir=/home/$USER/projects/def-samiras/$USER/software/espresso-7.3.1
     ```
 
-    `cd` into the `qe-7.3.1` directory and run the `configure` script using
+    :note: Note that these directories must be **absolute** paths (i.e., starting
+    with `/`).
+
+    Now, change your current working directory to the `qe-7.3.1` directory and
+    run the `configure` script.
 
     ```shell
     cd qe-7.3.1
