@@ -17,9 +17,9 @@ self-contained. While you're getting acquainted with the material and workflows,
 feel free to bounce back and forth between the tutorials and the software pages.
 For more in-depth treatment of the theory, you are encouraged to consult the
 "Fundamentals" collection in [ComCat Lab's Zotero collection][zotero-collection].
-There you'll find annotated original references, more extensive DFT guides, and relevant
-textbooks. Regarding software, the documentation pages are generally extensive. Of course,
-if all else fails, don't hesitate to reach out to a group member!
+There you'll find annotated original references, more extensive DFT guides, and references
+to relevant textbooks. Regarding software, the documentation pages are generally extensive.
+Of course, if all else fails, don't hesitate to reach out to a group member!
 
 ## 🌟 Highlights 🌟
 
