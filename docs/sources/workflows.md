@@ -29,23 +29,27 @@ This page contextualizes common steps and highlights the infrastructure required
 3. **Determine necessary calculations and parameters.**
 
     This decision is informed by literature, experience, and the scientific questions that
-    one wants to answer.
+    one wants to answer. The following papers provide a good starting point for making this
+    decision.
+
+     - [Best-Practice DFT Protocols for Basic Molecular Computational Chemistry][dft-best-practices]
+     - [Density functional theory methods applied to homogeneous and heterogeneous catalysis: a short review and a practical user guide][dft-practical-guide]
 
 4. **Create input files.**
 
     The required input files for a calculation generally include:
 
     - a structure file
-    - a parameter file for the DFT code
+    - a input parameter file for the DFT code
     - a Python script for interfacing with DFT code or generating results
     - a submission script
     - additional files for the DFT code (e.g., pseudopotentials, wavefunction files, etc.)
 
-    We have template Python and submission scripts for several different job types.
-    The format for parameter files and additional files required by DFT codes are
-    generally specified in the documentation for the corresponding computational code.
+    Template Python and submission scripts for several different job types are described
+    [here](./samples/index.md). The format for parameter files and additional files required by DFT
+    codes are generally specified in the documentation for the corresponding computational code.
     However, for many DFT codes, there are utilities that can help with the the creation of
-    files b and e:
+    input parameter files:
 
     - [ASE][ase]: of provides Python interface to input file generation for a number of
       computational chemistry codes
@@ -69,7 +73,7 @@ This page contextualizes common steps and highlights the infrastructure required
 6. **Retrieve Results.**
 
     Although the output files produced by the job contain the results of the calculation,
-    these files are often quite large (~GB), so it is often useful to extract only 
+    these files are often quite large (~GB), so it is often useful to extract only
     the specific required outputs. These outputs may include:
 
     - the final positions of and forces on each atom in the final structure
@@ -79,8 +83,8 @@ This page contextualizes common steps and highlights the infrastructure required
     - vibrational modes
 
     While you can write a script to extract these data from the output files of your job,
-    there is almost definitely a routine to extract this data in either [ASE][ase] or
-    [Pymatgen][pymatgen], so search the documentation of existing software for your use case.
+    there is almost definitely a routine to extract this data in either [ASE][ase],
+    [Pymatgen][pymatgen], or [cclib][cclib] so search the documentation of existing software for your use case.
 
 7. **Analyze Results.**
 
@@ -96,3 +100,6 @@ This page contextualizes common steps and highlights the infrastructure required
 [xyz]: https://en.wikipedia.org/wiki/XYZ_file_format
 [vasp-support-ext]: https://marketplace.visualstudio.com/items?itemName=Mystery.vasp-support
 [materials-cloud]: https://www.materialscloud.org/work/tools/qeinputgenerator
+[dft-best-practices]: https://onlinelibrary.wiley.com/doi/abs/10.1002/anie.202205735
+[dft-practical-guide]: https://pubs.rsc.org/en/content/articlelanding/2024/cp/d4cp00266k
+[cclib]: https://cclib.github.io
