@@ -7,7 +7,7 @@ nav:
   - Overview:
     - Home: index.md
     - Quickstart: quickstart.md
-  - Workflows: workflows.md
+  - nutshell.md
   - 'software_pages.md'
   - Samples:
     - 'samples/python.md'

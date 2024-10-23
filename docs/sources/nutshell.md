@@ -1,4 +1,4 @@
-# Workflows
+# Computational Catalysis in a Nutshell
 
 It takes several steps to go from a structure to a publishable result.
 This page contextualizes common steps and highlights the infrastructure required to execute those steps.
@@ -40,12 +40,12 @@ This page contextualizes common steps and highlights the infrastructure required
     The required input files for a calculation generally include:
 
     - a structure file
-    - a input parameter file for the DFT code
+    - an input parameter file for the DFT code
     - a Python script for interfacing with DFT code or generating results
     - a submission script
     - additional files for the DFT code (e.g., pseudopotentials, wavefunction files, etc.)
 
-    Template Python and submission scripts for several different job types are described
+    Python and submission script templates for several different job types are described
     [here](./samples/index.md). The format for parameter files and additional files required by DFT
     codes are generally specified in the documentation for the corresponding computational code.
     However, for many DFT codes, there are utilities that can help with the the creation of
@@ -84,7 +84,8 @@ This page contextualizes common steps and highlights the infrastructure required
 
     While you can write a script to extract these data from the output files of your job,
     there is almost definitely a routine to extract this data in either [ASE][ase],
-    [Pymatgen][pymatgen], or [cclib][cclib] so search the documentation of existing software for your use case.
+    [Pymatgen][pymatgen], or [cclib][cclib], so search the documentation of existing software
+    for your use case.
 
 7. **Analyze Results.**
 
