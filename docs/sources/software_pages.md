@@ -81,8 +81,11 @@ VASP is a proprietary, plane-wave-based code that we use for studying periodic s
 
 [Documentation][espresso]
 
-Quantum Espresso is an open-source plane-wave-based code that we use for studying
-periodic systems.
+From their webpage:
+
+> Quantum Espresso is an integrated suite of Open-Source computer codes for electronic-structure
+> calculations and materials modeling at the nanoscale. It is based on density-functional theory,
+> plane waves, and pseudopotentials.
 
 ## Gaussian
 
