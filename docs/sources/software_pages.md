@@ -64,6 +64,13 @@ setting up, manipulating, running, visualizing and analyzing atomistic simulatio
 
 Pymatgen (Python Materials Genomics) is an open-source Python library for materials analysis.
 
+## cclib
+
+[Documentation][cclib]
+
+cclib is an open source library, written in Python, for parsing and interpreting the results
+of computational chemistry packages.
+
 ## Vienna Ab Initio Simulation Package (VASP)
 
 [Documentation][vasp]
@@ -170,3 +177,4 @@ directories for calculations.
 [git-best-practices]: https://about.gitlab.com/topics/version-control/version-control-best-practices/
 [ccu]: http://python-comp-chem-utils.rtfd.io/
 [autojob]: http://python-autojob.readthedocs.io/
+[cclib]: https://cclib.github.io
