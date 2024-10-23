@@ -40,106 +40,116 @@ QuantumEspresso, and libxc software in this tutorial.
 
 ## Step-by-Step
 
-:female-technologist:  Here's a (not really) quick step-by-step to compile
-Quantum Espresso (QE) 7.2  :female-technologist:
+👩‍💻  Here's a (not really) quick step-by-step to compile
+Quantum Espresso (QE) 7.2  👩‍💻
 
-1. **Download the Intel OneAPI libraries** from [here][oneapi-libs].
+1.  **Download the Intel OneAPI libraries** from [here][oneapi-libs].
 
-2. **Copy the folder/archive of Intel OneAPI files** to where you
-   will install QE. This may be in your home directory (e.g., `/home/$USER`) or
-   a subdirectory of your project folder (e.g.,
-   `/home/$USER/projects/def-samiras/$USER/software_support`).
+2.  **Copy the folder/archive of Intel OneAPI files** to where you
+    will install QE. This may be in your home directory (e.g., `/home/USER`) or
+    a subdirectory of your project folder (e.g.,
+    `/home/USER/projects/def-samiras/USER/software_support`).
 
-   ```shell
-   scp -r oneapi_archive $USER@Cedar.computecanada.ca:/home/$USER/
-   ```
+    ```shell
+    scp -r oneapi_archive $USER@Cedar.computecanada.ca:/home/$USER/
+    ```
 
-   :note: These libraries are from the [OneAPI suite][oneapi-suite], however,
-   only the current year's libraries are available for download for free. The
-   2024 libraries were tested and they did not work for QE compilation on
-   Cedar. The 2022 have been confirmed to worked. Both the 2022 and 2023
-   libraries are included in the shared folder from step 1.
+    where `USER` is your Digital Research Alliance (DRA) username.
 
-3. **Install the Base Toolkit.** (This could take up to 30 minutes.)
-   Navigate to where you copied the folder on Cedar
+    !!! note
 
-   ```shell
-   $SHELL l_BaseKit_p_2022.1.1.119.sh
-   ```
+        These libraries are from the [OneAPI suite][oneapi-suite], however,
+        only the current year's libraries are available for download for free. The
+        2024 libraries were tested and they did not work for QE compilation on
+        Cedar. The 2022 have been confirmed to worked. Both the 2022 and 2023
+        libraries are included in the shared folder from step 1.
 
-   This will install the Base Toolkit under the directory
-   `/home/USER/intel/oneapi` (where `USER` is your DRA username).
+3.  **Install the Base Toolkit.** (This could take up to 30 minutes.)
+    Navigate to where you copied the folder on Cedar
 
-   Optionally, you can change the installation location by opting to
-   customize the installation (select "Accept & customize installation" prior
-   to starting the installation process).
+    ```shell
+    $SHELL l_BaseKit_p_2022.1.1.119.sh
+    ```
 
-   ![Base Toolkit Installer Homepage](images/basetoolkit_welcome.png)
+    This will install the Base Toolkit under the directory
+    `/home/USER/intel/oneapi` (where `USER` is your DRA username).
 
-   You may want to do this if you would like the libraries to be accessible
-   for others, in which case, change the default installation directory to a
-   subdirectory of the project folder. For example,
+    Optionally, you can change the installation location by opting to
+    customize the installation (select "Accept & customize installation" prior
+    to starting the installation process).
 
-   ![Base Toolkit Customization](images/basetoolkit_customization.png)
+    ![Base Toolkit Installer Homepage](images/basetoolkit_welcome.png)
 
-   :warning: You may receive warnings about the operating system being
-   "Unknown" or missing packages required for the Intel® VTune(TM) Profiler,
-   but you can ignore these.
+    You may want to do this if you would like the libraries to be accessible
+    for others, in which case, change the default installation directory to a
+    subdirectory of the project folder. For example,
 
-   :note: You can skip the Eclipse* IDE Integration Configuration step.
+    ![Base Toolkit Customization](images/basetoolkit_customization.png)
 
-4. **Install the HPC Toolkit.** (This shouldn't take more than a few minutes.)
+    !!! warning
 
-   ```shell
-   $SHELL l_HPCKit_p_2022.1.1.97.sh
-   ```
+        You may receive warnings about the operating system being
+        "Unknown" or missing packages required for the Intel® VTune(TM) Profiler,
+        but you can ignore these.
 
-   Again, you may want to specify a custom installation location. In that case,
-   it is reasonable to create a `oneapi` directory as a subdirectory of the
-   custom location specified for the Base Toolkit and use this as the
-   installation location.
+4.  **Install the HPC Toolkit.** (This shouldn't take more than a few minutes.)
 
-   At this point, the directory that was chosen as the installation location
-   should be populated with the Intel libraries, and there should be a file
-   called `setvars.sh`, which when sourced (e.g., `source setvars.sh`), should
-   give you a list of modules loaded in the environment. Check this step prior
-   to QE compilation.
+    ```shell
+    $SHELL l_HPCKit_p_2022.1.1.97.sh
+    ```
 
-5. **Download Quantum Espresso 7.3.1**. You can get QE [here][qe-7.3.1].
-   Alternatively, you can just go to their homepage, register your email,
-   and go to Downloads > to find the latest version.
+    Again, you may want to specify a custom installation location. In that case,
+    it is reasonable to create a `oneapi` directory as a subdirectory of the
+    custom location specified for the Base Toolkit and use this as the
+    installation location.
 
-6. **Copy the downloaded `QE.tar` file to Cedar and extract it**.
+    At this point, the directory that was chosen as the installation location
+    should be populated with the Intel libraries, and there should be a file
+    called `setvars.sh`, which when sourced (e.g., `source setvars.sh`), should
+    give you a list of modules loaded in the environment. Check this step prior
+    to QE compilation.
 
-7. **Forcibly purge your loaded modules** and reload the Gentoo Linux module.
+5.  **Download Quantum Espresso 7.3.1**. You can get QE [here][qe-7.3.1].
+    Alternatively, you can just go to their homepage, register your email,
+    and go to Downloads > to find the latest version.
 
-   ```shell
-   module --force purge
-   module load gentoo/2020
-   ```
+6.  **Copy the downloaded `QE.tar` file to Cedar and extract it**.
 
-   :warning: This is important: the main problem with Cedar seems to be some
-   library/ies dependency, so make sure you run module --force purge before
-   moving on.
+7.  **Forcibly purge your loaded modules** and reload the Gentoo Linux module.
 
-   :note: The Gentoo Linux module provides access to the `git` CLI utility
-   which is needed to configure the Environ module.
+    ```shell
+    module --force purge
+    module load gentoo
+    ```
 
-8. **Setup the Intel environment.**
+    !!! warning
 
-   ```shell
-   source /path/to/setvars.sh
-   ```
+        This is important: the main problem with Cedar seems to be some
+        library/ies dependency, so make sure you run module --force purge before
+        moving on.
 
-9. **Locate the root directory for libxc.**
-   On Cedar, this directory is found at
-   `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcc12/libxc/6.2.2`
+    !!! note
 
-   :note: Note that the latest version of libxc (7.0.0) is not installed on
-   Cedar. However, installing libxc is quite straightforward. Instructions can
-   be found [here][libxc-installation].
+        The Gentoo Linux module provides access to the `git` CLI utility
+        which is needed to configure the Environ module.
 
-10. Ensure that the local language is set to the standard, i.e. ”C”.
+8.  **Setup the Intel environment.**
+
+    ```shell
+    source /path/to/setvars.sh
+    ```
+
+9.  **Locate the root directory for libxc.**
+    On Cedar, this directory is found at
+    `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcc12/libxc/6.2.2`
+
+    !!! note
+
+        Note that the latest version of libxc (7.0.0) is not installed on
+        Cedar. However, installing libxc is quite straightforward. Instructions can
+        be found [here][libxc-installation].
+
+10.  Ensure that the local language is set to the standard, i.e. ”C”.
 
     ```shell
     export LC_ALL=C
@@ -156,8 +166,10 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     or you can [download an archive][Environ-releases], copy it to Cedar, and
     then extract it into the QE folder.
 
-    :warning: The `Environ` folder should be inside of the Quantum Espresso
-    folder (e.g., `qe-X.Y.Z/Environ`).
+    !!! warning
+
+        The `Environ` folder should be inside of the Quantum Espresso
+        folder (e.g., `qe-X.Y.Z/Environ`).
 
 12. **Configure the QE compilation.**
 
@@ -184,8 +196,10 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     espresso_dir=/home/$USER/projects/def-samiras/$USER/software/espresso-X.Y.Z
     ```
 
-    :note: Note that these directories must be **absolute** paths (i.e., starting
-    with `/`).
+    !!! note
+    
+        Note that these directories must be **absolute** paths (i.e., starting
+        with `/`).
 
     Run the `configure` script from inside the `qe-X.Y.Z` folder (where `X.Y.Z`
     is the QE version number).
@@ -194,20 +208,22 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     ./configure LIBDIRS="$intel_dir/mkl $intel_dir/mpi $intel_dir/compiler" --enable-parallel --with-scalapack=intel FC=ifort F90=ifort mpif90=mpiifort CC=icc mpicc=mpiicc --enable-signals --enable-exit-status --prefix=$espresso_dir
     ```
 
-    :note: This will take a while, (between minutes and hour-ish), so be sure
-    to have some time at this step. Keep an eye on what will come up at the
-    screen, because this will inform whether or not QE found the libraries
-    you told it to, or if it skipped any of them. It will also let you know
-    if the parallel compilation was successfully identified (QE has different
-    compilations for serial and parallel execution). Make sure it found all
-    dependencies you need before moving on. If you are unable to see all the
-    output from the command in your terminal, it may be useful to redirect
-    the standard output and standard error from the `./configure` comand to a
-    file:
+    !!! note
 
-    ```shell
-    ./configure LIBDIRS="$intel_dir/mkl $intel_dir/mpi $intel_dir/compiler" --enable-parallel --with-scalapack=intel FC=ifort F90=ifort mpif90=mpiifort CC=icc mpicc=mpiicc --enable-signals --enable-exit-status --prefix=$espresso_dir >&espresso.log
-    ```
+        This will take a while, (between minutes and hour-ish), so be sure
+        to have some time at this step. Keep an eye on what will come up at the
+        screen, because this will inform whether or not QE found the libraries
+        you told it to, or if it skipped any of them. It will also let you know
+        if the parallel compilation was successfully identified (QE has different
+        compilations for serial and parallel execution). Make sure it found all
+        dependencies you need before moving on. If you are unable to see all the
+        output from the command in your terminal, it may be useful to redirect
+        the standard output and standard error from the `./configure` comand to a
+        file:
+
+        ```shell
+        ./configure LIBDIRS="$intel_dir/mkl $intel_dir/mpi $intel_dir/compiler" --enable-parallel --with-scalapack=intel FC=ifort F90=ifort mpif90=mpiifort CC=icc mpicc=mpiicc --enable-signals --enable-exit-status --prefix=$espresso_dir >&espresso.log
+        ```
 
     This command will redirect all the configuration information to
     `espresso.log`.
@@ -230,8 +246,10 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     ./configure LIBDIRS="$intel_dir/mkl $intel_dir/mpi $intel_dir/compiler" --enable-parallel FC=ifort F90=ifort mpif90=mpiifort CC=icc mpicc=mpiicc --prefix=$espresso_dir
     ```
 
-    :note: It is very important to use the same libraries and parallelization
-    flags for Environ as for QE.
+    !!! note
+
+        It is very important to use the same libraries and parallelization
+        flags for Environ as for QE.
 
 15. **Compile Environ.**
 
@@ -256,14 +274,16 @@ Quantum Espresso (QE) 7.2  :female-technologist:
     cluster, so if you compile the default version, it will have the same
     libraries as the cluster version and likely have the same issues!
 
-    :note: **Tip**: To speed up the installation, you can spawn an interactive
-    job with multiple cores and run `make` in parallel. For example, if you
-    want to spawn a job with 16 cores, do the following:
+    !!! note
+    
+        **Tip**: To speed up the installation, you can spawn an interactive
+        job with multiple cores and run `make` in parallel. For example, if you
+        want to spawn a job with 16 cores, do the following:
 
-    ```shell
-    salloc --mem=32GB --ntasks-per-node=16 --nodes=1 --account=def-samiras --time=00:10:00
-    make -j16 all
-    ```
+        ```shell
+        salloc --mem=32GB --ntasks-per-node=16 --nodes=1 --account=def-samiras --time=00:10:00
+        make -j16 all
+        ```
 
     I've found that this scales linearly with 32 cores taking about 2 minutes
     to complete.
@@ -384,7 +404,7 @@ module --force purge
 source /home/USER/intel/oneapi/setvars.sh
 export PATH=$PATH:/home/USER/qe-7.2/bin/
 export PATH=$PATH:/home/USER/intel/oneapi/mpi/2021.5.0/bin
-/home/YOUR$USERNAME/intel/oneapi/mpi/2021.5.0/bin/mpirun -np XXX pw.x < espresso.in > espresso.out
+/home/YOUR$USERNAME/intel/oneapi/mpi/2021.5.0/bin/mpirun pw.x < espresso.in > espresso.out
 ```
 
 where `USER` is your DRA username.
@@ -394,8 +414,8 @@ following commands instead.
 
 ```shell
 module --force purge
-module load intel/2022.1.1 espresso/7.3.1
-mpirun -np XXX pw.x
+module load gentoo intel/2022.1.1 espresso/7.3.1
+mpirun pw.x
 ```
 
 If running Quantum Espresso with ASE in a script called `run.py`, add the
@@ -403,7 +423,7 @@ following commands instead.
 
 ```shell
 module --force purge
-module load intel/2022.1.1 espresso/7.3.1
+module load gentoo intel/2022.1.1 espresso/7.3.1
 
 # Load your Python environment here, if necessary
 
