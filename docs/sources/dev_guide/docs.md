@@ -80,10 +80,10 @@ To build the webpage,
 ## Building the PDF Version of the Guide
 
 To build the PDF version of the guide, you will need to install [Pandoc][pandoc] and a [LaTeX][latex]
-engine. Then run
+engine. Then, from the project root, run:
 
 ```bash
-cd docs/sources && pandoc --file-scope -s -o ../../comcat-lab-welcome-guide.pdf -f markdown -t pdf index.md quickstart.md workflows.md software_pages.md samples/*.md tutorials/*.md resources/{troubleshooting.md,links.md} dev_guide/* && cd ../../
+cd docs/sources || exit; pandoc --file-scope -s -o ../../comcat-lab-welcome-guide.pdf -f markdown -t pdf index.md quickstart.md nutshell.md software_pages.md samples/*.md tutorials/*.md resources/{tips.md,links.md} dev_guide/*; cd ../../ || exit
 ```
 
 As of now, the formatting for this is still problematic.
