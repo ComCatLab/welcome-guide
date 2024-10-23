@@ -107,14 +107,14 @@ particular sections.
   add `title=Name of the Title` inline with the code language. Check the
   [Python sample files](../samples/python.md) source code for examples.
 
-## Tutorials
+### Tutorials
 
 - Specify a "Last Updated" date when writing tutorials. Software is always
   changing, so a tutorial written today may not work tomorrow. Indicating
   when the tutorial was last updated gives users an idea of its currency
   and us an idea of what may need updating.
 
-## Tips
+### Tips
 
 - Describe the use-case/problem as completely as possible. This includes
   listing all relevant software and system information (and versions) and all
