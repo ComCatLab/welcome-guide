@@ -7,13 +7,17 @@ welcome guide. Building the documentation is covered [elsewhere](./docs.md).
 
 1. Install [Python 3.10][python] or greater.
 
-2. (Optional) Install [Hatch][install-hatch]. Handles environment management.
+2. (Optional) Install [Hatch][install-hatch]. Handles environment management
+   and provides some handy command-line functions to simplify documentation
+   building.
 
-3. (Optional) Install [Pandoc][pandoc]. Only required to build the PDF version of the guide.
+3. (Optional) Install [Pandoc][pandoc]. Only required to build the PDF version
+   of the guide.
 
 ## Getting the Source Files
 
-1. Create your own fork of the [Welcome Guide][welcome-guide] (look for the "Fork" button on GitHub).
+1. Create your own fork of the [Welcome Guide][welcome-guide] (look for the
+   "Fork" button on GitHub).
 
 2. Clone your fork.
 
