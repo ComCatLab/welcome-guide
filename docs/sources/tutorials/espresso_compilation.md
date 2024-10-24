@@ -1,6 +1,6 @@
 # :sparkles: Make your own Quantum ESPRESSO compilation :sparkles:
 
-Last Updated: October 18, 2024
+Last Updated: October 23, 2024
 
 ## Overview
 
@@ -24,9 +24,11 @@ which project directories are available, run:
 ls ~/projects
 ```
 
-Note that as of 2024/10/20, the installation instructions for Environ on the
-documentation are out-of-date for Environ 3+. The GitHub repository contains
-sparse instructions for Environ 3+ [here][Environ3-installation].
+!!! note
+
+    As of 2024/10/20, the installation instructions for Environ on the
+    documentation are out-of-date for Environ 3+. The GitHub repository contains
+    sparse instructions for Environ 3+ [here][Environ3-installation].
 
 A good practice for managing the installed software is to store the raw source
 code in a separate folder from where it is installed. For example, one can
@@ -122,9 +124,9 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
     module load gentoo
     ```
 
-    !!! warning
+    !!! important
 
-        This is important: the main problem with Cedar seems to be some
+        The main problem with Cedar seems to be some
         library/ies dependency, so make sure you run module --force purge before
         moving on.
 
@@ -145,7 +147,7 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
 
     !!! note
 
-        Note that the latest version of libxc (7.0.0) is not installed on
+        The latest version of libxc (7.0.0) is not installed on
         Cedar. However, installing libxc is quite straightforward. Instructions can
         be found [here][libxc-installation].
 
@@ -198,8 +200,7 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
 
     !!! note
     
-        Note that these directories must be **absolute** paths (i.e., starting
-        with `/`).
+        These directories must be **absolute** paths (i.e., starting with `/`).
 
     Run the `configure` script from inside the `qe-X.Y.Z` folder (where `X.Y.Z`
     is the QE version number).
@@ -276,7 +277,7 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
 
     !!! note
     
-        **Tip**: To speed up the installation, you can spawn an interactive
+        To speed up the installation, you can spawn an interactive
         job with multiple cores and run `make` in parallel. For example, if you
         want to spawn a job with 16 cores, do the following:
 
@@ -285,7 +286,7 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
         make -j16 all
         ```
 
-    I've found that this scales linearly with 32 cores taking about 2 minutes
+    I've found that this scales linearly, with 32 cores taking about 2 minutes
     to complete.
 
 17. **Install the executables.**
