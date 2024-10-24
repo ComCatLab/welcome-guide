@@ -88,7 +88,7 @@ root, run:
 [//]: # (Update this command whenever new files are added to the docs/source/ directory)
 
 ```bash
-cd docs/sources || exit; pandoc --file-scope -s -o ../../comcat-lab-welcome-guide.pdf -f markdown -t pdf index.md quickstart.md nutshell.md software_pages.md samples/{index,python,bash,slurm}.md tutorials/{index,*}.md resources/*.md dev_guide/*.md; cd ../../ || exit
+cd docs/sources || exit; pandoc --file-scope -s -o ../../comcat-lab-welcome-guide.pdf -f markdown -t pdf index.md quickstart.md nutshell.md software_pages.md samples/index.md samples/index.md samples/bash.md samples/python.md samples/slurm.md tutorials/index.md tutorials/index.md tutorials/ccdb.md tutorials/data_transfer.md tutorials/espresso_compilation.md tutorials/optimizing_requests.md tutorials/vasp_ir.md resources/*.md dev_guide/*.md; cd ../../ || exit
 ```
 
 If you have hatch configured, you can run:
