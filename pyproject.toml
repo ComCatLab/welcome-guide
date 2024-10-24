@@ -94,6 +94,10 @@ test-cov = "pytest -n auto --cov-branch --cov=src/autojob --cov-report=html --co
 features = ["docs"]
 detached = true
 
+[tool.hatch.envs.docs.scripts]
+# Update this command whenever new files are added to the docs/source/ directory
+build-pdf = "cd docs/sources || exit; pandoc --file-scope -s -o ../../comcat-lab-welcome-guide.pdf -f markdown -t pdf index.md quickstart.md nutshell.md software_pages.md samples/*.md tutorials/*.md resources/*.md dev_guide/*; cd ../../ || exit"
+
 [tool.hatch.envs.test]
 features = ["test"]
 
