@@ -114,13 +114,21 @@ particular sections.
   when the tutorial was last updated gives users an idea of its currency
   and us an idea of what may need updating.
 
-### Tips
+### Troubleshooting
 
-- Describe the use-case/problem as completely as possible. This includes
+- Describe the problem as completely as possible. This includes
   listing all relevant software and system information (and versions) and all
   necessary steps to reproduce the problem. If you consulted a resource to
   find the solution, it is also helpful to include links to these resources
   for reference.
+
+### Snippets
+
+- Describe the use-case as clearly as possible
+- Annotate your code so that someone who is not so familiar with the language
+  will be able to follow along with what each part of the code is trying to
+  achieve; if there are any tricky details, this is a good way to highlight
+  them!
 
 [git-workflow]: https://www.git-scm.com/book/en/v2/ch00/wfdiag_b
 [pull-requests]: https://github.com/ComCatLab/welcome-guide/pulls
