@@ -41,7 +41,7 @@ QuantumEspresso, and libxc software in this tutorial.
 ## Step-by-Step
 
 👩‍💻  Here's a (not really) quick step-by-step to compile
-Quantum Espresso (QE) 7.2  👩‍💻
+Quantum Espresso (QE) 7.3.1  👩‍💻
 
 1.  **Download the Intel OneAPI libraries** from [here][oneapi-libs].
 
@@ -402,7 +402,7 @@ calculations with QE.
 ```shell
 module --force purge
 source /home/USER/intel/oneapi/setvars.sh
-export PATH=$PATH:/home/USER/qe-7.2/bin/
+export PATH=$PATH:/home/USER/qe-7.3.1/bin/
 export PATH=$PATH:/home/USER/intel/oneapi/mpi/2021.5.0/bin
 /home/YOUR$USERNAME/intel/oneapi/mpi/2021.5.0/bin/mpirun pw.x < espresso.in > espresso.out
 ```
