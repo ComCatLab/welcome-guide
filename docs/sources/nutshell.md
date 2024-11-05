@@ -51,7 +51,7 @@ This page contextualizes common steps and highlights the infrastructure required
     documentation for the corresponding computational code. However, for many DFT codes,
     there are utilities that can help with the the creation of input parameter files:
 
-    - [ASE][ase]: of provides Python interface to input file generation for a number of
+    - [ASE][ase]: provides Python interface to input file generation for a number of
       computational chemistry codes
     - [MaterialsCloud][materials-cloud]: provides a graphical interface for generating
       QuantumEspresso input files
