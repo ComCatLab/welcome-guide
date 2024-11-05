@@ -32,7 +32,7 @@ ls ~/projects
 
 A good practice for managing the installed software is to store the raw source
 code in a separate folder from where it is installed. For example, one can
-keep the pre-compile source code in a `software_support` folder and install
+keep the pre-compiled source code in a `software_support` folder and install
 the software in a `software` folder. In this way, if one every has to
 compile the software, they can simply delete the associated subdirectory
 in `software` without having to worry about the source code. Additionally,
