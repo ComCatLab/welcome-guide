@@ -311,7 +311,7 @@ create modulefiles for Quantum Espresso and the Intel OneAPI libraries.
 ### Intel OneAPI
 
 Modulefiles solve the above problems and offer some additional benefits. In
-short, modulefiles provide a convenient way to dynamically change the users’
+short, modulefiles provide a convenient way to dynamically change the user's
 environment. This may involve modifying environment variables, defining shell
 functions, or loading other modulefiles. The Digital Research Alliance clusters
 use [Lmod][lmod] to manage modulefiles. Lmod provides the `sh_to_modulefile`
