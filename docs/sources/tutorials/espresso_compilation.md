@@ -315,8 +315,8 @@ short, modulefiles provide a convenient way to dynamically change the users’
 environment. This may involve modifying environment variables, defining shell
 functions, or loading other modulefiles. The Digital Research Alliance clusters
 use [Lmod][lmod] to manage modulefiles. Lmod provides the `sh_to_modulefile`
-utility. See [this tip](../resources/tips.md) for how to convert `setvars.sh`
-into a modulefile.
+utility. See [this tip](../resources/snippets.md#create-a-modulefile-from-a-script)
+for how to convert `setvars.sh` into a modulefile.
 
 Once you have created the modulefile, ensure that the file
 is in your `MODULEPATH` (this is controlled by the command `module use`). A

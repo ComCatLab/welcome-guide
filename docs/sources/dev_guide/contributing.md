@@ -5,7 +5,7 @@ and explains how to report issues/suggest new features.
 
 ## Development Workflow
 
-Assuming that you have [set up your environment](setup):
+Assuming that you have [set up your environment](./setup.md):
 
 1. Create and checkout a branch for your local changes.
 

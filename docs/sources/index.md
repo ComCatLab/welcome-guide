@@ -9,7 +9,7 @@ Welcome to the group! This guide introduces several of the key tools and service
 that are used in [ComCat Lab][comcat-lab] and examples of their use.
 
 You can view the complete guide in PDF form (`comcatlab-welcome-guide.pdf`), or,
-alternatively, you can [view the guide as a static webpage](dev_guide/docs.md#serving-the-webpage).
+alternatively, you can [view the guide as a static webpage](dev_guide/docs.md#building-the-webpage).
 
 The best way to learn is by doing! Start by picking a tutorial and trying to work
 through it. The tutorials are (relatively) well documented, though, they are not
@@ -25,15 +25,16 @@ Of course, if all else fails, don't hesitate to reach out to a group member!
 
 This guide has several valuable resources to help you get up to speed:
 
-- [**Workflows**](workflows.md): an overview of frequent workflows used with links to relevant software pages
+- [**Workflows**](nutshell.md): an overview of frequent workflows used with links to relevant software pages
 
 - [**Software Pages**](software_pages.md): introductions to the various tools used in ComCat Lab
 
 - [**Tutorials**](tutorials/index.md): walkthroughs for several common workflows/softwares
 
-- [**Sample Scripts**](samples/index.md): example Python and SLURM scripts
+- **Sample Scripts**: example [Python](samples/python.md) and
+  [SLURM](samples/slurm.md) scripts
 
-- [**Tips**](resources/tips.md): common issues and their resolutions/work-arounds
+- [**Tips**](resources/troubleshooting.md): common issues and their resolutions/work-arounds
 
 ## Prerequisites
 

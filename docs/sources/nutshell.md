@@ -46,10 +46,10 @@ This page contextualizes common steps and highlights the infrastructure required
     - additional files for the DFT code (e.g., pseudopotentials, wavefunction files, etc.)
 
     Python and submission script templates for several different job types are described
-    [here](./samples/index.md). The format for parameter files and additional files required by DFT
-    codes are generally specified in the documentation for the corresponding computational code.
-    However, for many DFT codes, there are utilities that can help with the the creation of
-    input parameter files:
+    [here](./samples/python.md) and [here](./samples/slurm.md). The format for parameter
+    files and additional files required by DFT codes are generally specified in the
+    documentation for the corresponding computational code. However, for many DFT codes,
+    there are utilities that can help with the the creation of input parameter files:
 
     - [ASE][ase]: of provides Python interface to input file generation for a number of
       computational chemistry codes

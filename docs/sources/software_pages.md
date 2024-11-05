@@ -13,7 +13,7 @@ Related:
 
 - [Creating a CCDB account](tutorials/ccdb.md)
 - [Transferring data to remote clusters](tutorials/data_transfer.md)
-- [Setting up your cluster environment](tutorials/cluster_setup.md)
+- [Setting up your cluster environment][cluster-setup]
 
 ## Slurm Workload Manager
 
@@ -181,3 +181,4 @@ directories for calculations.
 [ccu]: http://python-comp-chem-utils.rtfd.io/
 [autojob]: http://python-autojob.readthedocs.io/
 [cclib]: https://cclib.github.io
+[cluster-setup]: https://github.com/ComCatLab/cluster-setup
