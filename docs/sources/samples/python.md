@@ -5,8 +5,8 @@ in the [Python sample scripts folder][scripts].
 
 ## Run a VASP relaxation using the internal quasi-Newton optimization algorithm (RMM-DIIS) in VASP
 
-``` py title="samples/python/run.py"
---8<-- "./samples/python/run.py"
+``` py title="samples/python/run_vasp.py"
+--8<-- "./samples/python/run_vasp.py"
 ```
 
 !!! important "Reminder"
