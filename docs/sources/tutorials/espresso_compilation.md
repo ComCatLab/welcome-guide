@@ -63,8 +63,8 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
         These libraries are from the [OneAPI suite][oneapi-suite], however,
         only the current year's libraries are available for download for free. The
         2024 libraries were tested and they did not work for QE compilation on
-        Cedar. The 2022 have been confirmed to have worked. Both the 2022 and 2023
-        libraries are included in the shared folder from step 1.
+        Cedar. The 2022 libraries have been confirmed to have worked. Both the
+        2022 and 2023 libraries are included in the shared folder from step 1.
 
 3.  **Install the Base Toolkit.** (This could take up to 30 minutes.)
     Navigate to where you copied the folder on Cedar
