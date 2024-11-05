@@ -53,7 +53,7 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
     `/home/USER/projects/def-samiras/USER/software_support`).
 
     ```shell
-    scp -r oneapi_archive $USER@Cedar.computecanada.ca:/home/$USER/
+    scp -r oneapi_archive USER@cedar.computecanada.ca:/home/USER/
     ```
 
     where `USER` is your Digital Research Alliance (DRA) username.
