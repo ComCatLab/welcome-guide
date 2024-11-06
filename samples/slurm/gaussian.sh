@@ -75,8 +75,7 @@ fi
 
 # Pass memory request, cpu list, and scratch directory to Gaussian
 export GAUSS_MDEF="${SLURM_MEM_PER_NODE}MB"
-GAUSS_CDEF=$(taskset -cp $$ | awk -F':' '{print $2}')
-export GAUSS_CDEF
+export GAUSS_CDEF=$(taskset -cp $$ | awk -F':' '{print $2}')
 export GAUSS_SCRDIR=${TMP_WORK_DIR}
 
 TMP_BASE_DIR="$(dirname "$TMP_WORK_DIR")"
