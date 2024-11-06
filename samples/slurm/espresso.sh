@@ -22,9 +22,8 @@ fi
 
 unset LANG
 
-module purge
-module load gaussian/g16.c01
-module load python/3.11.9
+module --force purge
+module load gentoo/2020 python/3.11.9 espresso
 
 # Replace "$COMP_CHEM_ENV" with the path to your Python virtual environment
 source "$COMP_CHEM_ENV"
@@ -73,11 +72,6 @@ else
   TMP_WORK_DIR="$(pwd)"
 fi
 
-# Pass memory request, cpu list, and scratch directory to Gaussian
-export GAUSS_MDEF="${SLURM_MEM_PER_NODE}MB"
-export GAUSS_CDEF=$(taskset -cp $$ | awk -F':' '{print $2}') 
-export GAUSS_SCRDIR=${TMP_WORK_DIR}
-
 TMP_BASE_DIR="$(dirname "$TMP_WORK_DIR")"
 JOB_WORK_DIR="$(basename "$TMP_WORK_DIR")"
 
@@ -87,6 +81,9 @@ echo "JOB_WORK_DIR         = ${JOB_WORK_DIR}"
 
 # Creating a symbolic link to temporary directory holding work files while job running
 
+if ! test -e "${TMP_WORK_DIR}"; then
+  mkdir "${TMP_WORK_DIR}"
+fi
 ln -s "${TMP_WORK_DIR}" scratch_dir
 cd "${TMP_WORK_DIR}" || exit
 
@@ -96,9 +93,9 @@ echo " "
 
 script_name="${BASH_SOURCE[0]}"
 export AUTOJOB_SLURM_SCRIPT="$(basename "$script_name")"
-export AUTOJOB_PYTHON_SCRIPT="run.py"
-export AUTOJOB_COPY_TO_SCRATCH="*.chk,*.py,*.traj,*.rwf"
-cp -v "$SLURM_SUBMIT_DIR"/{*.chk,*.py,*.traj,*.rwf} "$TMP_WORK_DIR"/
+export AUTOJOB_PYTHON_SCRIPT="{{ python_script }}"
+export AUTOJOB_COPY_TO_SCRATCH="CHGCAR,,*py,*cif,POSCAR,coord,*xyz,*.traj,CONTCAR,*.pkl,*xml,WAVECAR"
+cp -v "$SLURM_SUBMIT_DIR"/{CHGCAR,,*py,*cif,POSCAR,coord,*xyz,*.traj,CONTCAR,*.pkl,*xml,WAVECAR} "$TMP_WORK_DIR"/
 
 echo " "
 
@@ -157,7 +154,7 @@ echo " "
 echo "### Cleaning up files ... removing unnecessary scratch files ..."
 echo " "
 
-AUTOJOB_FILES_TO_DELETE="*.d2e *.int *.rwf *.skr *.inp"
+AUTOJOB_FILES_TO_DELETE="*.mix* *.wfc*"
 rm -vf "$AUTOJOB_FILES_TO_DELETE"
 sleep 10 # Sleep some time so potential stale nfs handles can disappear.
 

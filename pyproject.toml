@@ -28,17 +28,46 @@ classifiers = [
   "Topic :: Scientific/Engineering :: Chemistry",
   "Topic :: Scientific/Engineering :: Physics",
 ]
+dependencies = [
+  # 2024-05-03
+  "ase>=3.23.0",
+  # 2024-07-23
+  "numpy>=1.24.2,<2.0.0",
+  # 2024-06-10
+  "pymatgen>=2024.6.10",
+  # 2024-03-18
+  "cclib==1.8",
+]
+
+[project.optional-dependencies]
+test = [
+  # 2024-07-20
+  "pytest>=8.3.1",
+  # 2024-03-24
+  "pytest-cov>=5.0.0",
+  # 2023-10-03
+  "pytest-datadir>=1.5.0",
+  # 2024-04-28
+  "pytest-xdist>=3.6.1",
+]
+dev = [
+  # 2024-05-10
+  "pre-commit>=3.7.0",
+]
+docs = [
+  # 2024-04-20
+  "mkdocs>=1.6.0",
+  # 2024-07-23
+  "mkdocs-material>=9.5.30",
+  # 2022-08-1
+  "mdx_truly_sane_lists>=1.3"
+]
 
 [project.urls]
 Documentation = "https://github.com/ComCatLab/welcome-guide/README.md"
 PRs = "https://github.com/ComCatLab/welcome-guide/pull"
 Issues = "https://github.com/ComCatLab/welcome-guide/issues"
 Source = "https://github.com/ComCatLab/welcome-guide"
-
-[tool.black]
-target-version = ["py310", "py311", "py312"]
-line-length = 79
-skip-string-normalization = true
 
 [tool.coverage.run]
 branch = true
@@ -52,70 +81,25 @@ exclude_lines = [
 ]
 
 [tool.hatch.envs.default]
-dependencies = [
-  "ase==3.23.0",  # 2024-05-03
-  "numpy>=1.24.2",
-  "pymatgen>=2024.6.10",
-  "cclib==1.8",
-  "mkdocs",
-  "mkdocs-material",
-  "mypy==1.10.0",
-  "pytest==8.2.2",
-  "pytest-cov==5.0.0",
-  "pytest-datadir==1.5.0",
-  "pytest-xdist==3.6.1",
-  "ruff==0.5.0",
-]
+# use "features" until PEP 735 decided upon
+# https://discuss.python.org/t/pep-735-dependency-groups-in-pyproject-toml/39233/7
+features = ["test", "dev", "docs"]
 python = "3.11"
-
-[tool.hatch.envs.tutorials]
-dependencies = [
-  "ase @ git+https://gitlab.com/ase/ase.git@development",  # 2023-12-03
-  "numpy>=1.24.2",
-  "pymatgen>=2024.6.10",
-  "cclib==1.8",
-]
 
 [tool.hatch.envs.default.scripts]
 test = "pytest {args:tests}"
 test-cov = "pytest -n auto --cov-branch --cov=src/autojob --cov-report=html --cov-report=lcov --cov-report=xml --cov-report=term-missing {args:tests/}"
 
 [tool.hatch.envs.docs]
-dependencies = [
-    "mkdocs",
-    "mkdocs-material",
-]
+features = ["docs"]
 detached = true
 
-[tool.hatch.envs.lint]
-detached = true
-dependencies = [
-  "mypy==1.10.0",
-  "ruff==0.5.0",
-]
-python = "3.11"
-
-[tool.hatch.envs.lint.scripts]
-typing = "mypy --strict --install-types --non-interactive src/autojob/ tests/"
-style = [
-  "ruff {args:.}",
-]
-fmt = [
-  "ruff format {args:.}",
-  "style",
-]
-all = [
-  "style",
-  "typing",
-]
+[tool.hatch.envs.docs.scripts]
+# Update this command whenever new files are added to the docs/source/ directory
+build-pdf = "cd docs/sources || exit; pandoc --file-scope -s -o ../../comcat-lab-welcome-guide.pdf -f markdown -t pdf index.md quickstart.md nutshell.md software_pages.md samples/index.md samples/index.md samples/bash.md samples/python.md samples/slurm.md tutorials/index.md tutorials/index.md tutorials/ccdb.md tutorials/data_transfer.md tutorials/espresso_compilation.md tutorials/optimizing_requests.md tutorials/vasp_ir.md resources/*.md dev_guide/*.md; cd ../../ || exit"
 
 [tool.hatch.envs.test]
-dependencies = [
-  "pytest==8.2.2",
-  "pytest-cov==5.0.0",
-  "pytest-datadir==1.5.0",
-  "pytest-xdist==3.6.1",
-]
+features = ["test"]
 
 [[tool.hatch.envs.test.matrix]]
 python = [
@@ -123,8 +107,6 @@ python = [
   "3.11",
   "3.12",
 ]
-[tool.hatch.envs.tutorials.scripts]
-export = "pip freeze > tutorial_requirements.txt"
 
 [tool.hatch.metadata]
 allow-direct-references = true
@@ -132,6 +114,7 @@ allow-direct-references = true
 [[tool.mypy.overrides]]
 module = "pymatgen"
 ignore_missing_imports = true
+strict = true
 
 [tool.pytest.ini_options]
 addopts = [
@@ -159,35 +142,20 @@ python_files = [
 testpaths = ["tests"]
 
 [tool.ruff]
+target-version = "py310"
 line-length = 79
-src = ["src", "tests"]
-target-version = "py311"
-
-[tool.ruff.format]
-docstring-code-format = true
-docstring-code-line-length = 79
-
-[tool.ruff.lint]
+src = ["tests"]
 ignore = [
-    "D203", # pydocstyle one-blank-line-before-class
-    "D213", # pydocstyle multi-line-summary-second-line
-    "D300", # pydocstyle triple-single-quotes
-    "D406", # pydocstyle new-line-after-section-name
-    "D407", # pydocstyle dashed-underline-after-section
-    "E111", # pycodestyle indentation-with-invalid-multiple
-    "E114", # pycodestyle indentation-with-invalid-multiple-comment
-    "E117", # pycodestyle over-indented
-    "E501", # pycodestyle line-too-long
-    "PLR0913", # pylint too-many-arguments
-    "Q000", # flake8-quotes bad-quotes-inline-string
-    "Q001", # flake8-quotes bad-quotes-multiline-string
-    "Q002", # flake8-quotes bad-quotes-docstring
-    "Q003", # flake8-quotes avoidable-escaped-quote
-    "RUF001", # ruff-specific rules ambiguous-unicode-character-string
-    "S101", # flake8-bandit assert
-    "S308", # flake8-bandit suspicious-mark-safe-usage
-    "S603", # flake8-bandit subprocess-without-shell-equals-true
-    "W191", # pycodestyle tab-indentation
+  # Allow non-abstract empty methods in abstract base classes
+  "B027",
+  # Allow boolean positional values in function calls, like `dict.get(... True)`
+  "FBT003",
+  # Ignore checks for possible passwords
+  "S105", "S106", "S107", "S603",
+  # Ignore complexity
+  "C901", "PLR0911", "PLR0912", "PLR0913", "PLR0915",
+  # single-lint implicity string concatenation
+  "ISC001",
 ]
 select = [
     "ARG", # flake8-unused-arguments
@@ -233,22 +201,16 @@ inline-quotes = "double"
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
 
-[tool.ruff.lint.flake8-type-checking]
-runtime-evaluated-base-classes = ["pydantic.BaseModel"]
-
-[tool.ruff.lint.isort]
+[tool.ruff.isort]
 forced-separate = ["conftest"]
 force-single-line = true
 force-sort-within-sections = true
 split-on-trailing-comma = false
-known-first-party = ["autojob"]
+known-first-party = ["welcome_guide"]
 
-[tool.ruff.lint.per-file-ignores]
-"**/{tests,docs,tools}/*" = ["E402"]  # allow module-import-not-at-top-of-file
-"__init__.py" = ["E402"]  # allow module-import-not-at-top-of-file
-"__main__.py" = ["D100"]
+[tool.ruff.per-file-ignores]
 # Tests can use magic values, assertions, and relative imports
-"tests/**/*" = ["D", "PLR2004", "S101", "TID252"]
+"tests/**/*" = ["PLR2004", "S101", ]
 "conf.py" = [
     "A001",
     "ARG001",
