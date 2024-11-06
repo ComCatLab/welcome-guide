@@ -51,12 +51,15 @@ def test_should_create_nickel_slab(nickel_slab: Atoms, tmp_path: Path) -> None:
     # Add silver atom
     h = 1.9
     relative = (1 / 6, 1 / 6, 0.5)
-    absolute = (*np.dot(relative, nickel_slab.cell), 0, 0, h)
+    absolute = np.dot(relative, nickel_slab.cell) + np.array([0, 0, h])
     nickel_slab.append("Ag")
     nickel_slab.positions[-1] = absolute
 
     # Write file
     xyz_file = tmp_path.joinpath("slab.xyz")
+
+    # Cannot save adsorbate info in XYZ file
+    nickel_slab.info.pop("adsorbate_info")
     nickel_slab.write(xyz_file)
 
     assert xyz_file.exists()
