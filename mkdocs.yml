@@ -28,7 +28,7 @@ nav:
     - 'Setting Up': 'dev_guide/setup.md'
     - Contributing: 'dev_guide/contributing.md'
     - 'dev_guide/docs.md'
-    - 'testing.md'
+    - 'dev_guide/testing.md'
 
 theme:
   name: material
