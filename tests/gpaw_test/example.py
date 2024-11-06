@@ -1,27 +1,26 @@
-#!/usr/bin/python3
-
 from ase import Atoms
+import pytest
 
-atoms = Atoms("N2", positions=[[0, 0, -1], [0, 0, 1]])
+try:
+    from gpaw import GPAW
+except ImportError:
+    GPAW = None
 
-# from ase.visualize import view
-# view(atoms)
 
-from ase.io import write
+@pytest.mark.calculator
+@pytest.mark.skipif(GPAW is None, reason="GPAW is not installed")
+def test_gpaw_calculator() -> None:
+    atoms = Atoms("N2", positions=[[0, 0, -1], [0, 0, 1]])
+    atoms.write("myatoms.traj")
+    calc = GPAW(mode="lcao", basis="dzp", txt="gpaw.txt", xc="LDA")
 
-write("myatoms.traj", atoms)
+    atoms.calc = calc
 
-from gpaw import GPAW
+    atoms.center(vacuum=3.0)
+    print(atoms)
 
-calc = GPAW(mode="lcao", basis="dzp", txt="gpaw.txt", xc="LDA")
+    e = atoms.get_potential_energy()
+    print("The Energy is: ", e)
 
-atoms.calc = calc
-
-atoms.center(vacuum=3.0)
-print(atoms)
-
-e = atoms.get_potential_energy()
-print("The Energy is: ", e)
-
-f = atoms.get_forces()
-print("Forces \n", f)
+    f = atoms.get_forces()
+    print("Forces \n", f)
