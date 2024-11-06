@@ -147,6 +147,9 @@ addopts = [
 filterwarnings =[
   "error",
 ]
+markers = [
+  "calculator: requires a call to an external calculator (deselect with '-m \"not calculator\"')",
+]
 norecursedirs = "migrations"
 python_files = [
   "test_*.py",
