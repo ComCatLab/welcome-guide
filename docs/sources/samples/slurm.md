@@ -76,7 +76,7 @@ etc.).
 
 === "Gaussian"
 
-    ``` py title="samples/slurm/gaussian.sh" linenums="1" hl_lines="98"
+    ``` py title="samples/slurm/gaussian.sh" linenums="1" hl_lines="101"
     --8<-- "./samples/slurm/gaussian.sh"
     ```
 
@@ -88,7 +88,7 @@ etc.).
 
 !!! Tip
 
-    Edit the [brace expansion][brace-expansion] in line 96 or 98 to change the
+    Edit the [brace expansion][brace-expansion] in line 96 or 101 to change the
     files copied to the scratch directory.
 
 !!! Reminder
