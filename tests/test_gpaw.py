@@ -1,6 +1,5 @@
 from ase import Atoms
 from ase.io import iread
-from ase.io import write
 from ase.io.trajectory import Trajectory
 import matplotlib.pyplot as plt
 import pytest
@@ -13,6 +12,25 @@ except ImportError:
 
 @pytest.mark.calculator
 @pytest.mark.skipif(GPAW is None, reason="GPAW is not installed")
+def test_gpaw_calculator() -> None:
+    atoms = Atoms("N2", positions=[[0, 0, -1], [0, 0, 1]])
+    atoms.write("myatoms.traj")
+    calc = GPAW(mode="lcao", basis="dzp", txt="gpaw.txt", xc="LDA")
+
+    atoms.calc = calc
+
+    atoms.center(vacuum=3.0)
+    print(atoms)
+
+    e = atoms.get_potential_energy()
+    print("The Energy is: ", e)
+
+    f = atoms.get_forces()
+    print("Forces \n", f)
+
+
+@pytest.mark.calculator
+@pytest.mark.skipif(GPAW is None, reason="GPAW is not installed")
 def test_should_perform_gpaw_calculation() -> None:
     # Creates an N2 molecule with z positions of the N atoms
     atoms = Atoms("N2", positions=[[0.0, 0.0, -1.0], [0.0, 0.0, 1.0]])
@@ -20,7 +38,7 @@ def test_should_perform_gpaw_calculation() -> None:
     # Loads the N2 into the ase gui and displays them
     # view(atoms)
 
-    write("myatoms.traj", atoms)
+    atoms.write("myatoms.traj")
 
     calc = GPAW(mode="lcao", basis="dzp", txt="gpaw.txt", xc="LDA")
 
