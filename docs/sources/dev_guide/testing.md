@@ -84,7 +84,7 @@ def test_should_create_co2_molecule(co2: Atoms) -> None:
             "Ni", size=[1, 2, 1], a=3.55, orthogonal=True
         )
         assert "Ni" in nickel_unit_cell.symbols
-    
+
     def test_should_have_positive_lattice_constant() -> None:
         nickel_unit_cell = fcc111(
             "Ni", size=[1, 2, 1], a=3.55, orthogonal=True
@@ -104,10 +104,10 @@ def test_should_create_co2_molecule(co2: Atoms) -> None:
             "Ni", size=[1, 2, 1], a=3.55, orthogonal=True
         )
         return nickel_unit_cell
-    
+
     def test_should_contain_nickel(nickel_unit_cell: Atoms) -> None:
         assert "Ni" in nickel_unit_cell.symbols
-    
+
     def test_should_have_positive_lattice_constant(nickel_unit_cell: Atoms) -> None:
         assert (nickel_unit_cell.cell[0] @ nickel_unit_cell.cell[0])**(1/2) > 0
     ```
@@ -204,19 +204,19 @@ The above snippet deselects all tests marked with the "calculator" marker.
         rootdir: ~/welcome-guide
         configfile: pyproject.toml
         plugins: datadir-1.5.0, cov-5.0.0, xdist-3.6.1
-        8 workers [5 items]     
+        8 workers [5 items]
         scheduling tests via LoadScheduling
 
-        tests/test_atom_manipulations.py::test_should_create_slab_with_water_layer 
-        tests/test_vasp.py::test_vasp_calculator 
-        [gw4] [ 20%] SKIPPED tests/test_vasp.py::test_vasp_calculator 
-        tests/test_gpaw.py::test_gpaw_calculator 
-        [gw2] [ 40%] SKIPPED tests/test_gpaw.py::test_gpaw_calculator 
-        tests/test_gpaw.py::test_should_perform_gpaw_calculation 
-        [gw3] [ 60%] SKIPPED tests/test_gpaw.py::test_should_perform_gpaw_calculation 
-        tests/test_atom_manipulations.py::test_should_create_nickel_slab 
-        [gw0] [ 80%] PASSED tests/test_atom_manipulations.py::test_should_create_nickel_slab 
-        [gw1] [100%] PASSED tests/test_atom_manipulations.py::test_should_create_slab_with_water_layer 
+        tests/test_atom_manipulations.py::test_should_create_slab_with_water_layer
+        tests/test_vasp.py::test_vasp_calculator
+        [gw4] [ 20%] SKIPPED tests/test_vasp.py::test_vasp_calculator
+        tests/test_gpaw.py::test_gpaw_calculator
+        [gw2] [ 40%] SKIPPED tests/test_gpaw.py::test_gpaw_calculator
+        tests/test_gpaw.py::test_should_perform_gpaw_calculation
+        [gw3] [ 60%] SKIPPED tests/test_gpaw.py::test_should_perform_gpaw_calculation
+        tests/test_atom_manipulations.py::test_should_create_nickel_slab
+        [gw0] [ 80%] PASSED tests/test_atom_manipulations.py::test_should_create_nickel_slab
+        [gw1] [100%] PASSED tests/test_atom_manipulations.py::test_should_create_slab_with_water_layer
 
         =========================================================== PASSES ===========================================================
         ================================================== short test summary info ===================================================

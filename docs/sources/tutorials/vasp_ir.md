@@ -20,7 +20,7 @@ This tutorial covers how to calculate IR spectra using VASP.
    - `POTIM`: should be set to a very small number; the default is 0.015
      but a valid number can be obtained by progressively increasing from 0.015
      and comparing with the results from a DFPT phonon calculation
-  
+
    Additionally, the calculation must be a gamma-point only calculation since
    [as of 4/17/2024, VASP DFPT only works for $q = \Gamma$][MM-answer].
    Also note that, depending on how you run VASP, a separate executable may be

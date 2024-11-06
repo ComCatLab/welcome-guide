@@ -5,7 +5,7 @@
 #SBATCH --time=00:10:00
 #SBATCH --ntasks=4
 #SBATCH --mem-per-cpu=3G
-#SBATCH --account=$SBATCH_ACCOUNT 
+#SBATCH --account=$SBATCH_ACCOUNT
 #SBATCH --mail-user=[Alliance-linked-email-address
 #SBATCH --mail-type=BEGIN,END,TIME_LIMIT,TIME_LIMIT_90,FAIL
 
