@@ -5,8 +5,8 @@
 #SBATCH --time=00:10:00
 #SBATCH --ntasks=4
 #SBATCH --mem-per-cpu=3G
-#SBATCH --account=$SBATCH_ACCOUNT 
-#SBATCH --mail-user=rebecca_gerber@sfu.ca
+#SBATCH --account=$SBATCH_ACCOUNT
+#SBATCH --mail-user=[Alliance-linked-email-address
 #SBATCH --mail-type=BEGIN,END,TIME_LIMIT,TIME_LIMIT_90,FAIL
 
 # This loads the preliminary modules necessary for VASP, then modules necessary for ASE environment, and finally loads VASP
