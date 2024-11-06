@@ -1,10 +1,10 @@
 # Standard imports for ase
 from pathlib import Path
 
-from ase import Atoms
-from ase.build import fcc111
 import numpy as np
 import pytest
+from ase import Atoms
+from ase.build import fcc111
 
 
 @pytest.fixture(name="water_layer")
@@ -25,9 +25,7 @@ def fixture_water_layer() -> Atoms:
             [6.01881192, -0.08627583, 12.1789428],
         ]
     )
-    c = np.array(
-        [[8.490373, 0.0, 0.0], [0.0, 4.901919, 0.0], [0.0, 0.0, 26.93236]]
-    )
+    c = np.array([[8.490373, 0.0, 0.0], [0.0, 4.901919, 0.0], [0.0, 0.0, 26.93236]])
     water_layer = Atoms("4(OH2)", positions=p, cell=c, pbc=[1, 1, 0])
     water_layer.cell = [water_layer.cell[1, 1], water_layer.cell[0, 0], 0.0]
     water_layer.rotate(90, "z", center=(0, 0, 0))
@@ -43,9 +41,7 @@ def fixture_lattice_constant() -> float:
 
 @pytest.fixture(name="nickel_slab")
 def fixture_nickel_slab(lattice_constant: float) -> Atoms:
-    nickel_slab = fcc111(
-        "Ni", size=[2, 4, 3], a=lattice_constant, orthogonal=True
-    )
+    nickel_slab = fcc111("Ni", size=[2, 4, 3], a=lattice_constant, orthogonal=True)
     return nickel_slab
 
 
@@ -55,15 +51,12 @@ def test_should_create_nickel_slab(nickel_slab: Atoms, tmp_path: Path) -> None:
     # Add silver atom
     h = 1.9
     relative = (1 / 6, 1 / 6, 0.5)
-    absolute = np.dot(relative, nickel_slab.cell) + np.array([0, 0, h])
+    absolute = (*np.dot(relative, nickel_slab.cell), 0, 0, h)
     nickel_slab.append("Ag")
     nickel_slab.positions[-1] = absolute
 
     # Write file
     xyz_file = tmp_path.joinpath("slab.xyz")
-
-    # Cannot save adsorbate info in XYZ file
-    nickel_slab.info.pop("adsorbate_info")
     nickel_slab.write(xyz_file)
 
     assert xyz_file.exists()
