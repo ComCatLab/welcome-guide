@@ -20,15 +20,13 @@ def test_should_create_existing_temporary_directory(tmp_path: Path) -> None:
     assert tmp_path.exists()
 ```
 
-Some notes:
-
 - This test check tests that the temporary directory provided exists. If the
   directory does not exist, the assertion will raise an error and `pytest` will
   report that the test fails.
 - This test requests the [`tmp_path`][tmp-path] fixture.
-- **Each test should be contained in a function**.
-- **Tests should be relatively simple** (this is the idea of "unit-testing").
-- **Test functions should have descriptive names** of the form
+- Each test should be contained in a function.
+- Tests should be relatively simple (this is the idea of "unit-testing").
+- Test functions should have descriptive names of the form
   `test_should_do_something` (where `do_something` is replaced with the
   expected behaviour of the test). It is okay if the name is long or verbose.
   Clarity is the main priority. Someone should be able to get an idea of what
@@ -37,11 +35,11 @@ Some notes:
   what a function should test, that may be a sign that it needs to be broken up
   into smaller tests.
 - Strictly speaking, the return annotation for tests should be `None`.
-- **The condition for a test should be checked with an `assert` statement.**
+- The condition for a test should be checked with an `assert` statement.
 
-### Using `pytest` Fixtures
+### Using Fixtures
 
-[`pytest` Fixtures][fixtures] are functions that return a value or perform an action
+[Fixtures][fixtures] are functions that return a value or perform an action
 and can be "requested" by test functions. By "requested", we mean that a test
 function can require that the fixture function is executed and, optionally,
 that its output be provided to the test function. For example, a fixture may
@@ -74,26 +72,7 @@ def test_should_create_co2_molecule(co2: Atoms) -> None:
 !!! Tip
 
     If you notice that you are using the same variable in multiple tests, this
-    is a great use-case for fixtures! For example:
-
-    ```python
-    from ase.build import fcc111
-
-    def test_should_contain_nickel() -> None:
-        nickel_unit_cell = fcc111(
-            "Ni", size=[1, 2, 1], a=3.55, orthogonal=True
-        )
-        assert "Ni" in nickel_unit_cell.symbols
-
-    def test_should_have_positive_lattice_constant() -> None:
-        nickel_unit_cell = fcc111(
-            "Ni", size=[1, 2, 1], a=3.55, orthogonal=True
-        )
-        assert (nickel_unit_cell.cell[0] @ nickel_unit_cell.cell[0])**(1/2) > 0
-    ```
-    Both test functions request the `nickel_unit_cell` fixture and perform
-    separate checks on the returned `Atoms` object. But the same code can be
-    simplified as follows:
+    is a great use-case for fixtures!
 
     ```python
     from ase.build import fcc111
@@ -104,21 +83,20 @@ def test_should_create_co2_molecule(co2: Atoms) -> None:
             "Ni", size=[1, 2, 1], a=3.55, orthogonal=True
         )
         return nickel_unit_cell
-
+    
     def test_should_contain_nickel(nickel_unit_cell: Atoms) -> None:
         assert "Ni" in nickel_unit_cell.symbols
-
+    
     def test_should_have_positive_lattice_constant(nickel_unit_cell: Atoms) -> None:
         assert (nickel_unit_cell.cell[0] @ nickel_unit_cell.cell[0])**(1/2) > 0
     ```
 
-    Now, it is more clear what each individual test is testing, and scaling
-    the test suite to include more test cases doesn't require repeating the
-    same "boilerplate" code.
+    Both test functions request the `nickel_unit_cell` fixture and performs
+    separate checks on the returned `Atoms` object.
 
 ### Skipping Tests
 
-Tests can be skipped conditionally using [`pytest.mark.skipif`][skip-if].
+Tests can be skipped conditionally using [`pytest.mark.skipif`]
 
 ```python
 import sys
@@ -133,7 +111,7 @@ def test_should_be_skipped_if_python_version_less_than_311() -> None:
     pass
 ```
 
-or at the command line by (de-)selecting tests using [markers][markers].
+or at the command line by (de-)selecting tests using [markers]
 
 ```shell
 pytest -m "not calculator" tests
@@ -144,19 +122,17 @@ The above snippet deselects all tests marked with the "calculator" marker.
 ## Running Tests
 
 1. To set up the test framework, ensure that the optional "test" dependencies
-   have been installed. Run the following from the root directory of the
-   welcome guide to install the required dependencies into the current
-   environment.
+   have been installed.
 
     ```python
-    pip install '.[test]'
+    python3 -m pip install '.[test]'
     ```
 
 2. Call `pytest`.
 
-    ```shell
-    pytest tests
-    ```
+   ```shell
+   pytest tests
+   ```
 
 3. Verify that all tests pass.
 
@@ -197,26 +173,26 @@ The above snippet deselects all tests marked with the "calculator" marker.
         Others will fail if your environment is not set up for the ASE calculator
         interface.
 
-        ```shell hl_lines="12 14 16 25-27"
+        ```shell
         ==================================================== test session starts =====================================================
         platform darwin -- Python 3.11.9, pytest-8.2.2, pluggy-1.5.0 -- ~/welcome-guide/bin/python
         cachedir: .pytest_cache
         rootdir: ~/welcome-guide
         configfile: pyproject.toml
         plugins: datadir-1.5.0, cov-5.0.0, xdist-3.6.1
-        8 workers [5 items]
+        8 workers [5 items]     
         scheduling tests via LoadScheduling
 
-        tests/test_atom_manipulations.py::test_should_create_slab_with_water_layer
-        tests/test_vasp.py::test_vasp_calculator
-        [gw4] [ 20%] SKIPPED tests/test_vasp.py::test_vasp_calculator
-        tests/test_gpaw.py::test_gpaw_calculator
-        [gw2] [ 40%] SKIPPED tests/test_gpaw.py::test_gpaw_calculator
-        tests/test_gpaw.py::test_should_perform_gpaw_calculation
-        [gw3] [ 60%] SKIPPED tests/test_gpaw.py::test_should_perform_gpaw_calculation
-        tests/test_atom_manipulations.py::test_should_create_nickel_slab
-        [gw0] [ 80%] PASSED tests/test_atom_manipulations.py::test_should_create_nickel_slab
-        [gw1] [100%] PASSED tests/test_atom_manipulations.py::test_should_create_slab_with_water_layer
+        tests/test_atom_manipulations.py::test_should_create_slab_with_water_layer 
+        tests/test_vasp.py::test_vasp_calculator 
+        [gw4] [ 20%] SKIPPED tests/test_vasp.py::test_vasp_calculator 
+        tests/test_gpaw.py::test_gpaw_calculator 
+        [gw2] [ 40%] SKIPPED tests/test_gpaw.py::test_gpaw_calculator 
+        tests/test_gpaw.py::test_should_perform_gpaw_calculation 
+        [gw3] [ 60%] SKIPPED tests/test_gpaw.py::test_should_perform_gpaw_calculation 
+        tests/test_atom_manipulations.py::test_should_create_nickel_slab 
+        [gw0] [ 80%] PASSED tests/test_atom_manipulations.py::test_should_create_nickel_slab 
+        [gw1] [100%] PASSED tests/test_atom_manipulations.py::test_should_create_slab_with_water_layer 
 
         =========================================================== PASSES ===========================================================
         ================================================== short test summary info ===================================================
@@ -228,13 +204,8 @@ The above snippet deselects all tests marked with the "calculator" marker.
         ================================================ 2 passed, 3 skipped in 2.67s ================================================
         ```
 
-        Follow the instructions in the "short test summary info" to resolve
-        the issue.
-
 [tmp-path]: https://docs.pytest.org/en/latest/reference/reference.html#std-fixture-tmp_path
 [pytest]: https://docs.pytest.org/en/latest/index.html
 [fixtures]: https://docs.pytest.org/en/latest/reference/reference.html#fixtures-api
 [pytest-fixtures]: https://docs.pytest.org/en/latest/reference/fixtures.html#reference-fixtures
 [writing-fixtures]: https://docs.pytest.org/en/latest/how-to/fixtures.html
-[skip-if]: https://docs.pytest.org/en/latest/reference/reference.html#pytest-mark-skipif
-[markers]: https://docs.pytest.org/en/latest/example/markers.html#mark-examples
