@@ -72,13 +72,12 @@ setup!
 
 ## ⚒ Build Webpage ⚒
 
-To view the complete guide as a website, you need to install [mkdocs][mkdocs].
-
+To view the complete guide as a website, you need to install [mkdocs][mkdocs] and the [Material][material] theme.
+First, install mkdocs:
 ```bash
-pip install mkdocs
+pip install mkdocs mkdocs-material
 ```
-
-Then run
+If you do not wish to use the Material theme, edit `mkdocs.yml` accordingly. Then run:
 
 ```bash
 mkdocs build && mkdocs serve
@@ -99,3 +98,4 @@ and paste it into your browser!
 [local-setup]: https://github.com/ComCatLab/local-setup
 [cluster-setup]: https://github.com/ComCatLab/cluster-setup
 [comcat-lab]: https://www.siahrostamilab.com
+[material]: https://github.com/squidfunk/mkdocs-material
