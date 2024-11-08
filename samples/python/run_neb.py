@@ -1,9 +1,5 @@
-#! /usr/bin/env python3
-
 """
-
 This script needs testing and refactoring!
-
 """
 
 import matplotlib as mpl
