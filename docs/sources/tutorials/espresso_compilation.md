@@ -199,7 +199,7 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
     ```
 
     !!! note
-    
+
         These directories must be **absolute** paths (i.e., starting with `/`).
 
     Run the `configure` script from inside the `qe-X.Y.Z` folder (where `X.Y.Z`
@@ -236,7 +236,7 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
     - adding `-D__LIBXC` to `DFLAGS`
     - adding `-I/path/to/libxc/include` to `IFLAGS`
     - setting `LD_LIBS=-L/path/to/libxc/lib -lxcf03 -lxc`
-  
+
     Note that `/path/to/libxc` should be the path determined in Step 9.
 
 14. **Configure Environ.**
@@ -276,7 +276,7 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
     libraries as the cluster version and likely have the same issues!
 
     !!! note
-    
+
         To speed up the installation, you can spawn an interactive
         job with multiple cores and run `make` in parallel. For example, if you
         want to spawn a job with 16 cores, do the following:
