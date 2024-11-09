@@ -1,4 +1,4 @@
-name: testing
+name: linting
 on:
     push:
     pull_request:
@@ -10,7 +10,7 @@ defaults:
     shell: bash
 
 jobs:
-    test:
+    lint:
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v4
@@ -19,6 +19,6 @@ jobs:
               python-version: '3.11'
           - name: Install Hatch
             uses: pypa/hatch@257e27e51a6a5616ed08a39a408a21c35c9931bc
-          - name: Run tests
+          - name: Run quality checks with pre-commit
             run: |
-              hatch run pytest
+              hatch run pre-commit
