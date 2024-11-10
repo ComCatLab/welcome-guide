@@ -28,7 +28,7 @@ This guide has several valuable resources to help you get up to speed:
 
 - **Sample Scripts**: example Python and SLURM scripts
 
-- **Troubleshooting**: common issues and their resolutions/work-arounds
+- **Tips**: common issues and their resolutions/work-arounds
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ This guide has several valuable resources to help you get up to speed:
 
 - [**Set up your cluster account**][cluster-setup]: some of the tutorials in the guide
   require that you connect to the remote clusters provided by the Alliance. For these
-  tutorials, you will need a [valid CCCDB account](docs/sources/tutorials/cccdb.md) and to
+  tutorials, you will need a [valid CCDB account](docs/sources/tutorials/ccdb.md) and to
   [set up your remote cluster environment][cluster-setup]
 
 ## :rocket: Quickstart :rocket:
@@ -72,12 +72,17 @@ setup!
 
 ## ⚒ Build Webpage ⚒
 
-To view the complete guide as a website, you need to install [mkdocs][mkdocs] and the [Material][material] theme.
-First, install mkdocs:
+To view the complete guide as a website, you need to install [mkdocs][mkdocs],
+the [Material][material] theme, and [mdx_truly_sane_lists][mdx-truly-sane-lists]
+These packages are grouped into the "docs" optional dependency group and can be
+installed via:
+
 ```bash
-pip install mkdocs mkdocs-material
+pip install '.[docs]'
+pip install '.[docs]'
 ```
-If you do not wish to use the Material theme, edit `mkdocs.yml` accordingly. Then run:
+
+Then run:
 
 ```bash
 mkdocs build && mkdocs serve
@@ -99,3 +104,5 @@ and paste it into your browser!
 [cluster-setup]: https://github.com/ComCatLab/cluster-setup
 [comcat-lab]: https://www.siahrostamilab.com
 [material]: https://github.com/squidfunk/mkdocs-material
+[mdx-truly-sane-lists]: https://github.com/radude/mdx_truly_sane_lists
+[mdx-truly-sane-lists]: https://github.com/radude/mdx_truly_sane_lists

@@ -5,7 +5,7 @@
 #SBATCH --time=00:10:00
 #SBATCH --ntasks=4
 #SBATCH --mem-per-cpu=3G
-#SBATCH --account=$SBATCH_ACCOUNT 
+#SBATCH --account=$SBATCH_ACCOUNT
 #SBATCH --mail-user=[Alliance-linked-email-address
 #SBATCH --mail-type=BEGIN,END,TIME_LIMIT,TIME_LIMIT_90,FAIL
 
@@ -16,7 +16,7 @@ module load python/3.11.5 scipy-stack
 module load vasp/6.4.2
 
 # This checks if the modules are loaded correctly. If not, the script is prevented from further running.
-if [[ $(module list | grep 'intel/2023.2.1') == ""  || $(module list | grep 'python/3.11.5') == "" || $(module list | grep 'vasp/6.4.2') ]]; then
+if [[ $(module list | grep 'intel/2023.2.1') == ""  || $(module list | grep -q 'python/3.11.5') == "" || $(module list | grep -q 'vasp/6.4.2') == "" ]]; then
 	module list
 	echo "Your modules are not loaded correctly. Cancelling job... "
 	exit 1

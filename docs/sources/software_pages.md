@@ -7,13 +7,13 @@
 This is the national organization that manages our main computational resources.
 Their documentation is comprehensive, including details about specific
 [clusters][clusters], [available software][software], and [how to get started][get-started].
-To use these resources, [you'll need to create a CCCDB account](tutorials/cccdb.md).
+To use these resources, [you'll need to create a CCDB account](tutorials/ccdb.md).
 
 Related:
 
-- [Creating a CCCDB account](tutorials/cccdb.md)
+- [Creating a CCDB account](tutorials/ccdb.md)
 - [Transferring data to remote clusters](tutorials/data_transfer.md)
-- [Setting up your cluster environment](tutorials/cluster_setup.md)
+- [Setting up your cluster environment][cluster-setup]
 
 ## Slurm Workload Manager
 
@@ -27,7 +27,7 @@ used for submitting and monitoring jobs.
 
 [Documentation][bash]
 
-bash is a shell program and shell-scripting language. Notably, it is the default 
+bash is a shell program and shell-scripting language. Notably, it is the default
 on most compute clusters. Navigating and interacting with the file system on remote
 clusters is done using bash. For example, the command-line functions `ssh` and `scp`
 are used to connect to and transfer files between the Alliance clusters.
@@ -42,6 +42,7 @@ different versions of files. This is very helpful when you're trying to determin
 change resulted in a particular error. Chapters 1 to 3 provide a good
 enough background to get started. See Section 5.1 for a description of
 our git workflow, the ["Integration-Manager Workflow"][git-workflow].
+You can find a guide to git best practices [here][git-best-practices].
 
 ## Python
 
@@ -63,6 +64,13 @@ setting up, manipulating, running, visualizing and analyzing atomistic simulatio
 
 Pymatgen (Python Materials Genomics) is an open-source Python library for materials analysis.
 
+## cclib
+
+[Documentation][cclib]
+
+cclib is an open source library, written in Python, for parsing and interpreting the results
+of computational chemistry packages.
+
 ## Vienna Ab Initio Simulation Package (VASP)
 
 [Documentation][vasp]
@@ -73,15 +81,19 @@ VASP is a proprietary, plane-wave-based code that we use for studying periodic s
 
 [Documentation][espresso]
 
-Quantum Espresso is an open-source plane-wave-based code that we use for studying
-periodic systems.
+From their webpage:
+
+> Quantum Espresso is an integrated suite of Open-Source computer codes for electronic-structure
+> calculations and materials modeling at the nanoscale. It is based on density-functional theory,
+> plane waves, and pseudopotentials.
 
 ## Gaussian
 
 [Documentation][gaussian]
 
 Gaussian is a proprietary, gaussian-orbital based code that we mainly use for studying
-molecular systems.
+molecular systems. The Alliance also maintains a [documentation page][alliance-gaussian]
+for running Gaussian on Alliance clusters.
 
 ## ORCA
 
@@ -108,6 +120,24 @@ and variables required for a software to be used are specified in 'module files'
 that are written in the [Lua programming language][lua]. Modules are managed using
 commands like `module load`, `module purge`, and `module unload`.
 
+## **Comp**utational **Chem**istry **Util**itie**s**
+
+[Documentation][ccu]
+
+CompChemUtils (Computational Chemistry Utilities; AKA `ccu`) is a Python package
+containing several useful Python classes and routines for computational
+chemistry such as adsorbate complex creation, defect creation, free energy
+diagram generation, and more.
+
+## Autojob
+
+[Documentation][autojob]
+
+`autojob` is a framework for executing high throughput calculations with the
+flexibility to granularly resubmit and modifying calculations between
+execution. Autojob also provides a codeless interface for generating input
+directories for calculations.
+
 ## WIP
 
 - Materials Cloud
@@ -125,8 +155,6 @@ commands like `module load`, `module purge`, and `module unload`.
 - atomate2
 - catmap
 - matplotlib
-- ccu (e.g., FancyPlots)
-- autojob
 
 [vasp]: https://www.vasp.at/wiki/index.php/Main_page
 [ase]: https://wiki.fysik.dtu.dk/ase/index.html
@@ -140,11 +168,17 @@ commands like `module load`, `module purge`, and `module unload`.
 [bash]: https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html
 [slurm-cheatsheet]: https://slurm.schedmd.com/pdfs/summary.pdf
 [gaussian]: https://gaussian.com/man/
+[alliance-gaussian]: https://docs.alliancecan.ca/wiki/Gaussian
 [espresso]: https://www.quantum-espresso.org
-[orca]: https://www.orcasoftware.de/tutorials_orca/index.html
+[orca]: https://www.faccts.de/docs/orca/6.0/manual/index.html
 [markdown]: https://www.markdownguide.org
 [mkdocs]: https://www.mkdocs.org
 [lmod]: https://lmod.readthedocs.io/en/latest/
 [lua]: https://www.lua.org/docs.html
 [git]: https://git-scm.com/book/en/v2
 [git-workflow]: https://www.git-scm.com/book/en/v2/ch00/wfdiag_b
+[git-best-practices]: https://about.gitlab.com/topics/version-control/version-control-best-practices/
+[ccu]: http://python-comp-chem-utils.rtfd.io/
+[autojob]: http://python-autojob.readthedocs.io/
+[cclib]: https://cclib.github.io
+[cluster-setup]: https://github.com/ComCatLab/cluster-setup

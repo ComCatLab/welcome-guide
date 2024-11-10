@@ -1,46 +1,59 @@
 # Tutorials (WIP)
 
-This page explains how to get started with the tutorials
-provided in this guide and highlights many useful sources
-for additional tutorials.
-
-## Getting Started
-
-1. Download the linked Jupyter Notebook.
-
-2. Follow along!
-
-!!! note
-
-    You must have Conda Package Manager installed to proceed with the tutorials in this guide.
+This page highlights a number of helpful tutorials and resources for
+getting familiar with the tools we use and workflows that we employ.
 
 ## Additional Tutorials
 
-[**ASE Tutorials**][ase]: how to do basic property calculations, adsorption studies, slab generation, and more...
+[**ASE Tutorials**][ase]: how to do basic property calculations, adsorption
+studies, slab generation, and more...
 
-[**matgenb**][matgenb]: a collection of Jupyter notebooks for [Pymatgen][pymatgen], [Custodian][custodian], and [Fireworks][fireworks] compiled by the creators of Materials Virtual Lab, Materials Project
+[**matgenb**][matgenb]: a collection of Jupyter notebooks for
+[Pymatgen][pymatgen], [Custodian][custodian], and [Fireworks][fireworks]
+compiled by the creators of Materials Virtual Lab, Materials Project
 
-[**ORCA Tutorials**][orca-tutorials]: walkthroughs of how to perform various calculations; part of the official ORCA documentation
+[**ORCA Tutorials**][orca-tutorials]: walkthroughs of how to perform various
+calculations; part of the official ORCA documentation
 
-[**Modeling materials using density functional theory**][kitchin-book]: "The Kitchin book"; a textbook with examples of how to use ASE to perform various DFT calculations with VASP; also contains explanations of the underlying theory with references; a PDF version can be found [here][kitchin-pdf]
+[**ORCA Input Library**][orca-input-library]: a collection of ORCA input files
+for various types of ORCA calculations previously maintained by Ragnar Bjornsson;
+a note from the maintainer "There are no immediate plans to update the ORCA Input
+Library for version 6 compatibility since the maintainer has no time."
 
-[**Open Catalyst Intro Series**][open-catalyst]: A YouTube playlist from the Open Catalyst Project motivation atomistic simulation
+[**Modeling materials using density functional theory**][kitchin-book]:
+"The Kitchin book"; a textbook with examples of how to use ASE to perform
+various DFT calculations with VASP; also contains explanations of the
+underlying theory with references; a PDF version can be found
+[here][kitchin-pdf]
 
-[**QE-2019**][qe-2019]: course materials from the 2019 Summer School on Advanced Materials and Molecular Modeling; contains background theory and examples with Quantum Espresso
+[**Open Catalyst Intro Series**][open-catalyst]: A YouTube playlist from
+the Open Catalyst Project motivation atomistic simulation
 
-[**Online Course from Ghent University**][ghent-qe-course]: a free, online course in Computational Materials Physics offered by Ghent University; examples in Quantum Espresso
+[**QE-2019**][qe-2019]: course materials from the 2019 Summer School on
+Advanced Materials and Molecular Modeling; contains background theory and
+examples with Quantum Espresso
 
-[**Hands-On Quantum Espresso**][hands-on-qe]: a collection of tutorials for installing Quantum Espresso and using the SCF (`PWscf`) and phonon (`PHonon`) modules in Quantum Espresso with theoretical background
+[**Online Course from Ghent University**][ghent-qe-course]: a free, online
+course in Computational Materials Physics offered by Ghent University;
+examples in Quantum Espresso
 
-[**Atomistic Computer Modeling Of Materials (SMA 5107)**][sma-5107]: lecture notes, videos, and problem sets from the Ceder/Marzari graduate class taught at MIT
+[**Hands-On Quantum Espresso**][hands-on-qe]: a collection of tutorials for
+installing Quantum Espresso and using the SCF (`PWscf`) and phonon (`PHonon`)
+modules in Quantum Espresso with theoretical background
 
-[**QE YouTube Tutorials**][qe-youtube]: a YouTube playlist with beginner tutorials for Quantum Espresso
+[**Atomistic Computer Modeling Of Materials (SMA 5107)**][sma-5107]: lecture
+notes, videos, and problem sets from the Ceder/Marzari graduate class taught
+at MIT
 
-[**Calculation of Phonons with FHI-vibes**][fhi-vibes-phonons]: a comprehensive tutorial outlining how to calculate phonons and relevant
-theory
+[**QE YouTube Tutorials**][qe-youtube]: a YouTube playlist with beginner
+tutorials for Quantum Espresso
+
+[**Calculation of Phonons with FHI-vibes**][fhi-vibes-phonons]: a comprehensive
+tutorial outlining how to calculate phonons and relevant theory
 
 [ase]: https://wiki.fysik.dtu.dk/ase/tutorials/tutorials.html
 [orca-tutorials]: https://www.orcasoftware.de/tutorials_orca/
+[orca-input-library]: https://sites.google.com/site/orcainputlibrary/home
 [matgenb]: https://matgenb.materialsvirtuallab.org
 [pymatgen]: https://pymatgen.org
 [custodian]: https://materialsproject.github.io/custodian/

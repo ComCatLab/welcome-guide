@@ -1,7 +1,7 @@
 import logging
 
-import ase.io
 from ase.calculators.vasp import Vasp
+import ase.io
 from ccu.relaxation import run_relaxation
 
 logging.basicConfig(level=logging.DEBUG)
