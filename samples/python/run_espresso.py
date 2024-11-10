@@ -33,7 +33,8 @@ pseudopotentials = {
 }
 
 profile = EspressoProfile(
-    # Replace the path in pseudo_dir with the path to your QE pseudopotential folder
+    # Replace the path in pseudo_dir with the path to your QE pseudopotential
+    # folder
     pseudo_dir="/home/ugognw/projects/def-samiras/ugognw/software_support/espresso/SSSP_1.3.0_PBE_precision",
     command="mpiexec pw.x -nband 2 -ntg 2",
 )
