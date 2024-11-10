@@ -90,7 +90,6 @@ python = "3.11"
 
 [tool.hatch.envs.default.scripts]
 test = "pytest {args:tests}"
-test-cov = "pytest -n auto --cov-branch --cov=src/autojob --cov-report=html --cov-report=lcov --cov-report=xml --cov-report=term-missing {args:tests/}"
 
 [tool.hatch.envs.docs]
 features = ["docs"]
@@ -135,6 +134,9 @@ addopts = [
 filterwarnings =[
   "error",
 ]
+markers = [
+  "calculator: requires a call to an external calculator (deselect with '-m \"not calculator\"')",
+]
 norecursedirs = "migrations"
 python_files = [
   "test_*.py",
@@ -144,58 +146,67 @@ python_files = [
 testpaths = ["tests"]
 
 [tool.ruff]
-target-version = "py310"
 line-length = 79
+src = ["src", "tests"]
+target-version = "py311"
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 79
 
 [tool.ruff.lint]
 select = [
-  "A",
-  "ARG",
-  "B",
-  "C",
-  "C4",
-  "DTZ",
-  "E",
-  "EM",
-  "EXE",
-  "F",
-  "FBT",
-  "I",
-  "ICN",
-  "INT",
-  "ISC",
-  "N",
-  "PIE",
-  "PLC",
-  "PLE",
-  "PLR",
-  "PLW",
-  "PT",
-  "PTH",
-  "Q",
-  "RSE",
-  "RUF",
-  "S",
-  "SIM",
-  "T",
-  "TID",
-  "UP",
-  "W",
-  "YTT",
+    "A", # flake8-builtins
+    "ARG", # flake8-unused-arguments
+    "B", # flake8-bugbear
+    "BLE", # flake8-blind-except
+    "C4", # flake8-comprehensions
+    "C90", # mccabe complexity
+    "COM818", # flake8-commas trailing-comma-on-bare-tuple
+    "D", # pydocstyle
+    "DTZ", # flake8-datetimez
+    "E", # pycodestyle errors
+    "EM", # flake8-errmsg
+    "EXE", # flake8-executable
+    "F", # pyflakes
+    "I", # isort
+    "INT", # flake8-gettext
+    "ISC001",  # flake8-implicit-str-concat
+    "N", # pep8-naming
+    "NPY", # NumPy-specific rules
+    "PIE", # flake8-pie
+    "PL", # pylint
+    "PT", # flake8-pytest-style
+    "PTH", # flake8-use-pathlib
+    "Q", # flake8-quotes
+    "RSE", # flake8-raise
+    "RUF", # ruff-specific rules
+    "S", # flake8-bandit
+    "SIM", # flake8-simplify
+    "TCH", # flake8-type-checking
+    "TID", # flake8-tidy-imports
+    "UP", # pyupgrade
+    "W", # pycodestyle warnings
+    "YTT", # flake8-2020
 ]
 ignore = [
   # Allow non-abstract empty methods in abstract base classes
   "B027",
-  # Allow boolean positional values in function calls, like `dict.get(... True)`
-  "FBT003",
-  # Ignore checks for possible passwords
-  "S105", "S106", "S107", "S603",
   # Ignore complexity
   "C901", "PLR0911", "PLR0912", "PLR0913", "PLR0915",
-  # single-lint implicity string concatenation
-  "ISC001",
-  # allow print statements
-  "T201",
+  "D203", # pydocstyle one-blank-line-before-class
+  "D213", # pydocstyle multi-line-summary-second-line
+  "D406", # pydocstyle new-line-after-section-name
+  "D407", # pydocstyle dashed-underline-after-section
+  "E111", # pycodestyle indentation-with-invalid-multiple
+  "E114", # pycodestyle indentation-with-invalid-multiple-comment
+  "E117", # pycodestyle over-indented
+  # Allow boolean positional values in function calls, like `dict.get(... True)`
+  "FBT003",
+  "RUF001", # ruff-specific rules ambiguous-unicode-character-string
+  "S101", # flake8-bandit assert
+  "S603", # flake8-bandit subprocess-without-shell-equals-true
+  "W191", # pycodestyle tab-indentation
 ]
 
 [tool.ruff.lint.per-file-ignores]
@@ -203,7 +214,14 @@ ignore = [
 "**/{tests,docs,tools}/*" = ["E402"]  # allow module-import-not-at-top-of-file
 "**/tests/*" = ["S101"]  # allow assert
 # Tests can use magic values, assertions, and relative imports
-"tests/**/*" = ["PLR2004", "S101", "TID252"]
+"tests/**/*" = ["D", "PLR2004", "S101", "TID252"]
+# Tests can use magic values, assertions, and relative imports
+"conf.py" = [
+    "A001",
+    "ARG001",
+    "D100",
+    "PLR2004",
+]
 
 [tool.ruff.lint.flake8-pytest-style]
 fixture-parentheses = false
@@ -215,5 +233,14 @@ inline-quotes = "double"
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
 
+[tool.ruff.lint.flake8-type-checking]
+runtime-evaluated-base-classes = ["pydantic.BaseModel"]
+
 [tool.ruff.lint.isort]
-known-first-party = ["welcome_guide"]
+forced-separate = ["conftest"]
+force-single-line = true
+force-sort-within-sections = true
+split-on-trailing-comma = false
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

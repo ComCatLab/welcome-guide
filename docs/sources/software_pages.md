@@ -125,9 +125,9 @@ commands like `module load`, `module purge`, and `module unload`.
 [Documentation][ccu]
 
 CompChemUtils (Computational Chemistry Utilities; AKA `ccu`) is a Python package
-containing several useful Python classes and routines computational chemistry
-such as adsorbate complex creation, defect creation, free energy diagram
-generation, and more.
+containing several useful Python classes and routines for computational
+chemistry such as adsorbate complex creation, defect creation, free energy
+diagram generation, and more.
 
 ## Autojob
 

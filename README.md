@@ -72,13 +72,16 @@ setup!
 
 ## ⚒ Build Webpage ⚒
 
-To view the complete guide as a website, you need to install [mkdocs][mkdocs].
+To view the complete guide as a website, you need to install [mkdocs][mkdocs],
+the [Material][material] theme, and [mdx_truly_sane_lists][mdx-truly-sane-lists]
+These packages are grouped into the "docs" optional dependency group and can be
+installed via:
 
 ```bash
-pip install mkdocs
+pip install '.[docs]'
 ```
 
-Then run
+Then run:
 
 ```bash
 mkdocs build && mkdocs serve
@@ -99,3 +102,5 @@ and paste it into your browser!
 [local-setup]: https://github.com/ComCatLab/local-setup
 [cluster-setup]: https://github.com/ComCatLab/cluster-setup
 [comcat-lab]: https://www.siahrostamilab.com
+[material]: https://github.com/squidfunk/mkdocs-material
+[mdx-truly-sane-lists]: https://github.com/radude/mdx_truly_sane_lists
