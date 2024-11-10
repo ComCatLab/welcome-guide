@@ -1,6 +1,4 @@
-"""
-This script needs testing and refactoring!
-"""
+"""This script needs testing and refactoring!"""
 
 from pathlib import Path
 from typing import TypeVar
@@ -12,57 +10,70 @@ import subprocess
 import sys
 
 import ase
-import ase.calculators.vasp as vasp_calculator
-import ase.io.vasp
 from ase import Atoms
+import ase.calculators.vasp as vasp_calculator
 from ase.io import read
+import ase.io.vasp
 from ase.neb import NEB
 
 _S = TypeVar("_S")
 _T = TypeVar("_T")
 
 
-def swap_atoms(atoms0: Atoms, swap: list[int]) -> Atoms:
-    atoms: Atoms = atoms0.copy()
-    els = atoms.get_chemical_symbols()
-    xyz = atoms.get_positions()
-    news = {}
-    for ii in swap:
-        news[ii] = [els[swap[ii]], list(xyz[swap[ii]])]
-    for ii in swap:
-        els[ii] = news[ii][0]
-        xyz[ii] = news[ii][1]
-    atoms.set_positions(xyz)
-    atoms.set_chemical_symbols(els)
-    return atoms
+def sort_species(to_sort: Atoms, symbols: list[str]) -> None:
+    """Sort the atoms in an Atoms object.
 
+    This method modifies `to_sort` in place.
 
-def sort_species(atom: Atoms, symbol_count: list[tuple[str, int]]) -> None:
-    old_symbols = atom.get_chemical_symbols()
-    old_positions = atom.get_positions()
+    Args:
+        to_sort: An Atoms object whose atoms are to be sorted.
+        symbols: A list of strings indicating the order in which the atoms
+            in `to_sort` will be sorted.
+    """
+    old_symbols = to_sort.get_chemical_symbols()
+    old_positions = to_sort.get_positions()
+    symbols_and_positions = list(zip(old_symbols, old_positions, strict=False))
     new_symbols = []
     new_positions = []
 
-    for sym, _ in symbol_count:
-        for z, pos in zip(old_symbols, old_positions, strict=False):
-            if sym == z:
-                new_symbols.append(z)
-                new_positions.append(pos)
+    for symbol_to_match in symbols:
+        for symbol, position in symbols_and_positions:
+            if symbol == symbol_to_match:
+                new_symbols.append(symbol)
+                new_positions.append(position)
 
-    atom.set_chemical_symbols(new_symbols)
-    atom.set_positions(new_positions)
+    to_sort.set_chemical_symbols(new_symbols)
+    to_sort.set_positions(new_positions)
 
 
-def dict_to_list(_dict: dict[_S, _T]) -> list[tuple[_S, _T]]:
+def dict_to_list(d: dict[_S, _T]) -> list[tuple[_S, _T]]:
+    """Convert a dictionary to a list of 2-tuples.
+
+    Args:
+        d: A dictionary to convert.
+
+    Returns:
+        A list of 2-tuples (`key`, `value`) where each `value` corresponds
+        to `key` in `d`.
+    """
     _list: list[tuple[_S, _T]] = []
-    for name, value in _dict.items():
+    for name, value in d.items():
         _list.append((name, value))
     return _list
 
 
-def species(atom: Atoms) -> list[tuple[str, int]]:
+def species(to_count: Atoms) -> list[tuple[str, int]]:
+    """Count how many of each symbol exists in an Atoms object.
+
+    Args:
+        to_count: An Atoms object.
+
+    Returns:
+        A list of 2-tuples (`symbol`, `count`) where `count` is the number of
+        symbol in `to_count`.
+    """
     _dict = {}
-    for i in atom.get_chemical_symbols():
+    for i in to_count.get_chemical_symbols():
         if i not in _dict:
             _dict[i] = 1
         else:
@@ -80,11 +91,12 @@ if submitdir != "":
 
 # SCRIPT STARTS HERE
 
-nimages = (
-    12  # total number of images (fixed initial and final ones also count)
-)
-idpp = "idpp"  # options are 'idpp' or ''
-run = True  # if False, it will only generate the interpolated POSCAR files
+# total number of images (fixed initial and final ones also count)
+nimages = 12
+# options are 'idpp' or ''
+idpp = "idpp"
+# if False, it will only generate the interpolated POSCAR files
+run = True
 
 
 POSCAR = True
@@ -115,7 +127,7 @@ if not POSCAR:
         _species = species(image)
         # sort_species is used to order positions according to _species list,
         # which will be defined as symbol_count later
-        sort_species(image, _species)
+        sort_species(to_sort=image, symbols=[x for x, y in _species])
         # symbol count is used to write POSCARS in compact notation e.g. H C O
         # rather than H C O C H (3 species only)
         # this is relevant because otherwise vasp will take the former example

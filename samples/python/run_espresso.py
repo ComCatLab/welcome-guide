@@ -1,7 +1,8 @@
 from pathlib import Path
 
 from ase import io
-from ase.calculators.espresso import Espresso, EspressoProfile
+from ase.calculators.espresso import Espresso
+from ase.calculators.espresso import EspressoProfile
 from numpy.linalg import norm
 
 # Replace in.traj with the name of your structure file
