@@ -160,6 +160,7 @@ ignore = [
     "D213", # pydocstyle multi-line-summary-second-line
     "D300", # pydocstyle triple-single-quotes
     "D406", # pydocstyle new-line-after-section-name
+    "D100", # pydocstyle undocumented-public-module
     "D407", # pydocstyle dashed-underline-after-section
     "E111", # pycodestyle indentation-with-invalid-multiple
     "E114", # pycodestyle indentation-with-invalid-multiple-comment
