@@ -4,9 +4,7 @@ on:
 
 jobs:
     build:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: comcatlab/comcatlab/.github/workflows/docs.yml@main
+        uses: comcatlab/comcatlab/.github/workflows/docs.yml@main
     # Deployment job
     deploy:
         needs: build
