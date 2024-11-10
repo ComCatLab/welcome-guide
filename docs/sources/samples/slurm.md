@@ -33,39 +33,6 @@ various computational codes. The following steps are performed:
     Don't forget to add logic to actually run your job at the end of these
     scripts (e.g., `python3 run.py`).
 
-## Verify properly loaded modules
-
-These scripts perform an efficient, minimal setup to run various jobs with
-various computational codes. The following steps are performed:
-
-1. Loads the required modules.
-2. Check that the required modules are loaded.
-3. Activate a virtual environment with ASE installed (assumed to be located at
-   `/software/python/virtualenvs/ase/`).
-
-=== "VASP"
-
-    ``` py title="samples/slurm/activateASEVasp.sh"
-    --8<-- "./samples/slurm/activateASEVasp.sh"
-    ```
-
-=== "Gaussian"
-
-    ``` py title="samples/slurm/activateASEGaussian.sh"
-    --8<-- "./samples/slurm/activateASEGaussian.sh"
-    ```
-
-=== "ORCA"
-
-    ``` py title="samples/slurm/activateASEORCA.sh"
-    --8<-- "./samples/slurm/activateASEORCA.sh"
-    ```
-
-!!! important "Reminder"
-
-    Don't forget to add logic to actually run your job at the end of these
-    scripts (e.g., `python3 run.py`).
-
 ## Submit a DFT calculation
 
 These samples scripts are relatively bloated in comparison to those in the
@@ -154,17 +121,6 @@ etc.).
     Also, if you don't define the path to a Python virtual environment in your
     `.bashrc` file, then you should replace `$COMP_CHEM_ENV` with the path to
     the `activate` script (usually, `path-to-environment/bin/activate`).
-
-## Launch an interactive job
-
-The following script initiates an interactive session on the cluster to avoid
-using the login node.
-
-``` py title="samples/slurm/InteractiveJob.sh"
---8<-- "./samples/slurm/InteractiveJob.sh"
-```
-
-[brace-expansion]: https://www.gnu.org/software/bash/manual/bash.html#Brace-Expansion
 
 ## Launch an interactive job
 
