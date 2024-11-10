@@ -1,10 +1,10 @@
 from collections.abc import Generator
 from pathlib import Path
 
-import matplotlib.pyplot as plt
-import pytest
 from ase import Atoms
 from ase.calculators.calculator import Calculator
+import matplotlib.pyplot as plt
+import pytest
 
 try:
     from gpaw import GPAW
@@ -41,7 +41,9 @@ def test_should_calculate_n2_energy_and_forces(n2: Atoms) -> None:
 
 @pytest.mark.calculator
 @pytest.mark.skipif(GPAW is None, reason="GPAW is not installed.")
-def test_should_calculate_energy_vs_n2_bond_length(n2: Atoms, tmp_path: Path) -> None:
+def test_should_calculate_energy_vs_n2_bond_length(
+    n2: Atoms, tmp_path: Path
+) -> None:
     # Distances are in picometers
     start = 50
     stop = 300

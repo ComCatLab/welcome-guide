@@ -1,9 +1,9 @@
 import os
 from pathlib import Path
 
-import pytest
 from ase.build import molecule
 from ase.calculators.vasp import Vasp
+import pytest
 
 VASP_INSTALLED = (
     os.environ.get("ASE_VASP_COMMAND")
