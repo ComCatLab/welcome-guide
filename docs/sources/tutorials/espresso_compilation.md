@@ -1,7 +1,5 @@
 # :sparkles: Make your own Quantum ESPRESSO compilation :sparkles:
 
-Last Updated: October 23, 2024
-
 ## Overview
 
 This guide will walk through compiling Quantum Espresso with the following
@@ -33,7 +31,7 @@ ls ~/projects
 A good practice for managing the installed software is to store the raw source
 code in a separate folder from where it is installed. For example, one can
 keep the pre-compiled source code in a `software_support` folder and install
-the software in a `software` folder. In this way, if one every has to
+the software in a `software` folder. In this way, if one ever has to
 compile the software, they can simply delete the associated subdirectory
 in `software` without having to worry about the source code. Additionally,
 for large source codebases, one can archive the directory in `software_support`
@@ -45,9 +43,9 @@ QuantumEspresso, and libxc software in this tutorial.
 👩‍💻  Here's a (not really) quick step-by-step to compile
 Quantum Espresso (QE) 7.3.1  👩‍💻
 
-1.  **Download the Intel OneAPI libraries** from [here][oneapi-libs].
+1. **Download the Intel OneAPI libraries** from [here][oneapi-libs].
 
-2.  **Copy the folder/archive of Intel OneAPI files** to where you
+2. **Copy the folder/archive of Intel OneAPI files** to where you
     will install QE. This may be in your home directory (e.g., `/home/USER`) or
     a subdirectory of your project folder (e.g.,
     `/home/USER/projects/def-samiras/USER/software_support`).
@@ -66,7 +64,7 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
         Cedar. The 2022 libraries have been confirmed to have worked. Both the
         2022 and 2023 libraries are included in the shared folder from step 1.
 
-3.  **Install the Base Toolkit.** (This could take up to 30 minutes.)
+3. **Install the Base Toolkit.** (This could take up to 30 minutes.)
     Navigate to where you copied the folder on Cedar
 
     ```shell
@@ -94,7 +92,7 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
         "Unknown" or missing packages required for the Intel® VTune(TM) Profiler,
         but you can ignore these.
 
-4.  **Install the HPC Toolkit.** (This shouldn't take more than a few minutes.)
+4. **Install the HPC Toolkit.** (This shouldn't take more than a few minutes.)
 
     ```shell
     $SHELL l_HPCKit_p_2022.1.1.97.sh
@@ -111,13 +109,13 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
     give you a list of modules loaded in the environment. Check this step prior
     to QE compilation.
 
-5.  **Download Quantum Espresso 7.3.1**. You can get QE [here][qe-7.3.1].
+5. **Download Quantum Espresso 7.3.1**. You can get QE [here][qe-7.3.1].
     Alternatively, you can just go to their homepage, register your email,
     and go to Downloads > to find the latest version.
 
-6.  **Copy the downloaded `QE.tar` file to Cedar and extract it**.
+6. **Copy the downloaded `QE.tar` file to Cedar and extract it**.
 
-7.  **Forcibly purge your loaded modules** and reload the Gentoo Linux module.
+7. **Forcibly purge your loaded modules** and reload the Gentoo Linux module.
 
     ```shell
     module --force purge
@@ -135,13 +133,13 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
         The Gentoo Linux module provides access to the `git` CLI utility
         which is needed to configure the Environ module.
 
-8.  **Setup the Intel environment.**
+8. **Setup the Intel environment.**
 
     ```shell
     source /path/to/setvars.sh
     ```
 
-9.  **Locate the root directory for libxc.**
+9. **Locate the root directory for libxc.**
     On Cedar, this directory is found at
     `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcc12/libxc/6.2.2`
 
@@ -151,7 +149,7 @@ Quantum Espresso (QE) 7.3.1  👩‍💻
         Cedar. However, installing libxc is quite straightforward. Instructions can
         be found [here][libxc-installation].
 
-10.  Ensure that the local language is set to the standard, i.e. ”C”.
+10. Ensure that the local language is set to the standard, i.e. ”C”.
 
     ```shell
     export LC_ALL=C
