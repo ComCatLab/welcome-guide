@@ -92,10 +92,11 @@ echo "### Copying input files for job (if required):"
 echo " "
 
 script_name="${BASH_SOURCE[0]}"
-export AUTOJOB_SLURM_SCRIPT="$(basename "$script_name")"
+AUTOJOB_SLURM_SCRIPT="$(basename "$script_name")"
+export AUTOJOB_SLURM_SCRIPT
 export AUTOJOB_PYTHON_SCRIPT="{{ python_script }}"
 export AUTOJOB_COPY_TO_SCRATCH="CHGCAR,,*py,*cif,POSCAR,coord,*xyz,*.traj,CONTCAR,*.pkl,*xml,WAVECAR"
-cp -v "$SLURM_SUBMIT_DIR"/{CHGCAR,,*py,*cif,POSCAR,coord,*xyz,*.traj,CONTCAR,*.pkl,*xml,WAVECAR} "$TMP_WORK_DIR"/
+cp -v "$SLURM_SUBMIT_DIR"/{CHGCAR,*py,*cif,POSCAR,coord,*xyz,*.traj,CONTCAR,*.pkl,*xml,WAVECAR} "$TMP_WORK_DIR"/
 
 echo " "
 
