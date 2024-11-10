@@ -1,4 +1,4 @@
-name: documentation
+name: webpage
 on:
     page_build:
 
