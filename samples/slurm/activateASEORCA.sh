@@ -5,7 +5,7 @@ module load StdEnv/2020 gcc/10.3.0 openmpi/4.1.1
 module load orca/5.0.4
 module load python/3.11.5 scipy-stack
 
-if [[ $(module list | grep 'intel/2023.2.1') == ""  || $(module list | grep 'python/3.11.5') == "" || $(module list | grep 'vasp/6.4.2') == "" ]]; then
+if [[ $(module list | grep 'intel/2023.2.1') == ""  || $(module list | grep 'python/3.11.5') == "" || $(module list | grep 'orca/5.0.4') == "" ]]; then
 	echo "Your modules are not loaded correctly for ORCA. Cancelling job... "
 	exit 1
 else

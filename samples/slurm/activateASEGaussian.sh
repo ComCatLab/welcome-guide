@@ -5,7 +5,7 @@ module purge
 module load gaussian/g16.c01
 module load python/3.11.5 scipy-stack
 
-if [[ $(module list | grep 'intel/2023.2.1') == ""  || $(module list | grep 'python/3.11.5') == "" || $(module list | grep 'vasp/6.4.2') == "" ]]; then
+if [[ $(module list | grep 'intel/2023.2.1') == ""  || $(module list | grep 'python/3.11.5') == "" || $(module list | grep 'gaussian/g16.c01') == "" ]]; then
 	echo "Your modules are not loaded correctly for Gaussian. Cancelling job... "
 	exit 1
 else
