@@ -7,7 +7,7 @@ nav:
   - Overview:
     - Home: index.md
     - Quickstart: quickstart.md
-  - Workflows: workflows.md
+  - nutshell.md
   - 'software_pages.md'
   - Samples:
     - 'samples/python.md'
@@ -15,14 +15,20 @@ nav:
     - 'samples/slurm.md'
   - Tutorials:
     - Intro: 'tutorials/index.md'
-    - 'tutorials/cccdb.md'
+    - 'tutorials/ccdb.md'
     - 'tutorials/data_transfer.md'
-  - Troubleshooting: 'resources/troubleshooting.md'
-  - 'resources/links.md'
+    - 'tutorials/espresso_compilation.md'
+    - 'tutorials/optimizing_requests.md'
+    - 'tutorials/vasp_ir.md'
+  - Additional Resources:
+    - 'resources/troubleshooting.md'
+    - 'resources/snippets.md'
+    - 'resources/links.md'
   - 'Development Guide':
     - 'Setting Up': 'dev_guide/setup.md'
     - Contributing: 'dev_guide/contributing.md'
     - 'dev_guide/docs.md'
+    - 'dev_guide/testing.md'
 
 theme:
   name: material
@@ -36,7 +42,14 @@ site_dir: docs/site
 
 markdown_extensions:
   - admonition
+  - mdx_truly_sane_lists:
+      nested_indent: 4
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -47,5 +60,10 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
 plugins:
 - search
+- git-revision-date

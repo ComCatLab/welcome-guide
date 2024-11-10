@@ -1,15 +1,15 @@
 #!/bin/bash
 
+# Gaussian does not have any dependencies :angel:
 module purge
-module load StdEnv/2023 intel/2023.2.1 openmpi/4.1.5
-module load vasp/6.4.2
+module load gaussian/g16.c01
 module load python/3.11.5 scipy-stack
 
-if [[ $(module list | grep 'intel/2023.2.1') == ""  || $(module list | grep 'python/3.11.5') == "" || $(module list | grep 'vasp/6.4.2') == "" ]]; then
-	echo "Your modules are not loaded correctly. Cancelling job... "
+if [[ $(module list | grep 'intel/2023.2.1') == ""  || $(module list | grep 'python/3.11.5') == "" || $(module list | grep 'gaussian/g16.c01') == "" ]]; then
+	echo "Your modules are not loaded correctly for Gaussian. Cancelling job... "
 	exit 1
 else
-	echo "Your modules are loaded correctly. Proceeding to activate ASE..."
+	echo "Your modules are loaded correctly for Gaussian. Proceeding to activate ASE..."
 fi
 
 echo "Changing directory to ~/software/python/virtualenvs/ase ..."

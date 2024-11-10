@@ -1,3 +1,3 @@
-# Creating a CCCDB Account (WIP)
+# Creating a CCDB Account (WIP)
 
 You should receive an email invitation.
