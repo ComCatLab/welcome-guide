@@ -1,6 +1,8 @@
 name: webpage
 on:
-    page_build:
+    push:
+        branches:
+            - main
 
 jobs:
     build:
