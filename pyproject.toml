@@ -60,7 +60,9 @@ docs = [
   # 2024-07-23
   "mkdocs-material>=9.5.30",
   # 2022-08-1
-  "mdx_truly_sane_lists>=1.3"
+  "mdx_truly_sane_lists>=1.3",
+  # 2022-03-22
+  "mkdocs-git-revision-date-plugin>=0.3.2"
 ]
 
 [project.urls]
@@ -88,7 +90,6 @@ python = "3.11"
 
 [tool.hatch.envs.default.scripts]
 test = "pytest {args:tests}"
-test-cov = "pytest -n auto --cov-branch --cov=src/autojob --cov-report=html --cov-report=lcov --cov-report=xml --cov-report=term-missing {args:tests/}"
 
 [tool.hatch.envs.docs]
 features = ["docs"]
@@ -110,6 +111,9 @@ python = [
 
 [tool.hatch.metadata]
 allow-direct-references = true
+
+[tool.mypy]
+allow_untyped_calls = true
 
 [[tool.mypy.overrides]]
 module = "pymatgen"
@@ -142,20 +146,36 @@ python_files = [
 testpaths = ["tests"]
 
 [tool.ruff]
-target-version = "py310"
 line-length = 79
-src = ["tests"]
+src = ["src", "tests"]
+target-version = "py311"
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 79
+
+[tool.ruff.lint]
 ignore = [
-  # Allow non-abstract empty methods in abstract base classes
-  "B027",
-  # Allow boolean positional values in function calls, like `dict.get(... True)`
-  "FBT003",
-  # Ignore checks for possible passwords
-  "S105", "S106", "S107", "S603",
-  # Ignore complexity
-  "C901", "PLR0911", "PLR0912", "PLR0913", "PLR0915",
-  # single-lint implicity string concatenation
-  "ISC001",
+    "D203", # pydocstyle one-blank-line-before-class
+    "D213", # pydocstyle multi-line-summary-second-line
+    "D300", # pydocstyle triple-single-quotes
+    "D406", # pydocstyle new-line-after-section-name
+    "D100", # pydocstyle undocumented-public-module
+    "D407", # pydocstyle dashed-underline-after-section
+    "E111", # pycodestyle indentation-with-invalid-multiple
+    "E114", # pycodestyle indentation-with-invalid-multiple-comment
+    "E117", # pycodestyle over-indented
+    "E501", # pycodestyle line-too-long
+    "PLR0913", # pylint too-many-arguments
+    "Q000", # flake8-quotes bad-quotes-inline-string
+    "Q001", # flake8-quotes bad-quotes-multiline-string
+    "Q002", # flake8-quotes bad-quotes-docstring
+    "Q003", # flake8-quotes avoidable-escaped-quote
+    "RUF001", # ruff-specific rules ambiguous-unicode-character-string
+    "S101", # flake8-bandit assert
+    "S308", # flake8-bandit suspicious-mark-safe-usage
+    "S603", # flake8-bandit subprocess-without-shell-equals-true
+    "W191", # pycodestyle tab-indentation
 ]
 select = [
     "ARG", # flake8-unused-arguments
@@ -201,16 +221,22 @@ inline-quotes = "double"
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
 
-[tool.ruff.isort]
+[tool.ruff.lint.flake8-type-checking]
+runtime-evaluated-base-classes = ["pydantic.BaseModel"]
+
+[tool.ruff.lint.isort]
 forced-separate = ["conftest"]
 force-single-line = true
 force-sort-within-sections = true
 split-on-trailing-comma = false
 known-first-party = ["welcome_guide"]
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
+"**/{tests,docs,tools}/*" = ["E402"]  # allow module-import-not-at-top-of-file
+"__init__.py" = ["E402"]  # allow module-import-not-at-top-of-file
+"__main__.py" = ["D100"]
 # Tests can use magic values, assertions, and relative imports
-"tests/**/*" = ["PLR2004", "S101", ]
+"tests/**/*" = ["D", "PLR2004", "S101", "TID252"]
 "conf.py" = [
     "A001",
     "ARG001",

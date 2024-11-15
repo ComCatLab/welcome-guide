@@ -16,7 +16,7 @@ module load orca/5.0.4
 module load python/3.11.5 scipy-stack
 
 # This checks if the modules are loaded correctly. If not, the script is prevented from further running.
-if [[ $(module list | grep 'gcc/10.3.0') == ""  || $(module list | grep 'python/3.11.5') == "" || $(module list | grep 'orca/5.0.4') ]]; then
+if [[ $(module list | grep 'gcc/10.3.0') == ""  || $(module list | grep -q 'python/3.11.5') == "" || $(module list | grep -q 'orca/5.0.4') == "" ]]; then
 	module list
 	echo "Your modules are not loaded correctly for ORCA. Cancelling job... "
 	exit 1

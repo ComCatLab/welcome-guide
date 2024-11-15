@@ -40,10 +40,10 @@ looks forward to your contributions. 🎉
     brew install hatch
     ```
 
-4. Create the development environment and install the project with Hatch
+4. Create the default environment and install the project with Hatch
 
     ```bash
-    hatch env create default
+    hatch shell
     ```
 
 5. Install pre-commit hooks

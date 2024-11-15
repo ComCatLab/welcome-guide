@@ -75,7 +75,8 @@ fi
 
 # Pass memory request, cpu list, and scratch directory to Gaussian
 export GAUSS_MDEF="${SLURM_MEM_PER_NODE}MB"
-export GAUSS_CDEF=$(taskset -cp $$ | awk -F':' '{print $2}')
+GAUSS_CDEF=$(taskset -cp $$ | awk -F':' '{print $2}')
+export GAUSS_CDEF
 export GAUSS_SCRDIR=${TMP_WORK_DIR}
 
 TMP_BASE_DIR="$(dirname "$TMP_WORK_DIR")"
@@ -95,7 +96,8 @@ echo "### Copying input files for job (if required):"
 echo " "
 
 script_name="${BASH_SOURCE[0]}"
-export AUTOJOB_SLURM_SCRIPT="$(basename "$script_name")"
+AUTOJOB_SLURM_SCRIPT="$(basename "$script_name")"
+export AUTOJOB_SLURM_SCRIPT
 export AUTOJOB_PYTHON_SCRIPT="run.py"
 export AUTOJOB_COPY_TO_SCRATCH="*.chk,*.py,*.traj,*.rwf"
 cp -v "$SLURM_SUBMIT_DIR"/{*.chk,*.py,*.traj,*.rwf} "$TMP_WORK_DIR"/

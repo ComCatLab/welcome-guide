@@ -66,3 +66,4 @@ extra_javascript:
 
 plugins:
 - search
+- git-revision-date

@@ -13,7 +13,7 @@ else
 fi
 
 echo "Changing directory to ~/software/python/virtualenvs/ase ..."
-cd ~/software/python/virtualenvs/ase
+cd ~/software/python/virtualenvs/ase || exit
 
 function load_ase() {
 	source ~/software/python/virtualenvs/ase/bin/activate

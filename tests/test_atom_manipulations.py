@@ -1,4 +1,3 @@
-# Standard imports for ase
 from pathlib import Path
 
 from ase import Atoms

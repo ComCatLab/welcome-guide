@@ -33,15 +33,15 @@ welcome guide. Building the documentation is covered [elsewhere](./docs.md).
     git clone https://github.com/yourusername/welcome-guide.git
     ```
 
-3. Initialize the development virtual environment.
+3. Create the default environment and install the project:
 
     with [Hatch][install-hatch]:
 
     ```bash
-    hatch env create default
+    hatch shell
     ```
 
-    with `venv` and [pip][pip]:
+    or with `venv` and [pip][pip]:
 
     ```bash
     python3 -m venv .venv
