@@ -34,15 +34,35 @@ in the [Python sample scripts folder][scripts].
 !!! important "Reminder"
     Replace `"in.traj"` with the name of your structure file.
 
+## Perform a vibrational calculation using VASP
+
+``` py title="samples/python/run_vib.py"
+--8<-- "./samples/python/run_vib.py"
+```
+
 ## Run a VASP relaxation using [`ccu`][ccu]
 
 ``` py title="samples/python/run_ccu.py"
 --8<-- "./samples/python/run_ccu.py"
 ```
 
+## Perform a vibrational calculation using VASP and [`ccu`][ccu]
+
+``` py title="samples/python/run_vib_ccu.py"
+--8<-- "./samples/python/run_vib_ccu.py"
+```
+
+## Perform an infrared calculation using VASP and [`ccu`][ccu]
+
+``` py title="samples/python/run_infrared_ccu.py"
+--8<-- "./samples/python/run_infrared_ccu.py"
+```
+
 `ccu` is a set of tools for computational chemistry workflows. In particular,
-[`run_relaxation`][ccu-run-relaxation] is a wrapper function around
-`ase.atoms.Atoms.get_potential_energy()` that handles the logging and archiving
+[`run_relaxation`][ccu-run-relaxation] [`run_vibration`] and [`run_infrared`]
+function wrap the `ase.atoms.Atoms.get_potential_energy()`,
+`ase.vibrations.vibrations.Vibration`, and `se.vibrations.infrared.Infrared`
+functions, respectively and handle the logging and archiving
 of a calculation's final results.
 
 !!! important "Reminder"

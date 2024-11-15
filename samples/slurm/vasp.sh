@@ -140,7 +140,7 @@ echo ""
 echo ""
 
 # run ase calculation and time
-time timeout "${timeslurm}" python3 "$AUTOJOB_PYTHON_SCRIPT" "$SLURM_SUBMIT_DIR"  > "$SLURM_SUBMIT_DIR"/out.txt
+timeout "${timeslurm}" python3 "$AUTOJOB_PYTHON_SCRIPT"
 
 exit_code=$?
 

@@ -79,7 +79,6 @@ installed via:
 
 ```bash
 pip install '.[docs]'
-pip install '.[docs]'
 ```
 
 Then run:
@@ -104,5 +103,4 @@ and paste it into your browser!
 [cluster-setup]: https://github.com/ComCatLab/cluster-setup
 [comcat-lab]: https://www.siahrostamilab.com
 [material]: https://github.com/squidfunk/mkdocs-material
-[mdx-truly-sane-lists]: https://github.com/radude/mdx_truly_sane_lists
 [mdx-truly-sane-lists]: https://github.com/radude/mdx_truly_sane_lists
