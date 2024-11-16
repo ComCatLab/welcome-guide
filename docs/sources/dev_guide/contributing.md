@@ -19,7 +19,12 @@ Assuming that you have [set up your environment](./setup.md):
         to correct the issue on a single fork (these can be deleted and re-forked
         relatively painlessly) than for the whole project. See
         [Integration-Manager Workflow][git-workflow] for a more detailed explanation
-        of the workflow.)
+        of the workflow.) To enforce this condition, GitHub allows you to define
+        [branch protection rules][branch-protection] that can be used to prevent you
+        from accidentally doing so. Select the "Lock Branch" rule on your `main`
+        branch and select "Allow fork syncing" to prohibit pushing changes to your
+        `main` branch while allowing the branch to be synced with the ComCatLab
+        repository.
 
 2. Make your changes (e.g., add/change/remove files).
 
@@ -138,3 +143,4 @@ particular sections.
 [linking-to-pages]: https://www.mkdocs.org/user-guide/writing-your-docs/#internal-links
 [snippet-notation]: https://facelessuser.github.io/pymdown-extensions/extensions/snippets/#snippets-notation
 [code-block-headers]: https://facelessuser.github.io/pymdown-extensions/extensions/superfences/#code-block-title-headers
+[branch-protection]: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule
