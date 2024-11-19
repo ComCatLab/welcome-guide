@@ -1,0 +1,38 @@
+name: Feature Request
+description: Request a feature.
+title: "[Feature]: "
+labels: ["feature"]
+projects: ["welcome-guide"]
+assignees:
+  - ugognw
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to make this project better!
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Describe how the feature will be used.
+      description: Please try to be specific for complicated features.
+      placeholder: Enter the use-case here!
+      value: "ex. When users are trying to..."
+    validations:
+      required: true
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Describe what the new feature does.
+      description: If possible, describe how to implement the feature.
+      placeholder: Tell us how the feature works!
+      value: "ex: The new feature does..."
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
