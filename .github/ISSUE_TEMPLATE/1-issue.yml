@@ -36,23 +36,32 @@ body:
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
   - type: checkboxes
-    id: checklist
+    id: code-of-conduct
     attributes:
       label: Code of Conduct
       description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com).
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
+  - type: checkboxes
+    id: due-diligence
+    attributes:
       label: Due Diligence
       description: It's important to check if someone has already reported this issue
       options:
         - label: I checked for duplicate issues
           required: true
+  - type: checkboxes
+    id: env
+    attributes:
       label: Python Environment
-      description: What are you working with?
+      description: What packages are you working with?
       options:
         - label: I have included the output of `python3 -m pip freeze`
           required: true
+  - type: checkboxes
+    id: mwe
+    attributes:
       label: MWE
       description: Smaller/simpler examples facilitate debugging
       options:
