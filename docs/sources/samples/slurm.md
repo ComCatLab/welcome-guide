@@ -55,26 +55,6 @@ Additionally, the script prints out debugging information that *may* be useful
 for identifying issues with running jobs (e.g., resource information, job ID,
 etc.).
 
-These samples scripts are relatively bloated in comparison to those in the
-[previous section](#verify-properly-loaded-modules). The scripts perform the
-following steps:
-
-1. Loads your bash profile file and the required modules for the computational code.
-2. Creates a scratch directory dedicated to the job that is uniquely
-   identified by the SLURM job ID and creates a symlink to the scratch
-   directory for convenience. (This is especially useful if the jobterminates
-   unexpectedly during execution.)
-3. Copies files to the scratch directory.
-4. Initiates the calculation by running a Python script (presumably, `run.py`).
-5. Stops the job at 90% of the maximum run time to ensure enough time remains
-   to copy files from the scratch directory to the submission directory.
-6. Cleans up the scratch directory.
-7. Logs the completion of the job in a file in your home directory `~/job.log`.
-
-Additionally, the script prints out debugging information that *may* be useful
-for identifying issues with running jobs (e.g., resource information, job ID,
-etc.).
-
 === "VASP"
 
     ``` py title="samples/slurm/vasp.sh" linenums="1" hl_lines="96"
