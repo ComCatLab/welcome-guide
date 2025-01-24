@@ -54,7 +54,7 @@ body:
         - label: I have included the output of `python3 -m pip freeze`
           required: true
       label: MWE
-      description: Smaller/simpler examples facilitate debugging
+      description: Smaller/simpler examples to facilitate debugging
       options:
         - label: I have distilled my problem to the minimum amount of code required to reproduce to issue
           required: true
