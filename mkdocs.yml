@@ -29,6 +29,7 @@ nav:
     - Contributing: 'dev_guide/contributing.md'
     - 'dev_guide/docs.md'
     - 'dev_guide/testing.md'
+    - 'dev_guide/code_of_conduct.md'
 
 theme:
   name: material
