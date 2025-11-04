@@ -32,6 +32,16 @@ on most compute clusters. Navigating and interacting with the file system on rem
 clusters is done using bash. For example, the command-line functions `ssh` and `scp`
 are used to connect to and transfer files between the Alliance clusters.
 
+## ssh
+
+[Documentation][ssh]
+
+SSH, or Secure Shell, is a network protocol that provides a secure, encrypted connection
+between two computers. In the context of ComCat Lab, we use it to log in and execute
+commands on DRA clusters, transfer files to and from clusters (with protocols like SFTP
+and SCP), and "tunnel" other applications (e.g., VSCode). It is highly recommended that
+you [create a password-protected SSH key](#create-ssh-key).
+
 ## Git
 
 [Documentation][git]
@@ -44,12 +54,33 @@ enough background to get started. See Section 5.1 for a description of
 our git workflow, the ["Integration-Manager Workflow"][git-workflow].
 You can find a guide to git best practices [here][git-best-practices].
 
+## Miniconda
+
+[Documentation][miniconda]
+
+Miniconda is a software distribution that contains `conda`, a package and environment
+manager for your command line interface, Python, and their dependencies. Miniconda
+is a subset of Anaconda with the goal of reducing the memory footprint of the latter.
+While we advocate the use of Miniconda/Anaconda on your local machine, the DRA
+discourages their use in favour of using Lmod modules and Python virtual environments.
+
 ## Python
 
 [Documentation][python]
 
 Python is a relevant programming language in which many useful utilities for our
-computational workflows are written. Python files can be identified by the `.py` extension.
+computational workflows are written. Python files can generally be identified by the
+`.py` extension. When specific Python packages (software) is required, the use of
+[virtual environments][venvs] is handy.
+
+!!! Tip
+
+    You can create a virtual environment by running the following command in your
+    terminal:
+
+    ```shell
+    python -m venv name-of-virtual-environment
+    ```
 
 ## Atomic Simulation Environment (ASE)
 
@@ -141,7 +172,8 @@ directories for calculations.
 ## WIP
 
 - Materials Cloud
-- Materials Project
+- Materials Project & API
+- VIM
 - Globus
 - FileZilla
 - Cyberduck
@@ -182,3 +214,6 @@ directories for calculations.
 [autojob]: http://python-autojob.readthedocs.io/
 [cclib]: https://cclib.github.io
 [cluster-setup]: https://github.com/ComCatLab/cluster-setup
+[miniconda]: https://www.anaconda.com/docs/getting-started/miniconda/main
+[venvs]: https://docs.python.org/3/tutorial/venv.html
+[ssh]: https://docs.alliancecan.ca/wiki/SSH
