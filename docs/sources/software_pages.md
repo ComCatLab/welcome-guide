@@ -40,7 +40,7 @@ SSH, or Secure Shell, is a network protocol that provides a secure, encrypted co
 between two computers. In the context of ComCat Lab, we use it to log in and execute
 commands on DRA clusters, transfer files to and from clusters (with protocols like SFTP
 and SCP), and "tunnel" other applications (e.g., VSCode). It is highly recommended that
-you [create a password-protected SSH key](#create-ssh-key).
+you [create a password-protected SSH key](onboarding/local_setup.md#create-ssh-key).
 
 ## Git
 
@@ -172,6 +172,7 @@ directories for calculations.
 ## WIP
 
 - Materials Cloud
+- GitHub
 - Materials Project & API
 - VIM
 - Globus
