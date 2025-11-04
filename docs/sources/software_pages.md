@@ -32,6 +32,16 @@ on most compute clusters. Navigating and interacting with the file system on rem
 clusters is done using bash. For example, the command-line functions `ssh` and `scp`
 are used to connect to and transfer files between the Alliance clusters.
 
+## ssh
+
+[Documentation][ssh]
+
+SSH, or Secure Shell, is a network protocol that provides a secure, encrypted connection
+between two computers. In the context of ComCat Lab, we use it to log in and execute
+commands on DRA clusters, transfer files to and from clusters (with protocols like SFTP
+and SCP), and "tunnel" other applications (e.g., VSCode). It is highly recommended that
+you [create a password-protected SSH key](#create-ssh-key).
+
 ## Git
 
 [Documentation][git]
@@ -206,3 +216,4 @@ directories for calculations.
 [cluster-setup]: https://github.com/ComCatLab/cluster-setup
 [miniconda]: https://www.anaconda.com/docs/getting-started/miniconda/main
 [venvs]: https://docs.python.org/3/tutorial/venv.html
+[ssh]: https://docs.alliancecan.ca/wiki/SSH
