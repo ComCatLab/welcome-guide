@@ -1,21 +1,21 @@
 # Local-Setup
 
-This page will walk you through setting up your local machine.
+This page contains walkthroughs for setting up your local machine.
 
-## Pre-Requisites
+## Basic Setup
+
+### Pre-Requisites
 
 - MacOS 26.0.1 or later
 - A [valid CCDB account](/docs/sources/tutorials/ccdb.md)
 
-## Objectives
+### Objectives
 
 - to set up your workstation with basic research software
 - to develop a basic understanding of virtual environments
 - to understand the `.zshrc` file
 
-## Instructions
-
-### Basic Setup
+### Step-by-Step Instructions
 
 1. Open the "Terminal" application.
 
@@ -73,20 +73,21 @@ This page will walk you through setting up your local machine.
 
         Check out the software page for information about each package.
 
-7. Edit your `.zshrc` file to configure your shell environment using `vim`.
+7. Using a text editor of your choice (e.g., `vim`, `nano`, or `emacs`), edit your
+   `.zshrc` file to configure your shell environment.
 
     ```shell
     cd ~/
     vim .zshrc
     ```
 
-    Your `.zshrc` file is a start-up file-it is run every time a new interactive
-    non-login shell is launched. Generally, every time you open a terminal
-    window, you will be launching an interactive non-login shell.
+    Your `.zshrc` file is run every time a new interactive
+    non-login shell is launched. (Generally, every time you open a terminal
+    window, you will be launching an interactive non-login shell.)
 
     !!! Tip
 
-        Type `vimtutor` into your terminal to launch the vim tutorial!
+        Type `vimtutor` into your terminal to launch the `vim` tutorial!
 
 8. Add the following lines to your `.zshrc` file:
 
@@ -98,7 +99,7 @@ This page will walk you through setting up your local machine.
     with the command `ag` instead of the full command `ase gui` from the
     command line. (`alias` is a [shell builtin command][alias].)
 
-9. Close the file by typing `:wq`, and then run the following from the command-
+9.  Close the file by typing `:wq`, and then run the following from the command-
    line:
 
     ```shell
@@ -111,7 +112,12 @@ This page will walk you through setting up your local machine.
         terminal session, you **must** source the file. Alternatively, opening
         a new terminal session will automatically source the file.
 
-### Remote Development Setup
+## Remote Development Setup
+
+### Pre-Requisites
+
+- MacOS 26.0.1 or later
+- A [valid CCDB account](/docs/sources/tutorials/ccdb.md)
 
 If you are not familiar with `git` and version control, it is highly recommended
 that you read the following short pages:
