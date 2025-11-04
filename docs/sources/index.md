@@ -25,6 +25,8 @@ Of course, if all else fails, don't hesitate to reach out to a group member!
 
 This guide has several valuable resources to help you get up to speed:
 
+- [**On-Boarding**](onboarding/index.md): your first steps to getting started in ComCat Lab
+
 - [**Workflows**](nutshell.md): an overview of frequent workflows used with links to relevant software pages
 
 - [**Software Pages**](software_pages.md): introductions to the various tools used in ComCat Lab
