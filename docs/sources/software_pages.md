@@ -19,9 +19,9 @@ Related:
 
 [Documentation][slurm]
 
-Slurm is the job scheduler that runs on our remote clusters. You can find a useful
-cheatsheet [here][slurm-cheatsheet]. `sbatch`, `squeue`, and `sacct` are commonly
-used for submitting and monitoring jobs.
+Slurm is the job scheduler that runs on our remote clusters. You may find
+[this cheatsheet][slurm-cheatsheet] useful. `sbatch`, `squeue`, and `sacct`
+are commonly used for submitting and monitoring jobs.
 
 ## bash
 
@@ -40,7 +40,7 @@ SSH, or Secure Shell, is a network protocol that provides a secure, encrypted co
 between two computers. In the context of ComCat Lab, we use it to log in and execute
 commands on DRA clusters, transfer files to and from clusters (with protocols like SFTP
 and SCP), and "tunnel" other applications (e.g., VSCode). It is highly recommended that
-you [create a password-protected SSH key](#create-ssh-key).
+you [create a password-protected SSH key](onboarding/development.md#create-ssh-key).
 
 ## Git
 
@@ -52,7 +52,7 @@ different versions of files. This is very helpful when you're trying to determin
 change resulted in a particular error. Chapters 1 to 3 provide a good
 enough background to get started. See Section 5.1 for a description of
 our git workflow, the ["Integration-Manager Workflow"][git-workflow].
-You can find a guide to git best practices [here][git-best-practices].
+Check out [this guide][git-best-practices] to Git best practices.
 
 ## Miniconda
 
@@ -172,6 +172,7 @@ directories for calculations.
 ## WIP
 
 - Materials Cloud
+- GitHub
 - Materials Project & API
 - VIM
 - Globus
