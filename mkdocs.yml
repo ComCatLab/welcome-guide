@@ -11,7 +11,7 @@ nav:
     - 'onboarding/index.md'
     - 'onboarding/local_setup.md'
     - 'onboarding/intro_to_ase.md'
-    - 'onboarding/local_setup.md'
+    - 'onboarding/cluster_setup.md'
   - nutshell.md
   - 'software_pages.md'
   - Samples:
