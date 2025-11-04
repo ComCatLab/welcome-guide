@@ -9,7 +9,8 @@ nav:
     - Quickstart: quickstart.md
   - On-Boarding:
     - 'onboarding/index.md'
-    - 'onboarding/local_setup.md'
+    - 'onboarding/basic_setup.md'
+    - 'onboarding/development.md'
     - 'onboarding/intro_to_ase.md'
     - 'onboarding/cluster_setup.md'
   - nutshell.md
