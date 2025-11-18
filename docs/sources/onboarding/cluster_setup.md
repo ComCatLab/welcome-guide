@@ -4,7 +4,6 @@
 
 - MacOS 26.0.1 or later
 - A [valid CCDB account](../tutorials/ccdb.md)
-- [VSCode 1.105.1 or later](https://code.visualstudio.com)
 
 ## Prerequisites
 
@@ -32,44 +31,52 @@ this setup on Fir, but setup on any one of the other clusters is analogous.
 
 1. **Download the following files for setting up your cluster account.**
 
-    - Software scripts: With regards to `cluster-setup`, "software scripts" are
-      executable files that install and configure software. They are specified
-      with the `--software-script` CLI option or `software_scripts` key in the
-      `cluster-setup` configuration file.
-        - `install_aliases.bash`: This script will install a file that defines
-          aliases that can be encapsulated in a module.
-        - `install_shell_customization.bash`: This script
-        - `configure_software.bash`: This script configures [ASE][ase],
-          [autojob][autojob], and [ccu][ccu] for use by creating suitable
-          configuration files
-        - `configure_vasp.bash`: This script configures VASP to be used by ASE
-          by copying various support files (pseudopotentials, vDW-DF kernel, and a
-          Python script used to call VASP) to a directory.
-    - Modulefile templates: Jinja2 Lua modulefile templates to be used to define
-      custom modules on DRA clusters.
-        - `aliases/0.0.1.lua.j2`: A modulefile template corresponding to
-          `install_aliases.bash`
-        - `shell-customization/0.0.1.lua.j2`: A modulefile template corresponding to
-          `install_shell_customization.bash`
+    !!! note
+
+        The following files can be
+        [downloaded as an archive here](../../../samples/cluster_setup_files/cluster_setup_files.tar){:download}.
+
+    With regards to `cluster-setup`, "software scripts" are
+    executable files that install and configure software. They are specified
+    with the `--software-script` CLI option or `software_scripts` key in the
+    `cluster-setup` configuration file.
+
+    - [`install_custom_commands.bash`](../../../samples/cluster_setup_files/software_scripts/install_custom_commands.bash){:download}: This script will install a number of
+      useful CLI tools that can be loaded (added to the `PATH` variable)
+      via a module. It is accompanied by the [`custom_commands.tar.zst`](../../../samples/cluster_setup_files/sources/custom_commands.tar.zst){:download}
+      archive and [`custom-commands.lua.j2`](../../../samples/cluster_setup_files/sources/custom_commands.tar.zst){:download} template.
+    - [`configure_software.bash`](../../../samples/cluster_setup_files/software_scripts/configure_software.bash){:download}: This script configures [ASE][ase],
+      [autojob][autojob], and [ccu][ccu] for use by creating suitable
+      configuration files. It is accompanied by corresponding templates for
+      [ASE](../../../samples/cluster_setup_files/templates/configuration/ase.ini.j2){:download} and [autojob](../../../samples/cluster_setup_files/configuration/autojob.toml.j2){:download} templates.
+    - [`configure_vasp.bash`](../../../samples/cluster_setup_files/software_scripts/configure_vasp.bash){:download}: This script configures VASP to be used by ASE
+      by copying various support files (pseudopotentials, vDW-DF kernel, and a
+      Python script used to call VASP) to a directory.
 
     !!! note
 
         Reach out to a group member for instructions of how to get set up with
         the VASP files.
 
+    !!! warning
+
+        If any of above files are downloaded individually (in particular, the
+        templates or `custom_commands.tar.zst` archive), be sure to update the
+        appropriate path in the corresponding software script.
+
 2. **Copy the files to a DRA cluster.**
 
     First, collect the files into a directory.
 
     ```shell
-    mkdir cluster-setup-files
-    cp FILE_1 FILE_2 FILE_3 ... cluster-setup-files
+    mkdir cluster_setup_files
+    cp FILE_1 FILE_2 FILE_3 ... cluster_setup_files
     ```
 
     Then, copy the files to a DRA cluster using `scp`.
 
     ```shell
-    scp -r cluster-setup-files <dra_username>@fir.alliancecan.ca
+    scp -r cluster_setup_files <dra_username>@fir.alliancecan.ca
     ```
 
 3. **`ssh` into the login node of the cluster.**
@@ -112,13 +119,13 @@ this setup on Fir, but setup on any one of the other clusters is analogous.
     You should see your newly copied folder in your home directory:
 
     ```shell
-    ls cluster-setup-files
+    ls cluster_setup_files
     ```
 
 4. **Create a virtual environment in which to install the `cluster-setup` package.**
 
     ```shell
-    python -m venv cluster-setup-files/.venv && source cluster-setup-files/.venv/bin/activate
+    python -m venv cluster_setup_files/.venv && source cluster_setup_files/.venv/bin/activate
     pip install cluster-setup[test]
     ```
 
@@ -187,15 +194,16 @@ this setup on Fir, but setup on any one of the other clusters is analogous.
       to install software. A software script spec is defined by
       `SCRIPT[:[TEMPLATE]:[MODULE]:[VERSION]:[ARGS]]`. For a detailed
       description, read the `cluster-setup` help text (type `cluster-setup -h`).
-      For example, to use the `configure_software.bash` and `configure_vasp.bash`
-      software scripts, add something like the following to your configuration
-      file:
+      For example, to use the `install_custom_commands.bash`,
+      `configure_software.bash` and `configure_vasp.bash` software scripts,
+      add something like the following to your configuration file:
 
       ```toml
       ...
       software_scripts = [
           "path/to/configure_software.bash::::{support_file_home} ~/.config",
           "path/to/configure_vasp.bash::::{support_file_home}",
+          "path/to/install_custom_commands.bash:path/to/custom-commands.lua.j2:custom-commands:0.0.1:{software_home}",
       ]
       ...
       ```
@@ -241,10 +249,10 @@ this setup on Fir, but setup on any one of the other clusters is analogous.
 
 9. **Clean up.**
 
-    The `cluster-setup-files/` directory can now be safely deleted.
+    The `cluster_setup_files/` directory can now be safely deleted.
 
     ```shell
-    rm -rf cluster-setup-files/
+    rm -rf cluster_setup_files/
     ```
 
 10. **Rinse and repeat.**
