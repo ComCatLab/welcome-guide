@@ -127,7 +127,7 @@ or Python; however, the following reference pages may be of use:
     (TODO: add screenshot of Python interpreter)
 
     ```python
-    import ase, matplotlib, ruff, pymatgen, matplotlib, mp-api
+    import ase, matplotlib, ruff, pymatgen, matplotlib, mp_api
     ```
 
     If this command fails, then something went wrong with the `pip` command
