@@ -117,7 +117,7 @@ that you read the following short pages:
 7. **Create a `.gitignore` file.**
 
     ```shell
-    vim .gitignore
+    nano .gitignore
     ```
 
     ??? info "Explanation"
@@ -149,7 +149,7 @@ that you read the following short pages:
 8. **Create a README file.**
 
     ```shell
-    vim README.md
+    nano README.md
     ```
 
     ??? info "Explanation"
@@ -269,7 +269,7 @@ that you read the following short pages:
     From a directory in your repository, run:
 
     ```shell
-    git remote add origin git@gitlab.com:<your-github-username>/<gh-repo>
+    git remote add origin git@github.com:<your-github-username>/<gh-repo>.git
     ```
 
     ??? info "Explanation"
@@ -329,7 +329,7 @@ that you read the following short pages:
     changes to GitHub.
 
     ```shell
-    git push --set-upstream origin git@gitlab.com:<your-github-username>/<gh-repo>
+    git push --set-upstream origin git@github.com:<your-github-username>/<gh-repo>.git
     ```
 
     ??? info "Explanation"
