@@ -1,0 +1,7 @@
+[environment]
+VASP_SCRIPT = {{ support_file_home }}/vasp/run_vasp.py
+VASP_PP_PATH = {{ support_file_home }}/vasp/PP
+
+[espresso]
+pseudo_dir = {{ support_file_home }}/espresso/SSSP_1.3.0_PBE_precision
+command = "mpiexec pw.x"
