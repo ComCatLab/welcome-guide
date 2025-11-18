@@ -29,8 +29,18 @@ Assuming that you have [set up your environment](./setup.md):
 2. Make your changes (e.g., add/change/remove files).
 
 3. Commit your changes. Each commit should include a brief (50 characters or less)
-   description of the changes. If you can't describe your changes in 50 characters
-   or less, you should probably break the commit into smaller pieces!
+   description of the changes. (If you can't describe your changes in 50 characters
+   or less, you should probably break the commit into smaller pieces!) Additional
+   details about design choices or justifications for the change can be included
+   on a separate line separated from the description by a space. For example:
+
+   ```shell
+   Fixed VASP tutorial
+
+   The previous tutorial failed due to a change in how DRA clusters were
+   configured. Specifically, [link to relevant information]...
+   ```
+
    [This][git-best-practices] is a great guide to good commits.
 
     ```bash
