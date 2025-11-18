@@ -62,19 +62,17 @@ that you read the following short pages:
     the following command:
 
     ```shell
-    ssh-keygen -t ed25519 -C <your_email@here.com> -f ~/.ssh/id_ed25519
+    ssh-keygen -t ed25519 -C <your_email@here.com>
     ```
 
-    ??? info "Explanation"
-
-        (TODO: explain command and options)
-
-    Enter a passphrase for your SSH key when prompted. You will later need the
-    contents of your public key file. To display the contents of the file, type
-    the following command into your terminal and copy the output:
+    Accept the default file location for the private key (usually,
+    `~/.ssh/id_25519`) and enter a passphrase for your SSH key when prompted.
+    You will later need the contents of your **public** key file. To display
+    the contents of the file, type the following command into your terminal
+    and copy the output:
 
     ```shell
-    cat ~/.ssh/id_ed25519
+    cat ~/.ssh/id_ed25519.pub
     ```
 
 4. **Add your SSH key to your GitHub profile.**
@@ -104,8 +102,8 @@ that you read the following short pages:
     like to create your repository.
 
     ```shell
-    mkdir -p ~/Repositories/comcat-tutorial
-    cd ~/Repositories/comcat-tutorial
+    mkdir -p ~/Repositories/comcat-project
+    cd ~/Repositories/comcat-project
     git init
     ```
 
@@ -113,7 +111,8 @@ that you read the following short pages:
 
         First, we create the directory that will house our repository and
         `cd` into it. Then, by calling `git init`, we initialize the repository
-        with `git`.
+        with `git`. `comcat-project` will be the name of the repository; you
+        can replace this name as you wish.
 
 7. **Create a `.gitignore` file.**
 
@@ -147,19 +146,50 @@ that you read the following short pages:
         based on the actual Python code in files. They are system-specific
         and thus should not be tracked with Git.
 
-8. **Create your first commit**.
-
-    To record your changes with Git, you must first add the edited files
-    to the index using `git add`.
+8. **Create a README file.**
 
     ```shell
-    git add .gitignore
+    vim README.md
+    ```
+
+    ??? info "Explanation"
+
+        A README file explains the purpose of a directory and the files
+        contained therein. It is best practice to create a new README file
+        for every project. Doing so ensures that the person returning to your
+        project folder (yourself included!) can understand the purpose of the
+        calculations therein. Update this file as your project progresses.
+
+    In the file, write a description for your project:
+
+    ```markdown
+    # TITLE GOES HERE
+
+    Description goes here...
+    ```
+
+    ??? info "Note"
+
+        The file extension `.md` indicates that this file should be interpreted
+        as Markdown. Markdown is a markup language that allows you
+        add special formatting to otherwise plaintext text documents. Note that
+        we have preceded our title with `#`; this syntax is used to denote
+        headings. Subsequent subheadings can be created using increasing
+        numbers of `#` signs. [Check out this webpage][markdown] for a quick
+        primer on Markdown syntax.
+
+9.  **Create your first commit**.
+
+    To record your changes with Git, you must first [start tracking][tracking-files]
+    the new files using `git add`.
+
+    ```shell
+    git add .gitignore README.md
     ```
 
     !!! Tip
 
-        You can add all files in the current directory to the index using
-        `git add .`
+        You can start tracking all files in the current directory using `git add .`
 
     Saving (or committing) your changes with Git is accomplished by creating a
     "commit". This creates a snapshot that can be used to rollback changes
@@ -171,20 +201,20 @@ that you read the following short pages:
 
     This will launch the editor that you specified in Step 2 for you to write
     a commit message. **A good commit message features a header line
-    that summarizes the changes in 80 characters or less.** A more comprehensive
+    that summarizes the changes in 50 characters or less.** A more comprehensive
     description/explanation can be included below (separated from the header
     by a blank line). For example, a reasonable message for the current commit
     could be:
 
     ```shell
-    Created .gitignore file
+    Created .gitignore and README
 
     The .vscode configuration directory and Python byte-code files are now
     ignored.
     ```
 
-     Once you have written a satisfactory message,
-    saving and closing the file will automatically complete the commit.
+    Once you have written a satisfactory message, saving and closing the file will
+    automatically complete the commit.
 
     !!! Tip
 
@@ -197,37 +227,46 @@ that you read the following short pages:
         Check out [this article][git-best-practices] for guidance on Git best
         practices.
 
-9. **Create a GitHub repository.**
+10. **Create a GitHub repository.**
 
-    Before you can push your changes to GitHub, you will first need to create a
-    repository on GitHub. First, log in to your GitHub account.
+    In order to be able to access your repository from other computers, you
+    will need a remote version control system-a central, remote server to store
+    your project files and history. This role will be fulfilled by GitHub.
+    However, before you can push your changes to GitHub, you will first need to
+    create a repository on GitHub. First, log in to your GitHub account.
 
     Click on your profile icon and navigate to the "Repositories" tab.
 
     Click on "New" to create a new repository.
 
-    Name and describe your repository.
+    Name and describe your repository. The name should match with the name
+    you chose when you first created your repository (e.g., `comcat-project`).
 
     Configure your repository. For now, set the visibility to "Private",
-    do not add a .gitignore or license (we will do this ourselves), but
-    check "Yes" for "Add a README".
+    do not add a .gitignore, README, or license (we will do this ourselves).
 
     Click "Create Repository".
 
-10. **Make changes to your repository on GitHub.**
+    ??? Tip
 
-    (TODO: Write README description)
-
-    ??? info "Explanation"
-
-        (TODO: allude to other workflows for making changes (issues, PRs))
+        You can also edit files within you repository from the GitHub
+        interface. For example, try editing your README from your repository
+        home.
 
 11. **Sync changes from a remote repository.**
 
-    Note that since we have files in the GitHub repository that are not
-    in your local version of the repository (and vice-versa), the two copies
-    of the repository are out of sync. To sync them, we must first add the
-    GitHub repository as a "remote". From a directory in your repository, run:
+    In general, whenever you restart work on a local version of your repository,
+    it is a good idea to ensure that your version of the files in your
+    repository (e.g., on your computer) match those in the remote repository
+    (on GitHub). This is accomplished by *syncing with the remote*.
+
+    ??? Note
+
+        For example, if you edited your README on GitHub, then the versions
+        on GitHub and your computer will not match.
+
+    To sync them, we must first add the GitHub repository as a [remote][remote-repo].
+    From a directory in your repository, run:
 
     ```shell
     git remote add origin git@gitlab.com:<your-github-username>/<gh-repo>
@@ -235,8 +274,16 @@ that you read the following short pages:
 
     ??? info "Explanation"
 
-        (TODO: explain command and link relevant git book section for
-        distributed Git on remotes)
+        This command adds your GitHub repository as a remote repository with
+        the name `origin`. (This is a common naming scheme used to refer to
+        the special remote repository corresponding to one's own version of a
+        repository.) `upstream` is another common special name; it is used to
+        refer to the original version of a [forked][github-forked] repository.
+
+    !!! note "Important"
+
+        Don't forget to replace `<your-github-username>` and `<gh-repo>` with your
+        GitHub username and the repository name, respectively.
 
     We can then "fetch" the changes from the remote using the following:
 
@@ -246,7 +293,13 @@ that you read the following short pages:
 
     ??? info "Explanation"
 
-        (TODO: explain the concept of fetching)
+        "Fetching" refers to the act of downloading changes that have been
+        made to remote branches since the last "fetch". Note that this does not
+        change your version of the branch-it only makes the changes available
+        in your local copy of the remote branch. For example, if there have been
+        changes to the `main` branch of your `origin` remote, then the changes
+        will be available in the `origin/main` branch. But your `main` branch
+        will remain untouched until your merge these changes.
 
     We can merge the changes from the remote into our local branch with
     the command
@@ -257,7 +310,9 @@ that you read the following short pages:
 
     ??? info "Explanation"
 
-        (TODO: explain the concept of fetching)
+        "Merging" changes refers to the act of incorporating the changes from
+        one branch into another branch. [Check out this short article][git-merge]
+        for a more detailed explanation of merging.
 
     !!! Tip
 
@@ -265,11 +320,13 @@ that you read the following short pages:
         command `git pull`. This command will automatically fetch the
         changes from the given remote and merge them into the current
         branch. Note that an upstream branch must be set prior using
-        the `--set-upstream` (or `-u`) option.
+        the `--set-upstream` (or `-u`) option of `git push` (see below).
 
 12. **Push your changes to GitHub.**
 
-    Then, we can push our local changes to GitHub.
+    Now that we have synced our changes, we can be sure that our version of the
+    code only features updates to the repository, and we can push our local
+    changes to GitHub.
 
     ```shell
     git push --set-upstream origin git@gitlab.com:<your-github-username>/<gh-repo>
@@ -277,7 +334,17 @@ that you read the following short pages:
 
     ??? info "Explanation"
 
-        (TODO: explain command and how both changes are visible on GH)
+        The `git push` command is used to send your changes to a remote. Here,
+        the `--set-upstream` option is used to specify to which remote the
+        changes will be sent. ("upstream" here is not meant to be confused with
+        the previous naming convention for remotes.) This option also sets the
+        default remote to be used for `git push` commands and can thus be
+        omitted for subsequent `git push`es to this remote. For example, pushing
+        changes to your `origin` remote can be accomplished by simply typing:
+
+            ```shell
+            git push
+            ```
 
     !!! Tip
 
@@ -286,6 +353,31 @@ that you read the following short pages:
         [Git Branching][git-branching] sections in the Git book.
 
 13. **Configure VSCode.**
+
+    VSCode is an integrated development environment (IDE), a software that
+    provides features to support software development. Many of the tasks
+    completed herein (e.g., repository creation, file editing, syncing with
+    remotes) can be accomplished from the VSCode application. VSCode also
+    offers several very useful features such as automatic code refactoring,
+    advanced search and replace across files, automatic code formatting,
+    integration with code linters/formatters, automatic detection of
+    virtual environments, and previews of markdown documents.
+
+    To get started, [download and install VSCode][install-vscode],
+    [connect your GitHub account][connect-github-vscode], open your newly
+    created repository, and install some extensions
+    to help the development process. Recommended extensions are listed
+    in the [ComCat Lab VSCode Setup Extension Pack][comcat-vscode-extensions].
+    At the very least, it is highly recommended that you install the following:
+
+    - [autoDocstring][autodocstring]: Automatically generate Python docstrings
+      after typing `"""` and then pressing `<tab>`.
+    - [Ruff][ruff-extension]: format and check your Python code for errors
+    - [Python][python-extension]: Python language support and debugger
+      - This extension enables VSCode to detect syntax errors in your code
+        without having to explicitly run it and also comes with a debugger
+        that allows you to execute your code step-by-step with access to the
+        runtime values of variables in order to identify bugs
 
     (TODO: install extensions, create venv, requirements.txt, pre-commit.yaml,
     scripts, .gitignore, connect GH account)
@@ -298,3 +390,13 @@ that you read the following short pages:
 [git-best-practices]: https://about.gitlab.com/topics/version-control/version-control-best-practices/
 [git-basics]: https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
 [git-branching]: https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
+[tracking-files]: https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#:~:text=tracking%20the%20file.-,Tracking%20New%20Files,-In%20order%20to
+[markdown]: https://www.markdownguide.org/basic-syntax/
+[remote-repo]: https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches
+[git-merge]: https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+[github-forked]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
+[install-vscode]: https://code.visualstudio.com/download
+[connect-github-vscode]: https://code.visualstudio.com/docs/sourcecontrol/github
+[autodocstring]: https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring
+[ruff-extension]: https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff
+[Python-extension]: https://marketplace.visualstudio.com/items?itemName=ms-python.python
