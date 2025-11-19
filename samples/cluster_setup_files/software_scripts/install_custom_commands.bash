@@ -9,4 +9,4 @@ cp -v sources/custom_commands.tar.zst "$software_home"
 cd "$software_home" || exit
 tar -vxf "custom_commands.tar.zst" && rm -v "custom_commands.tar.zst"
 cd ~- || exit
-echo "module load custom-commands" >> ~/.bashrc
+echo "\nmodule load custom-commands" >> ~/.bashrc
