@@ -23,11 +23,12 @@ concepts, the following documentation pages may prove useful:
 
 ## Step-by-Step Instructions
 
-This tutorial uses the Python package, `cluster-setup` to template
-and configure your DRA cluster directories. By defining a static configuration
-file, you can automate the setup of your directories and software creation
-across multiple DRA clusters. This following steps outline how to perform
-this setup on Fir, but setup on any one of the other clusters is analogous.
+This tutorial uses the Python package, [`cluster-setup`][cluster-setup] to
+template and configure your DRA cluster directories. By defining a static
+configuration file, you can automate the setup of your directories and software
+creation across multiple DRA clusters. The following steps outline how to
+perform this setup on Fir, but setup on any one of the other clusters is
+analogous.
 
 1. **Download the following files for setting up your cluster account.**
 
@@ -104,7 +105,7 @@ this setup on Fir, but setup on any one of the other clusters is analogous.
 
         ```shell
         for host in fir killarney tamia vulcan nibi narval rorqual trillium; do
-        echo "alias $host=ssh -Y $DRA_USER$@$host.alliancecan.ca" >> ~/.zshrc
+        echo "alias $host='ssh -Y $DRA_USER@$host.alliancecan.ca'" >> ~/.zshrc
         done
         source ~/.zshrc
         ```
@@ -266,6 +267,7 @@ this setup on Fir, but setup on any one of the other clusters is analogous.
     and repeat steps 2-9 on all clusters on which you would like to run
     calculations.
 
+[cluster-setup]: https://pypi.org/project/cluster-setup/
 [ase]: http://ase-lib.org
 [autojob]: https://python-autojob.readthedocs.io/en/development/
 [ccu]: https://python-comp-chem-utils.readthedocs.io/en/development/
