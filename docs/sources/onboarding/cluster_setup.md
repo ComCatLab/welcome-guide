@@ -49,7 +49,10 @@ analogous.
     - [`configure_software.bash`](../../../samples/cluster_setup_files/software_scripts/configure_software.bash){:download}: This script configures [ASE][ase],
       [autojob][autojob], and [ccu][ccu] for use by creating suitable
       configuration files. It is accompanied by corresponding templates for
-      [ASE](../../../samples/cluster_setup_files/templates/configuration/ase.ini.j2){:download} and [autojob](../../../samples/cluster_setup_files/configuration/autojob.toml.j2){:download} templates.
+      [ASE](../../../samples/cluster_setup_files/templates/configuration/ase.ini.j2){:download}
+      and [autojob](../../../samples/cluster_setup_files/configuration/autojob.toml.j2){:download}
+      configuration files and [template scripts](../../../samples/cluster_setup_files/support_files/samples/cluster_setup_files/support_files/autojob_templates.tar.zst){:download}
+      for `autojob`.
     - [`configure_vasp.bash`](../../../samples/cluster_setup_files/software_scripts/configure_vasp.bash){:download}: This script configures VASP to be used by ASE
       by copying various support files (pseudopotentials, vDW-DF kernel, and a
       Python script used to call VASP) to a directory.
