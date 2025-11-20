@@ -35,25 +35,26 @@ analogous.
     !!! note
 
         The following files can be
-        [downloaded as an archive here](../../../samples/cluster_setup_files/cluster_setup_files.tar){:download}.
+        [downloaded as an archive here](../_static/cluster_setup_files/cluster_setup_files.tar){:download=cluster_setup_files.tar.}
 
     With regards to `cluster-setup`, "software scripts" are
     executable files that install and configure software. They are specified
     with the `--software-script` CLI option or `software_scripts` key in the
     `cluster-setup` configuration file.
 
-    - [`install_custom_commands.bash`](../../../samples/cluster_setup_files/software_scripts/install_custom_commands.bash){:download}: This script will install a number of
-      useful CLI tools that can be loaded (added to the `PATH` variable)
-      via a module. It is accompanied by the [`custom_commands.tar.zst`](../../../samples/cluster_setup_files/sources/custom_commands.tar.zst){:download}
-      archive and [`custom-commands.lua.j2`](../../../samples/cluster_setup_files/sources/custom_commands.tar.zst){:download} template.
-    - [`configure_software.bash`](../../../samples/cluster_setup_files/software_scripts/configure_software.bash){:download}: This script configures [ASE][ase],
-      [autojob][autojob], and [ccu][ccu] for use by creating suitable
+    - [`install_custom_commands.bash`](../_static/cluster_setup_files/software_scripts/install_custom_commands.bash){:download=install_custom_commands.bash}:
+      This script will install a number of useful CLI tools that can be loaded (added to the `PATH` variable)
+      via a module. It is accompanied by the [`custom_commands.tar.zst`](../_static/cluster_setup_files/sources/custom_commands.tar.zst){:download=custom_commands.tar.zst}
+      archive and [`custom-commands.lua.j2`](../_static/cluster_setup_files/sources/custom_commands.tar.zst){:download=custom-commands.lua.j2}
+      template.
+    - [`configure_software.bash`](../_static/cluster_setup_files/software_scripts/configure_software.bash){:download=configure_software.bash}:
+      This script configures [ASE][ase], [autojob][autojob], and [ccu][ccu] for use by creating suitable
       configuration files. It is accompanied by corresponding templates for
-      [ASE](../../../samples/cluster_setup_files/templates/configuration/ase.ini.j2){:download}
-      and [autojob](../../../samples/cluster_setup_files/configuration/autojob.toml.j2){:download}
-      configuration files and [template scripts](../../../samples/cluster_setup_files/support_files/samples/cluster_setup_files/support_files/autojob_templates.tar.zst){:download}
+      [ASE](../_static/cluster_setup_files/templates/configuration/ase.ini.j2){:download=ase.ini.j2}
+      and [autojob](../_static/cluster_setup_files/templates/configuration/autojob.toml.j2){:download=autojob.toml.j2}
+      configuration files and [template scripts](../_static/cluster_setup_files/support_files/autojob_templates.tar.zst){:download=autojob_templates.tar.zst}
       for `autojob`.
-    - [`configure_vasp.bash`](../../../samples/cluster_setup_files/software_scripts/configure_vasp.bash){:download}: This script configures VASP to be used by ASE
+    - [`configure_vasp.bash`](../_static/cluster_setup_files/software_scripts/configure_vasp.bash){:download=configure_vasp.bash}: This script configures VASP to be used by ASE
       by copying various support files (pseudopotentials, vDW-DF kernel, and a
       Python script used to call VASP) to a directory.
 
