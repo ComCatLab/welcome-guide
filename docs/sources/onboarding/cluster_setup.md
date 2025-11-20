@@ -23,11 +23,12 @@ concepts, the following documentation pages may prove useful:
 
 ## Step-by-Step Instructions
 
-This tutorial uses the Python package, `cluster-setup` to template
-and configure your DRA cluster directories. By defining a static configuration
-file, you can automate the setup of your directories and software creation
-across multiple DRA clusters. This following steps outline how to perform
-this setup on Fir, but setup on any one of the other clusters is analogous.
+This tutorial uses the Python package, [`cluster-setup`][cluster-setup] to
+template and configure your DRA cluster directories. By defining a static
+configuration file, you can automate the setup of your directories and software
+creation across multiple DRA clusters. The following steps outline how to
+perform this setup on Fir, but setup on any one of the other clusters is
+analogous.
 
 1. **Download the following files for setting up your cluster account.**
 
@@ -48,7 +49,10 @@ this setup on Fir, but setup on any one of the other clusters is analogous.
     - [`configure_software.bash`](../../../samples/cluster_setup_files/software_scripts/configure_software.bash){:download}: This script configures [ASE][ase],
       [autojob][autojob], and [ccu][ccu] for use by creating suitable
       configuration files. It is accompanied by corresponding templates for
-      [ASE](../../../samples/cluster_setup_files/templates/configuration/ase.ini.j2){:download} and [autojob](../../../samples/cluster_setup_files/configuration/autojob.toml.j2){:download} templates.
+      [ASE](../../../samples/cluster_setup_files/templates/configuration/ase.ini.j2){:download}
+      and [autojob](../../../samples/cluster_setup_files/configuration/autojob.toml.j2){:download}
+      configuration files and [template scripts](../../../samples/cluster_setup_files/support_files/samples/cluster_setup_files/support_files/autojob_templates.tar.zst){:download}
+      for `autojob`.
     - [`configure_vasp.bash`](../../../samples/cluster_setup_files/software_scripts/configure_vasp.bash){:download}: This script configures VASP to be used by ASE
       by copying various support files (pseudopotentials, vDW-DF kernel, and a
       Python script used to call VASP) to a directory.
@@ -104,7 +108,7 @@ this setup on Fir, but setup on any one of the other clusters is analogous.
 
         ```shell
         for host in fir killarney tamia vulcan nibi narval rorqual trillium; do
-        echo "alias $host=ssh -Y $DRA_USER$@$host.alliancecan.ca" >> ~/.zshrc
+        echo "alias $host='ssh -Y $DRA_USER@$host.alliancecan.ca'" >> ~/.zshrc
         done
         source ~/.zshrc
         ```
@@ -266,6 +270,7 @@ this setup on Fir, but setup on any one of the other clusters is analogous.
     and repeat steps 2-9 on all clusters on which you would like to run
     calculations.
 
+[cluster-setup]: https://pypi.org/project/cluster-setup/
 [ase]: http://ase-lib.org
 [autojob]: https://python-autojob.readthedocs.io/en/development/
 [ccu]: https://python-comp-chem-utils.readthedocs.io/en/development/
