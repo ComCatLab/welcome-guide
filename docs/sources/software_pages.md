@@ -190,7 +190,7 @@ directories for calculations.
 - matplotlib
 
 [vasp]: https://www.vasp.at/wiki/index.php/Main_page
-[ase]: https://wiki.fysik.dtu.dk/ase/index.html
+[ase]: https://ase-lib.org
 [slurm]: https://slurm.schedmd.com/documentation.html
 [dra]: https://docs.alliancecan.ca/wiki/Technical_documentation
 [clusters]: https://docs.alliancecan.ca/wiki/National_systems#Compute_clusters

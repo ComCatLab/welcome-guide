@@ -10,7 +10,7 @@ atoms = io.read("in.traj")
 
 # see https://www.vasp.at/wiki/index.php/Category:INCAR_tag
 # for details on what each of these keywords mean
-# if not found, check https://wiki.fysik.dtu.dk/ase/ase/calculators/vasp.html#module-ase.calculators.vasp
+# if not found, check https://ase-lib.org/ase/calculators/vasp.html#module-ase.calculators.vasp
 calc = Vasp(
     algo="Fast",
     gga="PE",

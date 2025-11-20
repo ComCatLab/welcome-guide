@@ -10,7 +10,7 @@ atoms = io.read("in.traj")
 
 # see https://www.quantum-espresso.org/Doc/INPUT_PW.html
 # for details on what each of these keywords mean
-# if not found, check https://wiki.fysik.dtu.dk/ase/ase/calculators/espresso.html
+# if not found, check https://ase-lib.org/ase/calculators/espresso.html
 input_data = {
     "calculation": "md",
     "verbosity": "low",
