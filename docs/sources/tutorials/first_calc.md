@@ -124,7 +124,7 @@ the "View" submenu.
 
     ```shell
         source .venv/bin/activate
-        pip install ase matplotlib ipython ruff pymatgen matplotlib mp-api python-autojob comp-chem-utils 
+        pip install ase matplotlib ipython ruff pymatgen matplotlib mp-api python-autojob comp-chem-utils
     ```
 
     For posterity, it can be useful to record the state of your virtual
