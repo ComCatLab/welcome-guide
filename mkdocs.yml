@@ -23,6 +23,7 @@ nav:
     - Intro: 'tutorials/index.md'
     - 'tutorials/ccdb.md'
     - 'tutorials/data_transfer.md'
+    - 'tutorials/first_calc.md'
     - 'tutorials/espresso_compilation.md'
     - 'tutorials/optimizing_requests.md'
     - 'tutorials/vasp_ir.md'
