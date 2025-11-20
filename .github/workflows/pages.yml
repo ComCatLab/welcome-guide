@@ -2,7 +2,7 @@ name: webpage
 on:
     push:
         branches:
-            - $default-branch
+            - main
     workflow_call:
 
 
