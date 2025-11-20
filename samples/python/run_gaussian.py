@@ -9,7 +9,7 @@ atoms = io.read("in.traj")
 
 # see https://gaussian.com/keywords/
 # for details on what each of these keywords mean
-# if not found, check https://wiki.fysik.dtu.dk/ase/ase/calculators/gaussian.html
+# if not found, check https://ase-lib.org/ase/calculators/gaussian.html
 calc = Gaussian(
     command="g16 < Gaussian.com > Gaussian.log",
     label="Gaussian",

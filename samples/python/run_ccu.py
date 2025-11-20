@@ -11,7 +11,7 @@ atoms = ase.io.read("in.traj")
 
 # see https://www.vasp.at/wiki/index.php/Category:INCAR_tag
 # for details on what each of these keywords mean
-# if not found, check https://wiki.fysik.dtu.dk/ase/ase/calculators/vasp.html#module-ase.calculators.vasp
+# if not found, check https://ase-lib.org/ase/calculators/vasp.html#module-ase.calculators.vasp
 atoms.calc = Vasp(
     algo="Normal",
     ediff=1e-8,

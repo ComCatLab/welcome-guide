@@ -94,7 +94,7 @@ This page contextualizes common steps and highlights the infrastructure required
     molecular orbital visualization), you may need another software. In such a case, check
     the tutorials for your use case.
 
-[ase]: https://wiki.fysik.dtu.dk/ase/index.html
+[ase]: https://ase-lib.org/index.html
 [pymatgen]: https://pymatgen.org
 [mp]: https://next-gen.materialsproject.org
 [cif]: https://en.wikipedia.org/wiki/Crystallographic_Information_File

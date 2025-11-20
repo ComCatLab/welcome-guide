@@ -51,7 +51,7 @@ tutorials for Quantum Espresso
 [**Calculation of Phonons with FHI-vibes**][fhi-vibes-phonons]: a comprehensive
 tutorial outlining how to calculate phonons and relevant theory
 
-[ase]: https://wiki.fysik.dtu.dk/ase/tutorials/tutorials.html
+[ase]: https://ase-lib.org/tutorials/tutorials.html
 [orca-tutorials]: https://www.orcasoftware.de/tutorials_orca/
 [orca-input-library]: https://sites.google.com/site/orcainputlibrary/home
 [matgenb]: https://matgenb.materialsvirtuallab.org
