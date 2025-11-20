@@ -127,7 +127,27 @@ analogous.
     ls cluster_setup_files
     ```
 
-4. **Create a virtual environment in which to install the `cluster-setup` package.**
+4. **Create an SSH key and start the `ssh-agent`.**
+
+    In order to interact with GitHub from the cluster, you will need an SSH
+    key. You can create an SSH key in the same way that you did on your local
+    machine (see the [Basic Setup tutorial](./basic_setup.md)).
+
+    !!! tip
+
+        Don't forget to add the SSH key to your GitHub profile!
+
+    To forego having to type your SSH key every time your require it to
+    authenticate to a remote server, start the SSH agent:
+
+    ```shell
+    eval $(ssh-agent) && ssh-add path/to/SSH/private/key
+    ```
+
+    If you have created an ED25519 SSH key, the path to your private key is
+    likely `~/.ssh/ed_25519`.
+
+5. **Create a virtual environment in which to install the `cluster-setup` package.**
 
     ```shell
     python -m venv cluster_setup_files/.venv && source cluster_setup_files/.venv/bin/activate
@@ -142,7 +162,7 @@ analogous.
         of the `test` extra enables one to run the test suite prior in
         executing `cluster-setup`.
 
-5. **Run the `cluster-setup` test suite.**
+6. **Run the `cluster-setup` test suite.**
 
     ```shell
     cluster-setup --test
@@ -166,7 +186,7 @@ analogous.
     have passed. If not, please open a GitHub issue and attach the test
     report.
 
-6. **Create a configuration file.**
+7. **Create a configuration file.**
 
     `cluster-setup` provides a utility for generating a stub configuration file.
     To generate a minimal configuration file that can be filled in, run:
@@ -213,7 +233,7 @@ analogous.
       ...
       ```
 
-7. **Execute `cluster-setup`.**
+8. **Execute `cluster-setup`.**
 
     ```shell
     cluster-setup --config-file=config.toml
@@ -233,7 +253,7 @@ analogous.
     deactivate
     ```
 
-8. **Verify the setup.**
+9.  **Verify the setup.**
 
     Source your login file
 
@@ -252,7 +272,7 @@ analogous.
     of your `~/software` directory (or whatever value you entered for the
     `--software-home` option or `software_home` configuration value).
 
-9. **Clean up.**
+10. **Clean up.**
 
     The `cluster_setup_files/` directory can now be safely deleted.
 
@@ -260,7 +280,7 @@ analogous.
     rm -rf cluster_setup_files/
     ```
 
-10. **Rinse and repeat.**
+11. **Rinse and repeat.**
 
     Log out of the cluster
 
