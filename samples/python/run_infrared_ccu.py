@@ -2,7 +2,7 @@ import logging
 
 from ase.calculators.vasp import Vasp
 import ase.io
-from ccu.thermo.infrared import run_infrared
+from ccu.workflows.infrared import run_infrared
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -12,7 +12,7 @@ atoms = ase.io.read("in.traj")
 # see https://www.vasp.at/wiki/index.php/Category:INCAR_tag
 # for details on what each of these keywords mean
 # if not found, check https://wiki.fysik.dtu.dk/ase/ase/calculators/vasp.html#module-ase.calculators.vasp
-calc = Vasp(
+atoms.calc = Vasp(
     algo="Fast",
     encut=450,
     gga="PE",
@@ -28,5 +28,8 @@ calc = Vasp(
     kpts=(4, 4, 1),
 )
 
-atoms.calc = calc
+# This will only vibrate O atoms; redefine indices to control which
+# atoms will be vibrated. If indices is not specified, only those non-
+# fixed atoms will be vibrated
+indices = [a.index for a in atoms if str(a.symbol) == "O"]
 run_infrared(atoms)
