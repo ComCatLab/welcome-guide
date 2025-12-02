@@ -329,7 +329,7 @@ that you read the following short pages:
     changes to GitHub.
 
     ```shell
-    git push --set-upstream origin git@github.com:<your-github-username>/<gh-repo>.git
+    git push --set-upstream git@github.com:<your-github-username>/<gh-repo>.git origin/main
     ```
 
     ??? info "Explanation"
