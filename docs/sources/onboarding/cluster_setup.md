@@ -3,7 +3,7 @@
 ## System Requirements
 
 - MacOS 26.0.1 or later
-- A [valid CCDB account](../tutorials/ccdb.md)
+- A [valid CCDB account](../tutorials/ccdb.md) with [Multifactor authentication enabled][MFA]
 
 ## Prerequisites
 
@@ -253,7 +253,7 @@ analogous.
     deactivate
     ```
 
-9.  **Verify the setup.**
+9. **Verify the setup.**
 
     Source your login file
 
@@ -291,6 +291,7 @@ analogous.
     and repeat steps 2-9 on all clusters on which you would like to run
     calculations.
 
+[MFA]: https://ccdb.alliancecan.ca/multi_factor_authentications
 [cluster-setup]: https://pypi.org/project/cluster-setup/
 [ase]: http://ase-lib.org
 [autojob]: https://python-autojob.readthedocs.io/en/development/
